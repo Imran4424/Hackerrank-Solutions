@@ -1,36 +1,25 @@
 #include <stdio.h>
-/*
-Add `int max_of_four(int a, int b, int c, int d)` here.
-*/
+#include <math.h>
 
-int max_of_four(int a, int b, int c, int d)
+void update(int *a,int *b) 
 {
-    int max = a;
+    // Complete this function
 
-    if(max< b)
-    {
-        max = b;
-    }
+    int tempA = *a, tempB = *b;
 
-    if(max < c)
-    {
-        max = c;
-    }
-
-    if(max < d)
-    {
-        max = d;
-    }
-
-    return max;
+    *a = tempA + tempB;
+    *b = abs(tempA - tempB);   
 }
 
-int main() {
-    int a, b, c, d;
-    scanf("%d %d %d %d", &a, &b, &c, &d);
-    int ans = max_of_four(a, b, c, d);
-    printf("%d", ans);
+int main() 
+{
+    int a, b;
+    int *pa = &a, *pb = &b;
     
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
+
     return 0;
 }
 
