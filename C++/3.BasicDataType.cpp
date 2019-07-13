@@ -13,7 +13,11 @@ int main()
 
     cin >> a >> b >> c >> d;
 
-    cout << a << endl << b << endl << c << endl << d << endl << e << endl;
+    cout << a << endl; 
+    cout << b << endl;
+    cout << c << endl;
+    cout << d << endl;
+    cout << e << endl;
 
 
     return 0;
