@@ -13,6 +13,8 @@ int main()
 
     cin >> a >> b >> c >> d;
 
+    cout << a << endl << b << endl << c << endl << d << endl << e << endl;
+
     printf("%d\n", a);
     printf("%ld\n", b);
     printf("%c\n", c);
