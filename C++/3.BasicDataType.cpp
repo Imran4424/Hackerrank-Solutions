@@ -18,7 +18,7 @@ int main()
     cout << c << endl;
 
     cout << fixed << setprecision(3) << d << endl;
-    cout << e << endl;
+    cout << fixed << setprecision(9) << e << endl;
 
 
     return 0;
