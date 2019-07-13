@@ -13,7 +13,9 @@ int main()
     float d;
     double e;
 
-    cin >> a >> b >> c >> d;
+    scanf("%d %ld %c %f %lf", &a, &b, &c, &d, &e);   
+
+    // cin >> a >> b >> c >> d;
 
     // cout << a << endl; 
     // cout << b << endl;
