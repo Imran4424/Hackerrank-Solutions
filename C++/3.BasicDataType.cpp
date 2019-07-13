@@ -11,7 +11,6 @@ int main()
     float d;
     double e;
 
-    scanf("%d %ld %c %f %lf", &a, &b, &c, &d, &e);
 
     printf("%d\n", a);
     printf("%ld\n", b);
