@@ -11,6 +11,7 @@ int main()
     float d;
     double e;
 
+    cin >> a >> b >> c >> d;
 
     printf("%d\n", a);
     printf("%ld\n", b);
