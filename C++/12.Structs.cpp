@@ -15,7 +15,8 @@ struct Student
     int standard;
 };
 
-int main() {
+int main() 
+{
     Student st;
     
     cin >> st.age >> st.first_name >> st.last_name >> st.standard;
