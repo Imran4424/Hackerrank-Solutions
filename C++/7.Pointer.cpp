@@ -11,7 +11,8 @@ void update(int *a,int *b)
     *b = abs(ta - tb);
 }
 
-int main() {
+int main() 
+{
     int a, b;
     int *pa = &a, *pb = &b;
     
