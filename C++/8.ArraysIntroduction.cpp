@@ -15,15 +15,15 @@ int main()
 
     vector<int> ar(n);
 
-    for(int i=0; i<ar.size(); i++)
+    for(int i = 0; i<ar.size(); i++)
     {
         cin >> ar[i];
     }
 
-    for(int i=ar.size()-1; i>=0; i--)
+    for(int i = ar.size()-1; i >= 0; i--)
     {
         cout << ar[i] << " ";
     }
-    
+
     return 0;
 }
