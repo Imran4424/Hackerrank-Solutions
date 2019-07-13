@@ -12,6 +12,7 @@ int main()
     cin >> first >> second;
 
     cout << first.size() << " " << second.size() << endl;
+    
     cout << first + second << endl;
 
     swap(first[0],second[0]);
