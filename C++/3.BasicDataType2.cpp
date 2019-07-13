@@ -25,8 +25,8 @@ int main()
     printf("%d\n", a);
     printf("%ld\n", b);
     printf("%c\n", c);
-    printf("%f\n", d);
-    printf("%lf\n", e);
+    printf("%.3f\n", d);
+    printf("%.9lf\n", e);
 
 
     return 0;
