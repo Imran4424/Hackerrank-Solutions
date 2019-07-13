@@ -16,8 +16,8 @@ int main()
     cout << a << endl; 
     cout << b << endl;
     cout << c << endl;
-    
-    cout << d << endl;
+
+    cout << fixed << << d << endl;
     cout << e << endl;
 
 
