@@ -66,7 +66,7 @@ class Box
     	return (long long)l*b*h;
     }
 
-    bool operator<(const Box &obj)
+    public: bool operator<(const Box &obj)
     {
     	if (l < obj.l)
     	{
@@ -91,7 +91,7 @@ class Box
 
 ostream& operator<<(ostream& out, const Box &obj)
 {
-	out << obj.l << " " << obj.b << " " << obj.h << endl << endl;
+	out << obj.l << " " << obj.b << " " << obj.h;
 
 	return out;
 }
