@@ -78,7 +78,7 @@ class Box
     		return true;
     	}
 
-    	if (/* condition */)
+    	if ()
     	{
     		/* code */
     	}
