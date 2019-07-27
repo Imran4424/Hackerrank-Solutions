@@ -13,7 +13,10 @@ vector<int> matchingStrings(vector<string> strings, vector<string> queries)
 
         for (int j = 0; j < strings.size(); ++j)
         {
-            
+            if (queries[i] == strings[j])
+            {
+                /* code */
+            }
         }
     }
 
