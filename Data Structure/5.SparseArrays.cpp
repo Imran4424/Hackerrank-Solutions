@@ -18,7 +18,8 @@ int main()
 
     vector<string> strings(strings_count);
 
-    for (int i = 0; i < strings_count; i++) {
+    for (int i = 0; i < strings_count; i++) 
+    {
         string strings_item;
         getline(cin, strings_item);
 
