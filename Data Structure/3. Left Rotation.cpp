@@ -12,6 +12,16 @@ vector<int> LeftRotation(vector<int> arr)
 	return arr;
 }
 
+vector<int> RotationsHandler(vector<int> arr, int rotations)
+{
+	for (int i = 0; i < rotations; ++i)
+	{
+		arr = LeftRotation(arr);
+	}
+
+	return arr;
+}
+
 int main(int argc, char const *argv[])
 {
 	int size, rotations;
