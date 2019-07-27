@@ -38,6 +38,9 @@ vector<int> dynamicArray(int n, vector<vector<int>> queries)
 		}
 		else
 		{
+			x = queries[i][1];
+
+			int sNum = (x ^ lastAnswer) % n;
 			
 		}
 
