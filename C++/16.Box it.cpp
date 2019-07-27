@@ -78,7 +78,7 @@ class Box
     		return true;
     	}
 
-    	if (l == obj.l )
+    	if (l == obj.l && )
     	{
     		/* code */
     	}
