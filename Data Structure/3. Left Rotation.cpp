@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
 	{
 		int hand;
 		cin >> hand;
-		
+
 		arr.push_back(hand);
 	}
 
@@ -46,6 +46,8 @@ int main(int argc, char const *argv[])
 		if (i == arr.size()-1)
 		{
 			cout << arr[i] << endl;
+
+			continue;
 		}
 
 		cout << arr[i] << " ";
