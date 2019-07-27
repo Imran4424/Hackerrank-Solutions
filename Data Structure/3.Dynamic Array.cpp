@@ -25,7 +25,7 @@ vector<int> dynamicArray(int n, vector<vector<int>> queries)
 
 	for (int i = 0; i < queries.size(); ++i)
 	{
-		int decision = queries[i][0]
+		int decision = queries[i][0];
 
 
 		if (decision == 1)
