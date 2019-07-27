@@ -66,7 +66,7 @@ class Box
     	return (long long)l*b*h;
     }
 
-    public: bool operator<(Box &obj)
+    public: bool operator<(const Box &obj)
     {
     	if (CalculateVolume() < box.CalculateVolume())
     	{
@@ -76,7 +76,7 @@ class Box
     	return false;
     }
 
-    public: ostream& operator<<(ostream&, Box &obj)
+    public: ostream& operator<<(ostream&, const Box &obj)
     {
 
     }
