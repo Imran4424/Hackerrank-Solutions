@@ -21,9 +21,13 @@ vector<int> dynamicArray(int n, vector<vector<int>> queries)
 
 	vector<int> sequences[n];
 
+	int lastAnswer = 0;
+
 	for (int i = 0; i < queries.size(); ++i)
 	{
-		/* code */
+		x = queries[i][0];
+
+		int seq = (x ^ lastAnswer) % n;
 	}
 }
 
