@@ -9,7 +9,7 @@ vector<int> matchingStrings(vector<string> strings, vector<string> queries)
 
     for (int i = 0; i < queries.size(); ++i)
     {
-        int count;
+        int count = 0;
 
         for (int j = 0; j < strings.size(); ++j)
         {
@@ -18,6 +18,8 @@ vector<int> matchingStrings(vector<string> strings, vector<string> queries)
                 count++;
             }
         }
+
+        countResult.push_back(count);
     }
 
 }
