@@ -68,7 +68,10 @@ class Box
 
     public: bool operator<(Box &obj)
     {
-    	
+    	if (/* condition */)
+    	{
+    		/* code */
+    	}
     }
 };
 
