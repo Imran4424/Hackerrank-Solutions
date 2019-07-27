@@ -65,6 +65,11 @@ class Box
     {
     	return (long long)l*b*h;
     }
+
+    public: bool operator<(Box &obj)
+    {
+    	
+    }
 };
 
 
