@@ -68,10 +68,17 @@ class Box
 
     public: bool operator<(Box &obj)
     {
-    	if (/* condition */)
+    	if (CalculateVolume() < box.CalculateVolume())
     	{
-    		/* code */
+    		return true;
     	}
+
+    	return false;
+    }
+
+    public: ostream& operator<<(ostream&, Box &obj)
+    {
+
     }
 };
 
