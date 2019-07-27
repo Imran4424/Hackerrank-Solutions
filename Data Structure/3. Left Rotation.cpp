@@ -2,23 +2,25 @@
 #include <vector>
 using namespace std;
 
-vector<int> LeftRotation(vector<int> arr)
+vector<int> LeftRotation(vector<int> arr, int rotations)
 {
-	int hold = arr.front();
+	
 
-	arr.erase(arr.begin());
+	for (int i = 0; i < rotations; ++i)
+	{
+		int hold = arr.front();
 
-	arr.push_back(hold);
+		arr.erase(arr.begin());
+
+		arr.push_back(hold);
+	}
 
 	return arr;
 }
 
 vector<int> RotationsHandler(vector<int> arr, int rotations)
 {
-	for (int i = 0; i < rotations; ++i)
-	{
-		arr = LeftRotation(arr);
-	}
+	
 
 	return arr;
 }
