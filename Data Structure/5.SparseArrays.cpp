@@ -15,7 +15,7 @@ vector<int> matchingStrings(vector<string> strings, vector<string> queries)
         {
             if (queries[i] == strings[j])
             {
-                /*
+                
             }
         }
     }
