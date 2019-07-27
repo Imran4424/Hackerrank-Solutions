@@ -60,6 +60,11 @@ class Box
     {
     	return h;
     }
+
+    public: long long CalculateVolume()
+    {
+    	return (long long)l*b*h;
+    }
 };
 
 
