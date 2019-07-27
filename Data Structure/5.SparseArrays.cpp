@@ -45,7 +45,8 @@ int main()
     {
         fout << res[i];
 
-        if (i != res.size() - 1) {
+        if (i != res.size() - 1) 
+        {
             fout << "\n";
         }
     }
