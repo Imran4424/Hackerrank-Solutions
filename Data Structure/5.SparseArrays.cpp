@@ -41,7 +41,8 @@ int main()
 
     vector<int> res = matchingStrings(strings, queries);
 
-    for (int i = 0; i < res.size(); i++) {
+    for (int i = 0; i < res.size(); i++) 
+    {
         fout << res[i];
 
         if (i != res.size() - 1) {
