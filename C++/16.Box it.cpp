@@ -25,7 +25,19 @@ using namespace std;
 
 class Box
 {
-    private: int l,b
+    private: int l,b,h;
+
+    public: Box()
+    {
+    	l = b = h = 0;
+    }
+
+    public: Box(int l, int b, int h)
+    {
+    	this -> l = l;
+    	this -> b = b;
+    	this -> h = h;
+    }
 };
 
 
