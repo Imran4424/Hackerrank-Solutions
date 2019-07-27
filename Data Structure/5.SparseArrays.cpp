@@ -9,7 +9,7 @@ vector<int> matchingStrings(vector<string> strings, vector<string> queries)
 
     for (int i = 0; i < queries.size(); ++i)
     {
-        /* code */
+        
     }
 
 }
