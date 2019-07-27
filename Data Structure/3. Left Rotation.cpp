@@ -34,7 +34,9 @@ int main(int argc, char const *argv[])
 	for (int i = 0; i < size; ++i)
 	{
 		int hand;
-		arr.push_back(cin >> hand);
+		cin >> hand;
+		
+		arr.push_back(hand);
 	}
 
 	arr = RotationsHandler(arr, rotations);
