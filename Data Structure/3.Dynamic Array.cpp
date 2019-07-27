@@ -44,7 +44,9 @@ vector<int> dynamicArray(int n, vector<vector<int>> queries)
 			
 			int pos = queries[i][2] % sequences[sNum].size();
 
-						
+			lastAnswer = sequences[sNum][pos];
+
+			result.push_back(lastAnswer);			
 		}
 
 		
