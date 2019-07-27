@@ -22,6 +22,8 @@ vector<int> matchingStrings(vector<string> strings, vector<string> queries)
         countResult.push_back(count);
     }
 
+    return countResult;
+
 }
 
 int main()
