@@ -31,7 +31,8 @@ int main()
 
     vector<string> queries(queries_count);
 
-    for (int i = 0; i < queries_count; i++) {
+    for (int i = 0; i < queries_count; i++) 
+    {
         string queries_item;
         getline(cin, queries_item);
 
