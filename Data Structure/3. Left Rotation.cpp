@@ -36,5 +36,12 @@ int main(int argc, char const *argv[])
 		arr.push_back(cin >> hand);
 	}
 
+	arr = RotationsHandler(arr, rotations);
+
+	for (int i = 0; i < arr.size(); ++i)
+	{
+		/* code */
+	}
+
 	return 0;
 }
