@@ -75,7 +75,7 @@ class Box
 
     	if (l == obj.l && b < obj.b)
     	{
-    		
+    		return true;
     	}
 
     	return false;
