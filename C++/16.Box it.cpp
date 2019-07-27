@@ -86,12 +86,14 @@ class Box
     	return false;
     }
 
-    friend ostream& operator<<(ostream&, const Box &obj);
+    friend ostream& operator<<(ostream& out, const Box &obj);
 };
 
-ostream& operator<<(ostream&, const Box &obj)
+ostream& operator<<(ostream& out, const Box &obj)
 {
-	out << obj.l << " " << obj.b << " " << obj.h << endl;
+	out << obj.l << " " << obj.b << " " << obj.h << endl << endl;
+
+	return out;
 }
 
 
