@@ -17,7 +17,14 @@ vector<string> split(const string &);
 
 vector<int> dynamicArray(int n, vector<vector<int>> queries) 
 {
+	vector<int> result;
 
+	vector<int> sequences[n];
+
+	for (int i = 0; i < queries.size(); ++i)
+	{
+		/* code */
+	}
 }
 
 int main()
