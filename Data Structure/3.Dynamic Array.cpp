@@ -36,6 +36,10 @@ vector<int> dynamicArray(int n, vector<vector<int>> queries)
 
 			sequences[sNum].push_back(queries[i][2]);
 		}
+		else
+		{
+			
+		}
 
 		
 	}
