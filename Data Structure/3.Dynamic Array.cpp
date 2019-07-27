@@ -25,9 +25,19 @@ vector<int> dynamicArray(int n, vector<vector<int>> queries)
 
 	for (int i = 0; i < queries.size(); ++i)
 	{
-		x = queries[i][0];
+		int decision = queries[i][0]
 
-		int seq = (x ^ lastAnswer) % n;
+
+		if (/* condition */)
+		{
+			/* code */
+		}
+
+		x = queries[i][1];
+
+		int sNum = (x ^ lastAnswer) % n;
+
+		sequences[sNum].push_back(queries[i][2]);
 	}
 }
 
