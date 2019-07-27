@@ -1,6 +1,17 @@
 #include <iostream>
 using namespace std;
 
+vector<int> LeftRotation(vector<int> arr)
+{
+	int hold = arr.front();
+
+	arr.erase(arr.begin());
+
+	arr.push_back(hold);
+
+	return arr;
+}
+
 int main(int argc, char const *argv[])
 {
 	int size, rotations;
