@@ -18,12 +18,6 @@ vector<int> LeftRotation(vector<int> arr, int rotations)
 	return arr;
 }
 
-vector<int> RotationsHandler(vector<int> arr, int rotations)
-{
-	
-
-	return arr;
-}
 
 int main(int argc, char const *argv[])
 {
@@ -41,7 +35,7 @@ int main(int argc, char const *argv[])
 		arr.push_back(hand);
 	}
 
-	arr = RotationsHandler(arr, rotations);
+	arr = LeftRotation(arr, rotations);
 
 	for (int i = 0; i < arr.size(); ++i)
 	{
