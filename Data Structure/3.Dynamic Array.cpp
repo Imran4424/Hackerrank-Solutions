@@ -51,6 +51,8 @@ vector<int> dynamicArray(int n, vector<vector<int>> queries)
 
 		
 	}
+
+	return result;
 }
 
 int main()
