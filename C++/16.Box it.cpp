@@ -68,9 +68,14 @@ class Box
 
     bool operator<(const Box &obj)
     {
-    	if ()
+    	if (l < obj.l)
     	{
     		return true;
+    	}
+
+    	if (/* condition */)
+    	{
+    		/* code */
     	}
 
     	return false;
