@@ -3,7 +3,8 @@
 using namespace std;
 
 // Complete the matchingStrings function below.
-vector<int> matchingStrings(vector<string> strings, vector<string> queries) {
+vector<int> matchingStrings(vector<string> strings, vector<string> queries) 
+{
 
 
 }
