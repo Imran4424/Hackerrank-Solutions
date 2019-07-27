@@ -40,7 +40,12 @@ int main(int argc, char const *argv[])
 
 	for (int i = 0; i < arr.size(); ++i)
 	{
-		
+		if (i == arr.size()-1)
+		{
+			/* code */
+		}
+
+		cout << arr[i] << " ";
 	}
 
 	return 0;
