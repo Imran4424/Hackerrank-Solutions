@@ -38,6 +38,28 @@ class Box
     	this -> b = b;
     	this -> h = h;
     }
+
+    public: Box(Box &obj)
+    {
+    	l = obj.l;
+    	b = obj.b;
+    	h = obj.h;
+    }
+
+    public: int getLength()
+    {
+    	return l;
+    }
+
+    public: int getBreadth()
+    {
+    	return b;
+    }
+
+    public: int getHeight()
+    {
+    	return h;
+    }
 };
 
 
