@@ -20,7 +20,7 @@ int main()
         cout << ar[i] << " ";
     }
 
-    cout<<ar[0]<<endl;
+    cout << ar[0] << endl;
 
     return 0;
 }
