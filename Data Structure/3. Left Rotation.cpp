@@ -42,7 +42,7 @@ int main(int argc, char const *argv[])
 	{
 		if (i == arr.size()-1)
 		{
-			/* code */
+			cout << arr[i] << endl;
 		}
 
 		cout << arr[i] << " ";
