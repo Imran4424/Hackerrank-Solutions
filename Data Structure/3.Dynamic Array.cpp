@@ -28,16 +28,16 @@ vector<int> dynamicArray(int n, vector<vector<int>> queries)
 		int decision = queries[i][0]
 
 
-		if (/* condition */)
+		if (decision == 1)
 		{
-			/* code */
+			x = queries[i][1];
+
+			int sNum = (x ^ lastAnswer) % n;
+
+			sequences[sNum].push_back(queries[i][2]);
 		}
 
-		x = queries[i][1];
-
-		int sNum = (x ^ lastAnswer) % n;
-
-		sequences[sNum].push_back(queries[i][2]);
+		
 	}
 }
 
