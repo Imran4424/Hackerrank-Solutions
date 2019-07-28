@@ -38,7 +38,8 @@ int main()
 
     vector<int> b(3);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) 
+    {
         int b_item = stoi(b_temp[i]);
 
         b[i] = b_item;
