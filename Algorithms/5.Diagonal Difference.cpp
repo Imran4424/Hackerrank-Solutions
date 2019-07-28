@@ -29,7 +29,7 @@ int diagonalDifference(vector<vector<int>> arr)
 
             if (i+j == arr.size() - 1)
             {
-                secondaryDiagonal +
+                secondaryDiagonal += arr[i][j];
             }
         }
     }    
