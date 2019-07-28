@@ -32,7 +32,9 @@ int diagonalDifference(vector<vector<int>> arr)
                 secondaryDiagonal += arr[i][j];
             }
         }
-    }    
+    }
+
+    return abs(primaryDiagonal - secondaryDiagonal);    
 }
 
 int main()
