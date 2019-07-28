@@ -25,6 +25,7 @@ int birthdayCakeCandles(vector<int> ar)
         }
     }
 
+    return candleCount;
 }
 
 int main()
