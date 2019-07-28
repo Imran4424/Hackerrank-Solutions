@@ -10,9 +10,9 @@ void MinMaxSum(vector<lli> arr)
 
 	lli minSum = 0, maxSum = 0;
 
-	for (int i = 0; i < arr.size(); ++i)
+	for (int i = 0; i < 4; ++i)
 	{
-		
+		minSum += arr[i];
 	}
 }
 
