@@ -11,7 +11,13 @@ vector<int> compareTriplets(vector<int> a, vector<int> b)
 {
     vector<int> finalCount(2, 0);
 
-    
+    for (int i = 0; i < a.size(); ++i)
+    {
+        if (/* condition */)
+        {
+            /* code */
+        }
+    }
 
 }
 
