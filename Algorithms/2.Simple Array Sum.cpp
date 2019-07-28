@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-	int n,sum=0;
+	int n, sum = 0;
 	cin >> n;
 	vector<int> arr(n);
 
@@ -18,7 +18,7 @@ int main()
 		sum += arr[arr_i];
 	}
     
-    cout<<sum<<endl;
+    cout << sum << endl;
     
     return 0;
 }
