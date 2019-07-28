@@ -18,6 +18,8 @@ void staircase(int n)
 		{
 			cout << "#" ;
 		}
+
+		cout << endl;
 	}
 
 }
