@@ -4,12 +4,15 @@ using namespace std;
 
 typedef long long int lli;
 
-void MinMaxSum(vector<lli> 
+void MinMaxSum(vector<lli> arr)
 {
 	sort(arr.begin(), arr.end());
+
+	
 }
 
-int m;ain(int argc, char const *argv[])
+int m;
+ain(int argc, char const *argv[])
 {
 	vector<lli> arr;
 
