@@ -28,5 +28,9 @@ int main(int argc, char const *argv[])
 		}
 	}
 
+	cout << fixed << setprecision(6) << (double)positiveCount/size << endl;
+	cout << fixed << setprecision(6) << (double)positiveCount/size << endl;
+	cout << fixed << setprecision(6) << (double)positiveCount/size << endl;
+
 	return 0;
 }
