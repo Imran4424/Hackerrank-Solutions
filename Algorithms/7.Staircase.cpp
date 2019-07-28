@@ -9,9 +9,9 @@ void staircase(int n)
 	{
 		// for spaces
 
-		for (int k = 0; k < count; ++k)
+		for (int k = 0; k < n - i; ++k)
 		{
-			/* code */
+			cout << " " << endl;
 		}
 
 		for (int j = 1; j <= n; ++j)
