@@ -24,7 +24,8 @@ int main()
 
     vector<int> a(3);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) 
+    {
         int a_item = stoi(a_temp[i]);
 
         a[i] = a_item;
