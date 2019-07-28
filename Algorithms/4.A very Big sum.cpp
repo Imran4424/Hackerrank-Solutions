@@ -11,9 +11,10 @@ long aVeryBigSum(vector<long> ar)
 
     for (int i = 0; i < ar.size(); ++i)
     {
-        /* code */
+        sum += ar[i];
     }
 
+    return sum;
 }
 
 int main()
