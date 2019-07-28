@@ -5,7 +5,7 @@ using namespace std;
 // Complete the staircase function below.
 void staircase(int n) 
 {
-
+	
 
 }
 
