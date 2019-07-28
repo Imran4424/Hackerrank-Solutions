@@ -9,7 +9,9 @@ vector<string> split(const string &);
 // Complete the compareTriplets function below.
 vector<int> compareTriplets(vector<int> a, vector<int> b) 
 {
+    vector<int> finalCount(2, 0);
 
+    
 
 }
 
