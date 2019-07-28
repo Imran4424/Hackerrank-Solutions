@@ -6,7 +6,7 @@ typedef long long int lli;
 
 void MinMaxSum(vector<lli> arr)
 {
-	
+
 }
 
 int main(int argc, char const *argv[])
@@ -22,8 +22,7 @@ int main(int argc, char const *argv[])
 		arr.push_back(pot);
 	}
 
-
-
+	MinMaxSum(arr);
 
 	return 0;
 }
