@@ -10,6 +10,7 @@ int main()
 {
 	int n, sum = 0;
 	cin >> n;
+	
 	vector<int> arr(n);
 
 	for(int arr_i = 0;arr_i < n;arr_i++)
