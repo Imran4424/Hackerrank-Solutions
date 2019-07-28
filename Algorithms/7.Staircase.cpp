@@ -11,7 +11,7 @@ void staircase(int n)
 
 		for (int k = 0; k < n - i; ++k)
 		{
-			cout << " " << endl;
+			cout << " ";
 		}
 
 		for (int j = 1; j <= i; ++j)
