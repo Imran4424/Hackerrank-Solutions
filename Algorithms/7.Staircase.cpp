@@ -16,7 +16,7 @@ void staircase(int n)
 
 		for (int j = 1; j <= n; ++j)
 		{
-			
+			cout << "#" ;
 		}
 	}
 
