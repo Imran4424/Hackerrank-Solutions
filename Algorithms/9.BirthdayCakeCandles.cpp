@@ -25,7 +25,8 @@ int main()
 
     vector<int> ar(ar_count);
 
-    for (int i = 0; i < ar_count; i++) {
+    for (int i = 0; i < ar_count; i++) 
+    {
         int ar_item = stoi(ar_temp[i]);
 
         ar[i] = ar_item;
