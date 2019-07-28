@@ -13,12 +13,18 @@ vector<int> compareTriplets(vector<int> a, vector<int> b)
 
     for (int i = 0; i < a.size(); ++i)
     {
-        if (/* condition */)
+        if (a[i] > b[i])
         {
-            /* code */
+            finalCount[0]++;
+        }
+        else if (a[i] < b[i])
+        {
+            finalCount[1]++;
         }
     }
 
+
+    return finalCount;
 }
 
 int main()
