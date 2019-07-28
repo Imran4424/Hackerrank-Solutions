@@ -13,7 +13,10 @@ int birthdayCakeCandles(vector<int> ar)
 
     for (int i = 1; i < ar.size(); ++i)
     {
-        i
+        if (/* condition */)
+        {
+            /* code */
+        }
     }
 
 }
