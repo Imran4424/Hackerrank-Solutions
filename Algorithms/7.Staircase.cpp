@@ -7,6 +7,13 @@ void staircase(int n)
 {
 	for (int i = 1; i <= n; ++i)
 	{
+		// for spaces
+
+		for (int k = 0; k < count; ++k)
+		{
+			/* code */
+		}
+
 		for (int j = 1; j <= n; ++j)
 		{
 			
