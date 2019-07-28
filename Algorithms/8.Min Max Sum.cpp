@@ -8,7 +8,12 @@ void MinMaxSum(vector<lli> arr)
 {
 	sort(arr.begin(), arr.end());
 
-	
+	lli minSum = 0, maxSum = 0;
+
+	for (int i = 0; i < count; ++i)
+	{
+		/* code */
+	}
 }
 
 int m;
