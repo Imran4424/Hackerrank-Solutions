@@ -4,7 +4,10 @@ using namespace std;
 
 typedef long long int lli;
 
-void MinMax
+void MinMaxSum(vector<lli> arr)
+{
+	
+}
 
 int main(int argc, char const *argv[])
 {
