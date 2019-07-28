@@ -19,6 +19,10 @@ int birthdayCakeCandles(vector<int> ar)
 
             candleCount = 0;
         }
+        else if(max == ar[i])
+        {
+            candleCount++;
+        }
     }
 
 }
