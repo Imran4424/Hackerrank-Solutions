@@ -12,7 +12,7 @@ void MinMaxSum(vector<lli> arr)
 
 	for (int i = 0; i < arr.size(); ++i)
 	{
-		/* code 
+		/* co
 	}
 }
 
