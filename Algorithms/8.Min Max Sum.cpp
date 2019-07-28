@@ -14,6 +14,13 @@ void MinMaxSum(vector<lli> arr)
 	{
 		minSum += arr[i];
 	}
+	
+	for (int i = 0; i < 4; ++i)
+	{
+		maxSum += arr[i];
+	}
+
+	cout << minSum << " " << maxSum << endl;
 }
 
 int m;
