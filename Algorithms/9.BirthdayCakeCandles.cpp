@@ -5,7 +5,8 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the birthdayCakeCandles function below.
-int birthdayCakeCandles(vector<int> ar) {
+int birthdayCakeCandles(vector<int> ar) 
+{
 
 
 }
