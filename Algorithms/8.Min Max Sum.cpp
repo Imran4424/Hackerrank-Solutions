@@ -23,8 +23,7 @@ void MinMaxSum(vector<lli> arr)
 	cout << minSum << " " << maxSum << endl;
 }
 
-int m;
-ain(int argc, char const *argv[])
+int main(int argc, char const *argv[])
 {
 	vector<lli> arr;
 
