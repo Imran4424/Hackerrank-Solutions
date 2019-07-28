@@ -11,7 +11,7 @@ int birthdayCakeCandles(vector<int> ar)
 
     int max = ar[0];
 
-    for (int i = 0; i < ar.size(); ++i)
+    for (int i = 1; i < ar.size(); ++i)
     {
         /* code */
     }
