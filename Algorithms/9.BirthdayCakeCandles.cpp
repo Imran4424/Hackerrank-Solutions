@@ -7,7 +7,7 @@ vector<string> split_string(string);
 // Complete the birthdayCakeCandles function below.
 int birthdayCakeCandles(vector<int> ar) 
 {
-    int candleCount = 0;
+    int candleCount = 1;
 
     int max = ar[0];
 
@@ -17,7 +17,7 @@ int birthdayCakeCandles(vector<int> ar)
         {
             max = ar[i];
 
-            candleCount = 0;
+            candleCount = 1;
         }
         else if(max == ar[i])
         {
