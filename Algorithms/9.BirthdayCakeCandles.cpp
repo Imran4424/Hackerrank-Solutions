@@ -17,7 +17,7 @@ int birthdayCakeCandles(vector<int> ar)
         {
             max = ar[i];
 
-            
+            candleCount = 0;
         }
     }
 
