@@ -18,7 +18,7 @@ int main()
 
 	cin >> num1 >> num2;
 
-	sum = solveMeFirst(num1,num2);
+	sum = solveMeFirst(num1, num2);
 
 	cout << sum;
 
