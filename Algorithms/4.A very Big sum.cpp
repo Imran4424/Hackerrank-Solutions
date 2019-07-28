@@ -26,7 +26,8 @@ int main()
 
     vector<long> ar(ar_count);
 
-    for (int i = 0; i < ar_count; i++) {
+    for (int i = 0; i < ar_count; i++) 
+    {
         long ar_item = stol(ar_temp[i]);
 
         ar[i] = ar_item;
@@ -41,14 +42,16 @@ int main()
     return 0;
 }
 
-vector<string> split_string(string input_string) {
+vector<string> split_string(string input_string) 
+{
     string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
         return x == y and x == ' ';
     });
 
     input_string.erase(new_end, input_string.end());
 
-    while (input_string[input_string.length() - 1] == ' ') {
+    while (input_string[input_string.length() - 1] == ' ') 
+    {
         input_string.pop_back();
     }
 
@@ -58,7 +61,8 @@ vector<string> split_string(string input_string) {
     size_t i = 0;
     size_t pos = input_string.find(delimiter);
 
-    while (pos != string::npos) {
+    while (pos != string::npos) 
+    {
         splits.push_back(input_string.substr(i, pos - i));
 
         i = pos + 1;
