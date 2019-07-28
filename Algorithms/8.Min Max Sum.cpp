@@ -4,6 +4,8 @@ using namespace std;
 
 typedef long long int lli;
 
+void MinMax
+
 int main(int argc, char const *argv[])
 {
 	vector<lli> arr;
@@ -16,6 +18,8 @@ int main(int argc, char const *argv[])
 
 		arr.push_back(pot);
 	}
+
+
 
 
 	return 0;
