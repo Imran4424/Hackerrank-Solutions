@@ -21,6 +21,29 @@ string timeConversion(string s)
 
     converter >> hr;
 
+    if (indicator == "PM")
+    {
+        hr += 12;
+
+        ostringstream convertBack;
+
+        convertBack << hr;
+
+        hour.clear();
+
+        hour = convertBack.str();
+
+        s[0] = hour[0];
+    }
+    else
+    {
+        if (hr == 12)
+        {
+            s[0] = '0';
+            s[1] = '0';
+        }
+    }
+
 
 }
 
