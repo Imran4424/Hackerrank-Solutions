@@ -38,7 +38,8 @@ int main()
 
     vector<int> result = gradingStudents(grades);
 
-    for (int i = 0; i < result.size(); i++) {
+    for (int i = 0; i < result.size(); i++) 
+    {
         fout << result[i];
 
         if (i != result.size() - 1) {
