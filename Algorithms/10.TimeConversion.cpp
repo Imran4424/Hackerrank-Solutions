@@ -7,7 +7,13 @@ using namespace std;
  */
 string timeConversion(string s) 
 {
-    
+    string indicator;
+
+    indicator += s[s.size()-2];
+    indicator += s[s.size()-1];
+
+    string hour += s[0];
+    hour[1] += s[1];
 
 }
 
