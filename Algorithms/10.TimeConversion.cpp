@@ -46,6 +46,8 @@ string timeConversion(string s)
     }
 
     s.resize(s.size()-2);
+
+    return s;
 }
 
 int main()
