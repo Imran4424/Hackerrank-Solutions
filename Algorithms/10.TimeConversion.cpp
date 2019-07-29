@@ -12,8 +12,9 @@ string timeConversion(string s)
     indicator += s[s.size()-2];
     indicator += s[s.size()-1];
 
-    string hour += s[0];
-    hour[1] += s[1];
+    string hour;
+    hour += s[0];
+    hour += s[1];
 
     stringstream converter(hour);
 
