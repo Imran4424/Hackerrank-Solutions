@@ -27,7 +27,8 @@ int main()
 
     vector<int> grades(grades_count);
 
-    for (int i = 0; i < grades_count; i++) {
+    for (int i = 0; i < grades_count; i++) 
+    {
         string grades_item_temp;
         getline(cin, grades_item_temp);
 
