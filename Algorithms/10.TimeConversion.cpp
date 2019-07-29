@@ -29,8 +29,6 @@ string timeConversion(string s)
             /* code */
         }
 
-        hr += 12;
-
         ostringstream convertBack;
 
         convertBack << hr;
