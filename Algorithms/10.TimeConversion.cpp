@@ -34,7 +34,7 @@ string timeConversion(string s)
         hour = convertBack.str();
 
         s[0] = hour[0];
-        s[0] = hour[0];
+        s[1] = hour[1];
     }
     else
     {
