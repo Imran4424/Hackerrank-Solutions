@@ -30,7 +30,7 @@ string timeConversion(string s)
 
         convertBack << hr;
 
-        hour.clear();
+        //hour.clear();
 
         hour = convertBack.str();
 
