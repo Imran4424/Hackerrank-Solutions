@@ -37,7 +37,7 @@ string timeConversion(string s)
         s[0] = hour[0];
         s[1] = hour[1];
     }
-    else if()
+    else if(indicator == "AM")
     {
         if (hr == 12)
         {
