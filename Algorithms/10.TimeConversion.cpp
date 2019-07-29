@@ -7,9 +7,7 @@ using namespace std;
  */
 string timeConversion(string s) 
 {
-    /*
-     * Write your code here.
-     */
+    
 
 }
 
