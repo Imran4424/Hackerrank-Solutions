@@ -24,6 +24,11 @@ string timeConversion(string s)
 
     if (indicator == "PM")
     {
+        if (hr != 12)
+        {
+            /* code */
+        }
+
         hr += 12;
 
         ostringstream convertBack;
