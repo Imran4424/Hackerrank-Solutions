@@ -15,6 +15,13 @@ string timeConversion(string s)
     string hour += s[0];
     hour[1] += s[1];
 
+    stringstream converter(hour);
+
+    int x = 0;
+
+    converter >> x;
+    
+
 }
 
 int main()
