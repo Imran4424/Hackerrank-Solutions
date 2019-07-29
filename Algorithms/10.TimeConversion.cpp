@@ -26,7 +26,7 @@ string timeConversion(string s)
     {
         if (hr != 12)
         {
-            /* code */
+            hr += 12;
         }
 
         ostringstream convertBack;
