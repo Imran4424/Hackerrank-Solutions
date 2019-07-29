@@ -42,7 +42,8 @@ int main()
     {
         fout << result[i];
 
-        if (i != result.size() - 1) {
+        if (i != result.size() - 1) 
+        {
             fout << "\n";
         }
     }
