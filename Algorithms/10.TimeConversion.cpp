@@ -17,10 +17,10 @@ string timeConversion(string s)
 
     stringstream converter(hour);
 
-    int x = 0;
+    int hr = 0;
 
-    converter >> x;
-    
+    converter >> hr;
+
 
 }
 
