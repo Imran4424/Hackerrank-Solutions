@@ -17,10 +17,10 @@ string kangaroo(int x1, int v1, int x2, int v2)
 		return "NO";
 	}
 
-	int currentOne = x1;
-	int currentTwo = x2;
-
 	
+
+
+    int indicator = abs(x1 - x2)	
 
 
 	return "NO";
