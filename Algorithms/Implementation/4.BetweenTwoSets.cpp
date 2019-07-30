@@ -11,6 +11,10 @@ vector<int> breakingRecords(vector<int> scores)
 
     max = min = scores[0];
 
+    for (int i = 0; i < scores.size(); ++i)
+    {
+        /* code */
+    }
 }
 
 int main()
