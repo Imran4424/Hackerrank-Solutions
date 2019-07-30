@@ -7,7 +7,8 @@ string rtrim(const string &);
 vector<string> split(const string &);
 
 // Complete the birthday function below.
-int birthday(vector<int> s, int d, int m) {
+int birthday(vector<int> s, int d, int m) 
+{
 
 
 }
@@ -28,7 +29,8 @@ int main()
 
     vector<int> s(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int s_item = stoi(s_temp[i]);
 
         s[i] = s_item;
@@ -52,7 +54,8 @@ int main()
     return 0;
 }
 
-string ltrim(const string &str) {
+string ltrim(const string &str) 
+{
     string s(str);
 
     s.erase(
