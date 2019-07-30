@@ -29,6 +29,8 @@ vector<int> breakingRecords(vector<int> scores)
             records[1]++;
         }
     }
+
+    return scores;
 }
 
 int main()
