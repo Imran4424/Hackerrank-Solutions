@@ -59,7 +59,8 @@ int main()
 
     vector<int> oranges(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int oranges_item = stoi(oranges_temp[i]);
 
         oranges[i] = oranges_item;
