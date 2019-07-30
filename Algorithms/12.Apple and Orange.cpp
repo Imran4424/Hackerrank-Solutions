@@ -21,7 +21,7 @@ void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vecto
     {
         if (b + oranges[i] >= s && b + oranges[i] <= t)
         {
-            /* code */
+            orangesCount++;
         }
     }
 
