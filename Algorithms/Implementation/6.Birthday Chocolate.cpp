@@ -13,7 +13,7 @@ int birthday(vector<int> s, int d, int m)
 
     for (int i = 0; i < s.size()-1; ++i)
     {
-        /* code */
+        
     }
 
 }
