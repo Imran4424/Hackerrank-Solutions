@@ -22,7 +22,14 @@ int ChangingValues(int val)
 			{
 				if (val > 95)
 				{
-					if()
+					if(val >=98)
+					{
+						return 100;
+					}
+					else
+					{
+						return val;
+					}
 				}
 				else if (val < 95)
 				{
