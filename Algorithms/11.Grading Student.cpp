@@ -20,9 +20,17 @@ int ChangingValues(int val)
 		{
 			if (val > 90)
 			{
-				if (val > 90)
+				if (val > 95)
+				{
+					if()
+				}
+				else if (val < 95)
 				{
 					/* code */
+				}
+				else
+				{
+					return val;
 				}
 			}
 			else if (val < 90)
