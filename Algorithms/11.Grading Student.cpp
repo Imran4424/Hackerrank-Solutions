@@ -21,6 +21,10 @@ int ChangingValues(int val)
 			/* code */
 		}
 	}
+	else if (val < 50)
+	{
+		/* code */
+	}
 }
 
 vector<int> gradingStudents(vector<int> grades) 
