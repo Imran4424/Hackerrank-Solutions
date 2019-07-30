@@ -12,9 +12,9 @@ string kangaroo(int x1, int v1, int x2, int v2)
 		return "NO";
 	}
 
-	if (/* condition */)
+	if (x1 < x2 && v1 < v2)
 	{
-		/* code */
+		return "NO";
 	}
 
 	currentOne = x1;
