@@ -242,7 +242,10 @@ int ChangingValues(int val)
 
 vector<int> gradingStudents(vector<int> grades) 
 {
-
+	for (int i = 0; i < grades.size(); ++i)
+	{
+		/* code */
+	}
 }
 
 int main()
