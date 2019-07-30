@@ -25,6 +25,10 @@ int ChangingValues(int val)
 	{
 		/* code */
 	}
+	else
+	{
+		return val;
+	}
 }
 
 vector<int> gradingStudents(vector<int> grades) 
