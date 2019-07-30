@@ -20,8 +20,20 @@ string kangaroo(int x1, int v1, int x2, int v2)
 	currentOne = x1;
 	currentTwo = x2;
 
-	while()
+	for (int i = 0; i < 30; ++i)
+	{
+		currentOne += v1;
 
+		currentTwo += v2;
+
+		if (currentOne == currentTwo)
+		{
+			return "YES";
+		}
+	}
+
+
+	return "NO";
 }
 
 int main()
