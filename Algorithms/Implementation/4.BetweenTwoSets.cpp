@@ -30,7 +30,7 @@ vector<int> breakingRecords(vector<int> scores)
         }
     }
 
-    return scores;
+    return records;
 }
 
 int main()
