@@ -5,7 +5,8 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the countApplesAndOranges function below.
-void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vector<int> oranges) {
+void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vector<int> oranges) 
+{
 
 
 }
