@@ -25,6 +25,10 @@ void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vecto
         }
     }
 
+    cout << applesCount << endl;
+
+    cout << orangesCount << endl;
+
 }
 
 int main()
