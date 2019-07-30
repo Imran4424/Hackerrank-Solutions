@@ -17,13 +17,11 @@ string kangaroo(int x1, int v1, int x2, int v2)
 		return "NO";
 	}
 
-	
+
+    //int indicator = abs(x1 - x2) % abs(v2 - v1);	
 
 
-    int indicator = abs(x1 - x2)	
-
-
-	return "NO";
+	return "YES";
 }
 
 int main()
