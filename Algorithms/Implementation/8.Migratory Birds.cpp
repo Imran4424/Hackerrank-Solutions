@@ -9,7 +9,10 @@ vector<string> split(const string &);
 // Complete the migratoryBirds function below.
 int migratoryBirds(vector<int> arr) 
 {
-    
+    for (int i = 0; i < arr.size(); ++i)
+    {
+        /* code */
+    }
 
 }
 
