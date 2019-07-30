@@ -24,7 +24,7 @@ vector<int> breakingRecords(vector<int> scores)
 
         if (scores[i] < max)
         {
-            /* code */
+            
         }
     }
 }
