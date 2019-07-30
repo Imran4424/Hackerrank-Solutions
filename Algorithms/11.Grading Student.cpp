@@ -244,8 +244,10 @@ vector<int> gradingStudents(vector<int> grades)
 {
 	for (int i = 0; i < grades.size(); ++i)
 	{
-		/* code */
+		grades[i] = ChangingValues(grades[i]);
 	}
+
+	return grades;
 }
 
 int main()
