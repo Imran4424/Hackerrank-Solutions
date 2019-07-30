@@ -16,7 +16,7 @@ int ChangingValues(int val)
 {
 	if (val > 50)
 	{
-		if (/* condition */)
+		if (val > 75)
 		{
 			/* code */
 		}
