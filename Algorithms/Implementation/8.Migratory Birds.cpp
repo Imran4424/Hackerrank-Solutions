@@ -65,7 +65,8 @@ string rtrim(const string &str) {
     return s;
 }
 
-vector<string> split(const string &str) {
+vector<string> split(const string &str) 
+{
     vector<string> tokens;
 
     string::size_type start = 0;
