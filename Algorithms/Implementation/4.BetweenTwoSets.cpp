@@ -13,7 +13,7 @@ vector<int> breakingRecords(vector<int> scores)
 
     for (int i = 0; i < scores.size(); ++i)
     {
-        /* code */
+        
     }
 }
 
