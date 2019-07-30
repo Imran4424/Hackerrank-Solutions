@@ -12,6 +12,10 @@ string kangaroo(int x1, int v1, int x2, int v2)
 		return "NO";
 	}
 
+	if (/* condition */)
+	{
+		/* code */
+	}
 
 	currentOne = x1;
 	currentTwo = x2;
