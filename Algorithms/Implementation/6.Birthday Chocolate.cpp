@@ -9,7 +9,12 @@ vector<string> split(const string &);
 // Complete the birthday function below.
 int birthday(vector<int> s, int d, int m) 
 {
+    int count = 0;
 
+    for (int i = 0; i < s.size()-1; ++i)
+    {
+        /* code */
+    }
 
 }
 
