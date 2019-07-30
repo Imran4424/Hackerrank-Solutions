@@ -20,7 +20,10 @@ int ChangingValues(int val)
 		{
 			if (val > 90)
 			{
-				/* code */
+				if (val > 90)
+				{
+					/* code */
+				}
 			}
 			else if (val < 90)
 			{
