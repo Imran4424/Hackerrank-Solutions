@@ -14,7 +14,10 @@ string rtrim(const string &);
 
 int ChangingValues(int val)
 {
-	if
+	if (/* condition */)
+	{
+		/* code */
+	}
 }
 
 vector<int> gradingStudents(vector<int> grades) 
