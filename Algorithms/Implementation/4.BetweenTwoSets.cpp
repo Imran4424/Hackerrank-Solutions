@@ -25,7 +25,8 @@ int main()
 
     vector<int> scores(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int scores_item = stoi(scores_temp[i]);
 
         scores[i] = scores_item;
@@ -33,7 +34,8 @@ int main()
 
     vector<int> result = breakingRecords(scores);
 
-    for (int i = 0; i < result.size(); i++) {
+    for (int i = 0; i < result.size(); i++) 
+    {
         fout << result[i];
 
         if (i != result.size() - 1) {
