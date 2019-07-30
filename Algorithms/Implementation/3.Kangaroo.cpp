@@ -20,7 +20,7 @@ string kangaroo(int x1, int v1, int x2, int v2)
 	int currentOne = x1;
 	int currentTwo = x2;
 
-	for (int i = 0; i < 900; ++i)
+	for (int i = 0; i < 1000; ++i)
 	{
 		currentOne += v1;
 
