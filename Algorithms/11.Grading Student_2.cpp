@@ -250,6 +250,28 @@ vector<int> gradingStudents(vector<int> grades)
 
 int main(int argc, char const *argv[])
 {
+	int size;
+	cin >> size;
+
+	vector<int> grades;
+
+	int hold;
+
+	for (int i = 0; i < size; ++i)
+	{
+		cin >> hold;
+
+		grades.push_back(hold);
+	}
+
 	
+	for (int i = 0; i < size; ++i)
+	{
+		cout << grades[i]
+	}
+
+
+
+
 	return 0;
 }
