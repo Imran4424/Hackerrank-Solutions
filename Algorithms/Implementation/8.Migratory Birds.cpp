@@ -7,7 +7,8 @@ string rtrim(const string &);
 vector<string> split(const string &);
 
 // Complete the migratoryBirds function below.
-int migratoryBirds(vector<int> arr) {
+int migratoryBirds(vector<int> arr) 
+{
 
 
 }
