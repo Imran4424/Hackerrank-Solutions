@@ -26,7 +26,7 @@ int birthday(vector<int> s, int d, int m)
         }
     }
 
-    return 
+    return count;
 }
 
 int main()
