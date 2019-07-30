@@ -152,11 +152,25 @@ int ChangingValues(int val)
 			{
 				if (val > 55)
 				{
-					/* code */
+					if (val >= 58)
+					{
+						return 60;
+					}
+					else
+					{
+						return val;
+					}
 				}
 				else if (val < 55)
 				{
-					/* code */
+					if (val >= 53)
+					{
+						return 55;
+					}
+					else
+					{
+						return val;
+					}
 				}
 				else
 				{
