@@ -46,7 +46,8 @@ int main()
 
     vector<int> apples(m);
 
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < m; i++) 
+    {
         int apples_item = stoi(apples_temp[i]);
 
         apples[i] = apples_item;
