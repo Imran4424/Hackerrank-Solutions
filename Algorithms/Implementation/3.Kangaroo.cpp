@@ -5,7 +5,8 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the kangaroo function below.
-string kangaroo(int x1, int v1, int x2, int v2) {
+string kangaroo(int x1, int v1, int x2, int v2) 
+{
 
 
 }
