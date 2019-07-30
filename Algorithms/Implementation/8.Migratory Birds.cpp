@@ -28,7 +28,8 @@ int main()
 
     vector<int> arr(arr_count);
 
-    for (int i = 0; i < arr_count; i++) {
+    for (int i = 0; i < arr_count; i++) 
+    {
         int arr_item = stoi(arr_temp[i]);
 
         arr[i] = arr_item;
