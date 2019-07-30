@@ -19,7 +19,10 @@ void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vecto
 
     for (int i = 0; i < oranges.size(); ++i)
     {
-        
+        if (b + oranges[i] >= s && b + oranges[i] <= t)
+        {
+            /* code */
+        }
     }
 
 }
