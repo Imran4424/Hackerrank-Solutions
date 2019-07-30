@@ -267,7 +267,7 @@ int main(int argc, char const *argv[])
 	
 	for (int i = 0; i < size; ++i)
 	{
-		cout << grades[i]
+		cout << grades[i] << endl;
 	}
 
 
