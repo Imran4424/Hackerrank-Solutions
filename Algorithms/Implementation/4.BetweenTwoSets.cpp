@@ -5,7 +5,8 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the breakingRecords function below.
-vector<int> breakingRecords(vector<int> scores) {
+vector<int> breakingRecords(vector<int> scores) 
+{
 
 
 }
