@@ -33,7 +33,14 @@ int ChangingValues(int val)
 				}
 				else if (val < 95)
 				{
-					
+					if(val >= 93)
+					{
+						return 95;
+					}
+					else
+					{
+						return val;
+					}
 				}
 				else
 				{
@@ -42,7 +49,7 @@ int ChangingValues(int val)
 			}
 			else if (val < 90)
 			{
-				/* code */
+				
 			}
 			else
 			{
