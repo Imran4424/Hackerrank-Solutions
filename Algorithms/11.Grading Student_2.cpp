@@ -270,9 +270,6 @@ int main(int argc, char const *argv[])
 	{
 		cout << grades[i] << endl;
 	}
-
-
-
-
+	
 	return 0;
 }
