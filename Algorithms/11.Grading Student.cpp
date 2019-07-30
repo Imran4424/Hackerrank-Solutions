@@ -14,9 +14,12 @@ string rtrim(const string &);
 
 int ChangingValues(int val)
 {
-	if (val >= 50)
+	if (val > 50)
 	{
-		
+		if (/* condition */)
+		{
+			/* code */
+		}
 	}
 }
 
