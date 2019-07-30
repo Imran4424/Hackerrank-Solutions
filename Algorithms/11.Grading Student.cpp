@@ -49,7 +49,50 @@ int ChangingValues(int val)
 			}
 			else if (val < 90)
 			{
-				
+				if(val > 80)
+				{
+					if (val > 85)
+					{
+						if (val >= 88)
+						{
+							return 90;
+						}
+						else
+						{
+							return val;
+						}
+					}
+					else if (val < 85)
+					{
+						if (val >= 83)
+						{
+							return 85;
+						}
+						else
+						{
+							return val;
+						}
+					}
+					else
+					{
+						return val;
+					}
+				}
+				else if (val < 80)
+				{
+					if (val >= 78)
+					{
+						return 80;
+					}
+					else
+					{
+						return val;
+					}
+				}
+				else
+				{
+					return val;
+				}
 			}
 			else
 			{
