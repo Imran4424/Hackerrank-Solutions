@@ -264,7 +264,8 @@ int main(int argc, char const *argv[])
 		grades.push_back(hold);
 	}
 
-	
+	grades = gradingStudents(grades);
+
 	for (int i = 0; i < size; ++i)
 	{
 		cout << grades[i] << endl;
