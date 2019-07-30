@@ -25,6 +25,8 @@ vector<int> breakingRecords(vector<int> scores)
         if (scores[i] < min)
         {
             min = scores[i];
+
+            records[1]++;
         }
     }
 }
