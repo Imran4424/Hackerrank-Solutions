@@ -248,10 +248,4 @@ vector<int> gradingStudents(vector<int> grades)
 	return grades;
 }
 
-int main()
-{
-    
-
-    return 0;
-}
 
