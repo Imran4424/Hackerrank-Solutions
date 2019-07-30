@@ -12,6 +12,9 @@ string rtrim(const string &);
  * The function accepts INTEGER_ARRAY grades as parameter.
  */
 
+int ChangingValues(int val)
+
+
 vector<int> gradingStudents(vector<int> grades) 
 {
 
