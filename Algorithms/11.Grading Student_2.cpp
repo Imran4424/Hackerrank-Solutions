@@ -248,4 +248,8 @@ vector<int> gradingStudents(vector<int> grades)
 	return grades;
 }
 
-
+int main(int argc, char const *argv[])
+{
+	
+	return 0;
+}
