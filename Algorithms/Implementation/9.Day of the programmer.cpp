@@ -14,7 +14,7 @@ string dayOfProgrammer(int year)
     {
         if (year % 4 == 0)
         {
-            year += "12.09.";
+            date += "12.09.";
         }
         else // Gregorian calendar
         {
