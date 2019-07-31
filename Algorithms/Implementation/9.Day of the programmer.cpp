@@ -10,21 +10,7 @@ string dayOfProgrammer(int year)
 {
     string date;
 
-    if (year % 400 == 0)
-    {
-        date += "12.09."
-    }
-    else
-    {
-        if (year % 4 == 0)
-        {
-            if (year % 100 != 0)
-            {
-                    /* code */
-            }    
-        }
-
-    }
+    
 
 }
 
