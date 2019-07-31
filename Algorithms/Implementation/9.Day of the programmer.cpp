@@ -46,6 +46,10 @@ string dayOfProgrammer(int year)
             date += "13.09.";
         }        
     }
+    else
+    {
+        
+    }
 
 
     ostringstream converter;
