@@ -37,7 +37,7 @@ string dayOfProgrammer(int year)
 
     converter << year;
 
-    // string pYear = converter.str();
+    string pYear = converter.str();
 
     date += pYear;
 
