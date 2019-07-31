@@ -48,7 +48,9 @@ string dayOfProgrammer(int year)
     }
     else
     {
-        
+        int dif = (31+14) - 32;
+
+
     }
 
 
