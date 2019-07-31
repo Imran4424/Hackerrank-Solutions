@@ -33,7 +33,7 @@ string dayOfProgrammer(int year)
         date += "13.09.";
     }
 
-    ostringstream converter;
+    // ostringstream converter;
 
     converter << year;
 
