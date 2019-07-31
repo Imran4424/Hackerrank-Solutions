@@ -8,7 +8,7 @@ string rtrim(const string &);
 // Complete the dayOfProgrammer function below.
 string dayOfProgrammer(int year) 
 {
-
+    
 
 }
 
