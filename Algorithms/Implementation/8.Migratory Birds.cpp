@@ -55,6 +55,8 @@ int migratoryBirds(vector<int> arr)
 
     }
 
+    return type;
+
 }
 
 int main()
