@@ -9,11 +9,10 @@ int divisibleSumPairs(int n, int k, vector<int> ar)
 {
     int count = 0;
 
-    for (int i = 0; i < ar.size()-1; ++i)
+    for (int i = 0; i < n-1; ++i)
     {
-        int sum = 0;
 
-        for(int j = i+1; j < ar.size(); j++)
+        for(int j = i+1; j < n; j++)
         {
             if (ar[i] + ar[j] == k)
             {
