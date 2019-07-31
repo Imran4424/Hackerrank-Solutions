@@ -41,6 +41,7 @@ string dayOfProgrammer(int year)
 
     date += pYear;
 
+    return date;
 }
 
 int main()
