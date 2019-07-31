@@ -9,7 +9,7 @@ vector<string> split(const string &);
 // Complete the migratoryBirds function below.
 int migratoryBirds(vector<int> arr) 
 {
-    int frequency[6] = {0};
+    vector<int> frequency(6,0);
 
     for (int i = 0; i < arr.size(); ++i)
     {
