@@ -9,9 +9,11 @@ vector<string> split(const string &);
 // Complete the migratoryBirds function below.
 int migratoryBirds(vector<int> arr) 
 {
+    map <int,int> frequency;
+
     for (int i = 0; i < arr.size(); ++i)
     {
-        /* code */
+        
     }
 
 }
