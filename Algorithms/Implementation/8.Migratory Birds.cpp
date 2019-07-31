@@ -9,11 +9,18 @@ vector<string> split(const string &);
 // Complete the migratoryBirds function below.
 int migratoryBirds(vector<int> arr) 
 {
-    map <int,int> frequency;
+    int frequency[6] = {0};
 
     for (int i = 0; i < arr.size(); ++i)
     {
-        
+        if (arr[i] == frequency[1])
+        {
+            frequency[1]++;
+        }
+        else if (arr[i] == frequency[2])
+        {
+            frequency[2]++;
+        }
     }
 
 }
