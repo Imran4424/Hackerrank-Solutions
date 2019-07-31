@@ -42,7 +42,8 @@ string ltrim(const string &str)
     return s;
 }
 
-string rtrim(const string &str) {
+string rtrim(const string &str) 
+{
     string s(str);
 
     s.erase(
