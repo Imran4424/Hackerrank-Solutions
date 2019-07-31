@@ -23,9 +23,6 @@ string dayOfProgrammer(int year)
     }
     else
     {
-        
-    }
-
     if (year % 4 == 0)
     {
         if (year % 100 == 0)
@@ -48,6 +45,9 @@ string dayOfProgrammer(int year)
     {
         date += "13.09.";
     }
+        
+    }
+
 
     ostringstream converter;
 
