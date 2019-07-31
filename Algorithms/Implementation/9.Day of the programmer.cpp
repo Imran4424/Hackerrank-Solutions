@@ -8,7 +8,13 @@ string rtrim(const string &);
 // Complete the dayOfProgrammer function below.
 string dayOfProgrammer(int year) 
 {
+    string date;
 
+    if (year % 400 == 0)
+    {
+        date += "12.09."
+    }
+    else 
 
 }
 
