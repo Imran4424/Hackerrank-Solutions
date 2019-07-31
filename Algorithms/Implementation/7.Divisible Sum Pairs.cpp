@@ -7,7 +7,7 @@ vector<string> split_string(string);
 // Complete the divisibleSumPairs function below.
 int divisibleSumPairs(int n, int k, vector<int> ar) 
 {
-
+    
 
 }
 
