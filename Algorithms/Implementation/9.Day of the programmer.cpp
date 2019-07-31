@@ -20,7 +20,7 @@ string dayOfProgrammer(int year)
             }
             else
             {
-                date 
+                date += "13.09."
             }
         }
     }
