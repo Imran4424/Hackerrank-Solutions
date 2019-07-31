@@ -13,23 +13,23 @@ int migratoryBirds(vector<int> arr)
 
     for (int i = 0; i < arr.size(); ++i)
     {
-        if (arr[i] == frequency[1])
+        if (arr[i] == 1)
         {
             frequency[1]++;
         }
-        else if (arr[i] == frequency[2])
+        else if (arr[i] == 2)
         {
             frequency[2]++;
         }
-        else if (arr[i] == frequency[3])
+        else if (arr[i] == 3)
         {
             frequency[3]++;
         }
-        else if (arr[i] == frequency[4])
+        else if (arr[i] == 4)
         {
             frequency[4]++;
         }
-        else if (arr[i] == frequency[5])
+        else if (arr[i] == 5)
         {
             frequency[5]++;
         }
