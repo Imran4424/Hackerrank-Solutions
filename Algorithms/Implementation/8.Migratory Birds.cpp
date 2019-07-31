@@ -25,7 +25,7 @@ int migratoryBirds(vector<int> arr)
         {
             frequency[3]++;
         }
-        else if (/* condition */)
+        else if (arr[i] == frequency[4])
         {
             /* code */
         }
