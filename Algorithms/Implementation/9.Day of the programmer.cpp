@@ -23,29 +23,28 @@ string dayOfProgrammer(int year)
     }
     else
     {
-    if (year % 4 == 0)
-    {
-        if (year % 100 == 0)
+        if (year % 4 == 0)
         {
-            if (year % 400 == 0)
+            if (year % 100 == 0)
             {
-                date += "12.09.";
+                if (year % 400 == 0)
+                {
+                    date += "12.09.";
+                }
+                else
+                {
+                    date += "13.09.";
+                }
             }
             else
             {
-                date += "13.09.";
+                date += "12.09.";
             }
         }
         else
         {
-            date += "12.09.";
-        }
-    }
-    else
-    {
-        date += "13.09.";
-    }
-        
+            date += "13.09.";
+        }        
     }
 
 
