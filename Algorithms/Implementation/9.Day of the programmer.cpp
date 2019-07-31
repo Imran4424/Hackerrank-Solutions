@@ -14,7 +14,7 @@ string dayOfProgrammer(int year)
     {
         if (year % 100 == 0)
         {
-            /* code */
+            
         }
     }
 
