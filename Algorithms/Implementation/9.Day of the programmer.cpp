@@ -10,7 +10,10 @@ string dayOfProgrammer(int year)
 {
     string date;
 
-    
+    if (/* condition */)
+    {
+        /* code */
+    }
 
 }
 
