@@ -50,7 +50,7 @@ string dayOfProgrammer(int year)
     {
         int dif = (31+14) - 32;
 
-        date +=
+        date += "29.09.";
     }
 
 
