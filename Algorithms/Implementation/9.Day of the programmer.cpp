@@ -16,7 +16,7 @@ string dayOfProgrammer(int year)
         {
             year += "12.09.";
         }
-        
+        else
     }
 
     if (year % 4 == 0)
