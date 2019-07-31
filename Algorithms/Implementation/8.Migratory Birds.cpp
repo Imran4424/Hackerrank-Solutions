@@ -45,13 +45,6 @@ int migratoryBirds(vector<int> arr)
             max = frequency[i];
             type = i;
         }
-        else if(max == frequency[i])
-        {
-            if (type > i)
-            {
-                type = i;
-            }
-        }
 
     }
 
