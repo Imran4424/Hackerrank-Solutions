@@ -5,7 +5,8 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the divisibleSumPairs function below.
-int divisibleSumPairs(int n, int k, vector<int> ar) {
+int divisibleSumPairs(int n, int k, vector<int> ar) 
+{
 
 
 }
@@ -30,7 +31,8 @@ int main()
 
     vector<int> ar(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int ar_item = stoi(ar_temp[i]);
 
         ar[i] = ar_item;
