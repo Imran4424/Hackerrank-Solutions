@@ -30,7 +30,7 @@ string dayOfProgrammer(int year)
     }
     else
     {
-        
+        date
     }
 
 }
