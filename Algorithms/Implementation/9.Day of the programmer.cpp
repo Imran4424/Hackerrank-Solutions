@@ -10,7 +10,7 @@ string dayOfProgrammer(int year)
 {
     string date;
 
-    if(year < 1918)
+    if(year < 1918) // julian year
     {
         if (year % 4 == 0)
         {
