@@ -36,13 +36,23 @@ int migratoryBirds(vector<int> arr)
     }
 
     int max = frequency[1];
+    int type = 1;
 
     for (int i = 2; i < 6; ++i)
     {
         if (frequency[i] > max)
         {
             max = frequency[i];
+            type = i;
         }
+        else if(max == frequency[i])
+        {
+            if (type > i)
+            {
+                type = i;
+            }
+        }
+
     }
 
 }
