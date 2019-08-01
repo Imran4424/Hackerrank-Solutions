@@ -23,6 +23,10 @@ void bonAppetit(vector<int> bill, int k, int b)
     {
         cout << "Bon Appetit" << endl;
     }
+    else
+    {
+        
+    }
 
 }
 
