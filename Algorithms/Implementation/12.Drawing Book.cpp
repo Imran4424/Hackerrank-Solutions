@@ -34,14 +34,7 @@ int pageCount(int n, int p)
     }
     else
     {
-        if (back % 2 == 0)
-        {
-            backTurn = back / 2;
-        }
-        else
-        {
-            backTurn = (back / 2) + 1;
-        }
+       backTurn = back / 2;
     }
 
     
