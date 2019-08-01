@@ -5,7 +5,8 @@ using namespace std;
 /*
  * Complete the pageCount function below.
  */
-int pageCount(int n, int p) {
+int pageCount(int n, int p) 
+{
     /*
      * Write your code here.
      */
