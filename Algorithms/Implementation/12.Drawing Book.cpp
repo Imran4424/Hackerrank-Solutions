@@ -29,10 +29,9 @@ int pageCount(int n, int p)
     {
         if (p != n)
         {
-            /* code */
+            backTurn = back / 2 + 1;
         }
 
-        backTurn = back / 2 + 1;
     }
 
     if (frontTurn < backTurn)
