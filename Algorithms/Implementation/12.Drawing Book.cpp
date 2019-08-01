@@ -10,7 +10,7 @@ int pageCount(int n, int p)
 
     if (front % 2 == 0)
     {
-        /* code */
+        
     }
 
 
