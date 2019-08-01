@@ -7,7 +7,7 @@ int main(int argc, char const *argv[])
 	{
 		cout << "I wanna be the best programmer in the world" << endl;
 
-		
+		cout << "I wanna help the society" << endl;		
 	}
 
 	return 0;
