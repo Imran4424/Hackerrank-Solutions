@@ -6,9 +6,6 @@ using namespace std;
  */
 int pageCount(int n, int p) 
 {
-    /*
-     * Write your code here.
-     */
 
 
 
