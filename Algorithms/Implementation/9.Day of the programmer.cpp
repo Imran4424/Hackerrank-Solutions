@@ -48,7 +48,7 @@ string dayOfProgrammer(int year)
     }
     else // transform year
     {
-        date += "29.09.";
+        date += "26.09.";
     }
 
 
