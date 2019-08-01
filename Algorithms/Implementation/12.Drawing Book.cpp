@@ -32,7 +32,7 @@ int pageCount(int n, int p)
 
     if (frontTurn < backTurn)
     {
-        return 
+        return frontTurn;
     }
 
 }
