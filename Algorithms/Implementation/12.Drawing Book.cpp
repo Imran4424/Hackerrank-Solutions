@@ -6,7 +6,7 @@ using namespace std;
  */
 int pageCount(int n, int p) 
 {
-    int c
+    int count = 0;
 
     for (int i = 0; i < n; ++i)
     {
