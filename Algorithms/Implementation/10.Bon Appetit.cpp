@@ -25,7 +25,7 @@ void bonAppetit(vector<int> bill, int k, int b)
     }
     else
     {
-        
+        cout << b - (totalBill / 2) << endl;
     }
 
 }
