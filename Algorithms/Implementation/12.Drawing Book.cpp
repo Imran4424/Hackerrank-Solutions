@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 
 		cout << "The first thing my father taught me is, Honesty is the best policy" << endl;		
 		
-		
+		cout << "I intend to be ho"
 	}
 
 	return 0;
