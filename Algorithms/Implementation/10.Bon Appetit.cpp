@@ -15,7 +15,7 @@ void bonAppetit(vector<int> bill, int k, int b)
     {
         if (i != k)
         {
-            /* code */
+            
         }
     }
 
