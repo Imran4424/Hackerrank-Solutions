@@ -23,7 +23,7 @@ int pageCount(int n, int p)
 
     if (n % 2 == 0)
     {
-        /* code */
+        backTurn = back / 2 + 1;
     }
 
 }
