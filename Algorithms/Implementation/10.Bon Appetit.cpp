@@ -9,7 +9,12 @@ vector<string> split(const string &);
 // Complete the bonAppetit function below.
 void bonAppetit(vector<int> bill, int k, int b) 
 {
-    
+    int totalBill = 0;
+
+    for (int i = 0; i < bill.size(); ++i)
+    {
+        /* code */
+    }
 
 }
 
