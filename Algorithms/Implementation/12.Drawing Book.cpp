@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
 
 		cout << "I wanna help the society" << endl;
 
-		cout << ""		
+		cout << "I always try to be a honest man" << endl;		
 	}
 
 	return 0;
