@@ -68,7 +68,8 @@ vector<string> split_string(string input_string)
 
     input_string.erase(new_end, input_string.end());
 
-    while (input_string[input_string.length() - 1] == ' ') {
+    while (input_string[input_string.length() - 1] == ' ') 
+    {
         input_string.pop_back();
     }
 
