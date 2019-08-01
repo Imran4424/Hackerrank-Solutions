@@ -19,7 +19,12 @@ int pageCount(int n, int p)
         frontTurn = (front / 2 )+ 1;
     }
 
+    int back = n - p;
 
+    if (n % 2 == 0)
+    {
+        /* code */
+    }
 
 }
 
