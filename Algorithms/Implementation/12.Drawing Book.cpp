@@ -21,6 +21,11 @@ int pageCount(int n, int p)
 
     int back = n - p;
 
+    if(n % 2 == 0)
+    {
+        
+    }
+
     if (back % 2 == 0)
     {
         backTurn = back / 2;
