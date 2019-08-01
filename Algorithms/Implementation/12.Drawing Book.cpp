@@ -8,9 +8,11 @@ int pageCount(int n, int p)
 {
     int front = p-1;
 
+    int frontTurn, backTurn;
+
     if (front % 2 == 0)
     {
-        
+        frontTurn = front / 2;
     }
 
 
