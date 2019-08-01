@@ -31,7 +31,8 @@ int main()
 
     vector<int> bill(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int bill_item = stoi(bill_temp[i]);
 
         bill[i] = bill_item;
