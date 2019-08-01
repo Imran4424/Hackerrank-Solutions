@@ -14,6 +14,10 @@ int pageCount(int n, int p)
     {
         frontTurn = front / 2;
     }
+    else
+    {
+        frontTurn = front / 2 + 1;
+    }
 
 
 
