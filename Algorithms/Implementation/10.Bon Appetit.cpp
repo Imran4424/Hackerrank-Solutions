@@ -19,6 +19,11 @@ void bonAppetit(vector<int> bill, int k, int b)
         }
     }
 
+    if ((totalBill / 2) == b)
+    {
+        /* code */
+    }
+
 }
 
 int main()
