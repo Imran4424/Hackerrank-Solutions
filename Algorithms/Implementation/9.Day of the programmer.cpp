@@ -50,7 +50,9 @@ string dayOfProgrammer(int year)
     {
         // not leap year
 
-        
+        // 31+14 - 32 = 13
+
+        // 13 + 13 = 26
 
         date += "26.09.";
     }
