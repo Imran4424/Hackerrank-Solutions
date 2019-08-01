@@ -29,6 +29,7 @@ int sockMerchant(int n, vector<int> ar)
 
 }
 
+
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
