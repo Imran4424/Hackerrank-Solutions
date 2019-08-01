@@ -8,10 +8,6 @@ int pageCount(int n, int p)
 {
     int count = 0;
 
-    for (int i = 0; i < n; ++i)
-    {
-
-    }
 }
 
 int main()
