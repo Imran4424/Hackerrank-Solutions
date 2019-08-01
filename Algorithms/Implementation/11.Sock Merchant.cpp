@@ -44,7 +44,8 @@ int main()
 
     vector<int> ar(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int ar_item = stoi(ar_temp[i]);
 
         ar[i] = ar_item;
