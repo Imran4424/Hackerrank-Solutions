@@ -9,7 +9,7 @@ vector<string> split(const string &);
 // Complete the bonAppetit function below.
 void bonAppetit(vector<int> bill, int k, int b) 
 {
-
+    
 
 }
 
