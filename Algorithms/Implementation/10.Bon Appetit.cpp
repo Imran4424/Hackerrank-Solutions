@@ -13,7 +13,7 @@ void bonAppetit(vector<int> bill, int k, int b)
 
     for (int i = 0; i < bill.size(); ++i)
     {
-        if (/* condition */)
+        if (i != k)
         {
             /* code */
         }
