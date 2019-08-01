@@ -21,13 +21,18 @@ int pageCount(int n, int p)
 
     int back = n - p;
 
-    if (n % 2 == 0)
+    if (p % 2 == 0)
     {
         backTurn = back / 2;
     }
     else
     {
-        backTurn = back / 2;
+        if (p != n)
+        {
+            /* code */
+        }
+
+        backTurn = back / 2 + 1;
     }
 
     if (frontTurn < backTurn)
