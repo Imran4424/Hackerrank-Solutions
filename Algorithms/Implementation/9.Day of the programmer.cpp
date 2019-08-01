@@ -48,6 +48,10 @@ string dayOfProgrammer(int year)
     }
     else // transform year
     {
+        // not leap year
+
+        
+
         date += "26.09.";
     }
 
