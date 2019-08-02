@@ -7,8 +7,10 @@ vector<string> split_string(string);
 // Complete the catAndMouse function below.
 string catAndMouse(int x, int y, int z) 
 {
+    int xDistance = abs(z-x);
+    int yDistance = abs(z-y);
 
-
+    i
 }
 
 int main()
