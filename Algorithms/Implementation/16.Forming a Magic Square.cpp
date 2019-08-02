@@ -40,7 +40,7 @@ int formingMagicSquare(vector<vector<int>> arr)
     {
         for (int j = 0; j < arr[i].size(); ++j)
         {
-            int rowSum = 0, colSum = 0, diagonalSum;
+            int rowSum = 0, colSum = 0, sDiagonal, pDiagonal;
 
             for (int k = 0; k < arr.size(); ++k)
             {
@@ -63,7 +63,7 @@ int formingMagicSquare(vector<vector<int>> arr)
 
             if (i + j == arr.size() - 1)
             {
-                
+                sDiagonal = 
             }
 
             if (rowSum == colSum && (rowSum + arr[i][j]) < max)
