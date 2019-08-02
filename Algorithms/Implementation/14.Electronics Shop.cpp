@@ -36,7 +36,8 @@ int main()
 
     vector<int> keyboards(n);
 
-    for (int keyboards_itr = 0; keyboards_itr < n; keyboards_itr++) {
+    for (int keyboards_itr = 0; keyboards_itr < n; keyboards_itr++) 
+    {
         int keyboards_item = stoi(keyboards_temp[keyboards_itr]);
 
         keyboards[keyboards_itr] = keyboards_item;
