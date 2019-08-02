@@ -18,7 +18,7 @@ int formingMagicSquare(vector<vector<int>> arr)
 
             if (i + j == arr.size() - 1)
             {
-                
+                secondaryDiagonal += arr[i][j];
             }
         }
     }
