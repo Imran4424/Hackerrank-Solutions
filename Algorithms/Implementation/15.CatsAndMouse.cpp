@@ -20,7 +20,7 @@ string catAndMouse(int x, int y, int z)
     }
     else
     {
-        
+        cout << "Mouse C" << endl;
     }
 }
 
