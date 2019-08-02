@@ -29,6 +29,10 @@ int formingMagicSquare(vector<vector<int>> arr)
     {
         max = primaryDiagonal;
     }
+    else
+    {
+        max = secondaryDiagonal;
+    }
 
 }
 
