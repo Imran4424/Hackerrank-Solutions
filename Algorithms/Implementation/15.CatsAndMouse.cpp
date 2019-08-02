@@ -20,7 +20,7 @@ string catAndMouse(int x, int y, int z)
     }
     else
     {
-        return "Mouse C" << endl;
+        return "Mouse C";
     }
 }
 
