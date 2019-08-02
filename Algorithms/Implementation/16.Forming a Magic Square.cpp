@@ -3,9 +3,17 @@
 using namespace std;
 
 // Complete the formingMagicSquare function below.
-int formingMagicSquare(vector<vector<int>> s) 
+int formingMagicSquare(vector<vector<int>> arr) 
 {
+    int primaryDiagonal = 0, secondaryDiagonal = 0;
 
+    for (int i = 0; i < arr.size(); ++i)
+    {
+        for (int j = 0; j < arr[i].size(); ++j)
+        {
+            /* code */
+        }
+    }
 
 }
 
