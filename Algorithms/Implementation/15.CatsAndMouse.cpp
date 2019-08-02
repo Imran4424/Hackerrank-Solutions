@@ -18,6 +18,10 @@ string catAndMouse(int x, int y, int z)
     {
         cout << "Cat B" << endl;
     }
+    else
+    {
+        
+    }
 }
 
 int main()
