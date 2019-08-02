@@ -55,7 +55,7 @@ int formingMagicSquare(vector<vector<int>> arr)
                 }
             }
 
-            if (rowSum == colSum && rowSum + arr[i][j] != max)
+            if (rowSum == colSum && (rowSum + arr[i][j]) < max)
             {
                 cost += abs((max - rowSum) - arr[i][j]); 
             }
