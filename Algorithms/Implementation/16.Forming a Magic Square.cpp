@@ -57,7 +57,7 @@ int formingMagicSquare(vector<vector<int>> arr)
 
             if (rowSum == colSum)
             {
-                /* code */
+                
             }
         }
     }
