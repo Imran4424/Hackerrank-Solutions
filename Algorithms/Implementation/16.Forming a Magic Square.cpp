@@ -57,8 +57,9 @@ int formingMagicSquare(vector<vector<int>> arr)
 
             if(i == j)
             {
-                diagonalSum = (primaryDiagonal - arr[i][j])
+                diagonalSum = (primaryDiagonal - arr[i][j]);
             }
+            
 
             if (rowSum == colSum && (rowSum + arr[i][j]) < max)
             {
