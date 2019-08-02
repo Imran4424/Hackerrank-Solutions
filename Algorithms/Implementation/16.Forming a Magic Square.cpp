@@ -62,7 +62,7 @@ int formingMagicSquare(vector<vector<int>> arr)
         }
     }
 
-    return 
+    return cost;
 }
 
 int main()
