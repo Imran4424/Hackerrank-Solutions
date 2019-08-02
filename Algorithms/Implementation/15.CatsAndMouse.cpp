@@ -12,7 +12,7 @@ string catAndMouse(int x, int y, int z)
 
     if (xDistance < yDistance)
     {
-       return"Cat A" << endl;
+       return "Cat A";
     }
     else if(xDistance > yDistance)
     {
