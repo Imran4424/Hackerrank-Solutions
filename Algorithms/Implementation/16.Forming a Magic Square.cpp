@@ -19,7 +19,8 @@ int main()
     {
         s[i].resize(3);
 
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < 3; j++) 
+        {
             cin >> s[i][j];
         }
 
