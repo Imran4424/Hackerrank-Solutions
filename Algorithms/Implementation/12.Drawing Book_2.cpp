@@ -12,7 +12,7 @@ int pageCount(int n, int p)
 
     if (frontTurn < backTurn)
     {
-        /* code */
+        return frontTurn;
     }
 }
 
