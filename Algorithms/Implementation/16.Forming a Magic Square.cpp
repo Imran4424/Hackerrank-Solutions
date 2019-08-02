@@ -3,7 +3,7 @@
 using namespace std;
 
 // Complete the formingMagicSquare function below.
-int formingMagicSquare(vector<vector<int>> arr) 
+int formingMagicSquare(vector<vector<int>> arr) //// not solved yet
 {
     int primaryDiagonal = 0, secondaryDiagonal = 0;
 
