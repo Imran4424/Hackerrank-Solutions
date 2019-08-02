@@ -24,9 +24,10 @@ int getMoneySpent(vector<int> keyboards, vector<int> drives, int b)
 
     if (-999 == max)
     {
-        
+        return -1;
     }
 
+    return max;
 }
 
 int main()
