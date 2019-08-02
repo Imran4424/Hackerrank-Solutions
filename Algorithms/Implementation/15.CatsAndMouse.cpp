@@ -5,7 +5,8 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the catAndMouse function below.
-string catAndMouse(int x, int y, int z) {
+string catAndMouse(int x, int y, int z) 
+{
 
 
 }
