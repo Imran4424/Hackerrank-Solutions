@@ -11,7 +11,15 @@ int formingMagicSquare(vector<vector<int>> arr)
     {
         for (int j = 0; j < arr[i].size(); ++j)
         {
-            
+            if (i==j)
+            {
+                primaryDiagonal += arr[i][j];
+            }
+
+            if (i+j == arr.size() - 1)
+            {
+                /* code */
+            }
         }
     }
 
