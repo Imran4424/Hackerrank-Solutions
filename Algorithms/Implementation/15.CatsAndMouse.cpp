@@ -10,7 +10,10 @@ string catAndMouse(int x, int y, int z)
     int xDistance = abs(z-x);
     int yDistance = abs(z-y);
 
-    i
+    if (xDistance < yDistance)
+    {
+        cout << ""
+    }
 }
 
 int main()
