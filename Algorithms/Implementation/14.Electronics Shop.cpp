@@ -9,9 +9,6 @@ vector<string> split_string(string);
  */
 int getMoneySpent(vector<int> keyboards, vector<int> drives, int b) 
 {
-    /*
-     * Write your code here.
-     */
 
 }
 
