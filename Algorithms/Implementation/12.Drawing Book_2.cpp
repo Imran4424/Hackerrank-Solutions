@@ -6,45 +6,9 @@ using namespace std;
  */
 int pageCount(int n, int p) 
 {
-    int front = p-1;
+    int frontTurn = p / 2;
 
-    int frontTurn, backTurn;
-
-    if (front % 2 == 0)
-    {
-        frontTurn = front / 2;
-    }
-    else
-    {
-        frontTurn = (front / 2 )+ 1;
-    }
-
-    int back = n - p;
-
-    if(n % 2 == 0)
-    {
-        if (back % 2 == 0)
-        {
-            backTurn = back / 2;
-        }
-        else
-        {
-            backTurn = (back / 2) + 1;
-        }
-    }
-    else
-    {
-       backTurn = back / 2;
-    }
-
-    
-
-    if (frontTurn < backTurn)
-    {
-        return frontTurn;
-    }
-
-    return backTurn;
+    int backTurn = (n / 2) - frontTurn;
 }
 
 int main()
