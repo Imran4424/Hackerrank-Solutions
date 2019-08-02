@@ -14,7 +14,9 @@ int main()
     ofstream fout(getenv("OUTPUT_PATH"));
 
     vector<vector<int>> s(3);
-    for (int i = 0; i < 3; i++) {
+    
+    for (int i = 0; i < 3; i++) 
+    {
         s[i].resize(3);
 
         for (int j = 0; j < 3; j++) {
