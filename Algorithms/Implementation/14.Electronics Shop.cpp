@@ -49,7 +49,8 @@ int main()
 
     vector<int> drives(m);
 
-    for (int drives_itr = 0; drives_itr < m; drives_itr++) {
+    for (int drives_itr = 0; drives_itr < m; drives_itr++) 
+    {
         int drives_item = stoi(drives_temp[drives_itr]);
 
         drives[drives_itr] = drives_item;
