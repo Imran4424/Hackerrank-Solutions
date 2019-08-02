@@ -14,6 +14,8 @@ int pageCount(int n, int p)
     {
         return frontTurn;
     }
+
+    return backTurn;
 }
 
 int main()
