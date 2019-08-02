@@ -12,7 +12,7 @@ string catAndMouse(int x, int y, int z)
 
     if (xDistance < yDistance)
     {
-        cout << "Cat A" << endl;
+       return"Cat A" << endl;
     }
     else if(xDistance > yDistance)
     {
