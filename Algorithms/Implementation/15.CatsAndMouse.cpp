@@ -62,7 +62,8 @@ vector<string> split_string(string input_string)
     size_t i = 0;
     size_t pos = input_string.find(delimiter);
 
-    while (pos != string::npos) {
+    while (pos != string::npos) 
+    {
         splits.push_back(input_string.substr(i, pos - i));
 
         i = pos + 1;
