@@ -11,7 +11,7 @@ int getMoneySpent(vector<int> keyboards, vector<int> drives, int b)
 {
     int  max = -999; // a negative value 
 
-    for (int i = 0; i < count; ++i)
+    for (int i = 0; i < keyboards.size(); ++i)
     {
         /* code */
     }
