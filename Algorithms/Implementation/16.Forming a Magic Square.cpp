@@ -11,7 +11,7 @@ int formingMagicSquare(vector<vector<int>> arr)
     {
         for (int j = 0; j < arr[i].size(); ++j)
         {
-            /* code */
+            
         }
     }
 
