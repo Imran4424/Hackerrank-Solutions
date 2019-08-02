@@ -38,7 +38,15 @@ int formingMagicSquare(vector<vector<int>> arr)
     {
         for (int j = 0; j < arr[i].size(); ++j)
         {
-            
+            int rowSum = 0, colSum = 0;
+
+            for (int k = 0; k < arr.size(); ++k)
+            {
+                if(j != k)
+                {
+                    rowSum += arr[i][k]
+                }
+            }
         }
     }
 
