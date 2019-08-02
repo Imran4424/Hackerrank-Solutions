@@ -34,6 +34,8 @@ int formingMagicSquare(vector<vector<int>> arr)
         max = secondaryDiagonal;
     }
 
+    int cost = 0;
+
     for (int i = 0; i < arr.size(); ++i)
     {
         for (int j = 0; j < arr[i].size(); ++j)
@@ -53,6 +55,10 @@ int formingMagicSquare(vector<vector<int>> arr)
                 }
             }
 
+            if (rowSum == colSum)
+            {
+                /* code */
+            }
         }
     }
 
