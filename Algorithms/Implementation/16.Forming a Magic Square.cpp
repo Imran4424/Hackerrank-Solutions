@@ -3,7 +3,8 @@
 using namespace std;
 
 // Complete the formingMagicSquare function below.
-int formingMagicSquare(vector<vector<int>> s) {
+int formingMagicSquare(vector<vector<int>> s) 
+{
 
 
 }
