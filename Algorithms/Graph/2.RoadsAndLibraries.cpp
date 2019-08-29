@@ -22,11 +22,15 @@ int main(int argc, char const *argv[])
 		int cities, roads, libraryCost, roadCost;
 		cin >> cities >> roads >> libraryCost >> roadCost;
 
-		adjacency = new vector <int> [vertex+1];
+		adjacency = new vector <int> [cities+1];
 
-		for (int i = 0; i < count; ++i)
+		int u, v;
+
+		for (int i = 0; i < roads; ++i)
 		{
-			/* code */
+			cin >> u >> v;
+
+			AddEdge(u, v);
 		}
 	}
 	
