@@ -5,8 +5,8 @@ using namespace std;
 vector<string> split_string(string);
 
 int *parent;
-vector <bool> currentParent;
 
+int libraryNeed;
 int roadsNeed;
 
 void MakeSet(int vertex)
@@ -41,7 +41,7 @@ void Union(int xVertex, int yVertex)
 	{
 		parent[yParent] = xParent;
 
-		currentParent[yParent] = false;
+		libraryNeed--;
 
 		roadsNeed++;
 	}
@@ -53,24 +53,14 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 	parent = new int[n + 1];
 	InitDisjoint(n);
 
-	currentParent.resize(n+1, true);
-	currentParent[0] = false;
-
-	roadsNeed = 0;
-	int libraryNeed = 0;
+	roadsNeed = n;
+	libraryNeed = 0;
 
 	for (int i = 0; i < cities.size(); ++i)
 	{
 		Union(cities[i][0], cities[i][1]);
 	}
 
-	for (int i = 1; i < currentParent.size(); ++i)
-	{
-		if (currentParent[i])
-		{
-			libraryNeed++;
-		}
-	}
 
 	int totalCost = (libraryNeed * c_lib) + (roadsNeed * c_road);
 	int allLibraryCost = n * c_lib;
