@@ -24,7 +24,10 @@ void InitDisjoint(int vertex)
 long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) 
 {
 	parent = new int[n + 1];
-
+	InitDisjoint(n);
+	
+	currentParent(n+1, true);
+	currentParent[0] = false;
 }
 
 int main()
