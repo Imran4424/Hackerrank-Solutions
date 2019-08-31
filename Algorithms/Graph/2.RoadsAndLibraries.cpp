@@ -32,7 +32,7 @@ int SearchParent(int vertex)
 	return parent[vertex] = SearchParent(parent[vertex]);
 }
 
-void Union(int xVertex, yVertex)
+void Union(int xVertex, int yVertex)
 {
 	int xParent = SearchParent(xVertex);
 	int yParent = SearchParent(yVertex);
@@ -53,7 +53,7 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 	parent = new int[n + 1];
 	InitDisjoint(n);
 
-	currentParent(n+1, true);
+	currentParent.resize(n+1, true);
 	currentParent[0] = false;
 
 	roadsNeed = 0;
