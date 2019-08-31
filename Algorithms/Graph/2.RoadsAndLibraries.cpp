@@ -4,9 +4,13 @@ using namespace std;
 
 vector<string> split_string(string);
 
-// Complete the roadsAndLibraries function below.
-long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) {
+int *parent;
+vector <bool> currentParent;
 
+// Complete the roadsAndLibraries function below.
+long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) 
+{
+	parent = new int[n + 1];
 
 }
 
