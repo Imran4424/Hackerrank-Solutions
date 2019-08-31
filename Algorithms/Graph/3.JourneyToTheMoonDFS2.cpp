@@ -1,3 +1,14 @@
+/*
+    this codes solves the problem
+
+    but 
+
+    at test case 11
+
+    it faces time limit exceeded
+
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;

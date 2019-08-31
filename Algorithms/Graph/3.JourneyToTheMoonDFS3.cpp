@@ -18,6 +18,7 @@ typedef long long int lli;
 vector<string> split_string(string);
 
 vector <lli> *adjacency;
+lli countMembers;
 
 void AddEdge(lli source, lli destination)
 {
@@ -25,21 +26,30 @@ void AddEdge(lli source, lli destination)
     adjacency[destination].push_back(source);
 }
 
-lli DFS(lli current, vector <bool> &visited, lli count)
+void DFS(lli startVertex, vector <bool> &visited)
 {
-    for(lli k = 0; k < adjacency[current].size(); k++)
+    stack <lli> currentNodes;
+
+    currentNodes.push(startVertex);
+
+    while(!currentNodes.empty())
     {
-        if (!visited[adjacency[current][k]])
+        lli current = currentNodes.top();
+        currentNodes.pop();
+
+        for(lli k = 0; k < adjacency[current].size(); k++)
         {
-            visited[adjacency[current][k]] = true;
+            if (!visited[adjacency[current][k]])
+            {
+                visited[adjacency[current][k]] = true;
 
-            count++;
+                countMembers++;
 
-            count = DFS(adjacency[current][k], visited, count);
-        }
+                currentNodes.push(adjacency[current][k]);
+            }
+        }        
     }
 
-    return count;
 }
 
 
@@ -63,7 +73,11 @@ lli journeyToMoon(lli n, vector<vector<lli>> astronaut)
         {
             visited[i] = true;
 
-            countries.push_back(DFS(i, visited, 1)); // starting the count as 1 cause 
+            countMembers = 1;
+
+            DFS(i, visited);
+
+            countries.push_back(countMembers); // starting the count as 1 cause 
         }                                           //  i is already a country member
     }
 

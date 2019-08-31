@@ -1,26 +1,34 @@
+/*
+    this solution needs to be fixed
+
+    lot of errors in this code
+
+    never submit it
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
 
-typedef long long int lli;
+typedef unsigned long int lli;
 
 vector<string> split_string(string);
 
-lli *parent;
-lli *countryMembers;
+vector <lli> parent;
+vector <lli> countryMembers;
 
-void MakeSet(lli vertex)
-{
-    parent[vertex] = vertex;
-}
+// void MakeSet(lli vertex)
+// {
+//     parent[vertex] = vertex;
+// }
 
 void InitDisjoint(lli vertex)
 {
     for (lli i = 0; i < vertex; ++i)
     {
-        MakeSet(i);
+        parent[i] = i;
 
-        countryMembers[i] = 0; // starting the count as 1 cause i is already a country member
+        //countryMembers[i] = 0; // starting the count as 1 cause i is already a country member
     }
 }
 
@@ -52,15 +60,22 @@ void Union(lli xVertex, lli yVertex)
 // Complete the journeyToMoon function below.
 lli journeyToMoon(lli n, vector<vector<lli>> astronaut) 
 {
-    parent = new lli[n];
-    countryMembers = new lli[n];
+    parent.resize(n);
+    countryMembers.resize(n, 1);
 
     InitDisjoint(n);
+
+     for (lli i = 0; i < astronaut.size(); ++i)
+    {
+        Union(astronaut[i][0], astronaut[i][1]);
+    }
 
     vector <lli> countries;
 
     for (lli i = 0; i < n; ++i)
     {
+        cout << i << " " << countryMembers[i] << endl;
+
         if (countryMembers[i] > 0)
         {
             countries.push_back(countryMembers[i]);
@@ -86,7 +101,7 @@ lli journeyToMoon(lli n, vector<vector<lli>> astronaut)
 
 int main()
 {
-    freopn("input.txt", "r", stdin);
+    //freopen("input.txt", "r", stdin);
 
     ofstream fout(getenv("OUTPUT_PATH"));
 
