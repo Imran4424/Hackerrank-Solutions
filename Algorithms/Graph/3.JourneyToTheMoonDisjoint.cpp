@@ -7,6 +7,7 @@ typedef long long int lli;
 vector<string> split_string(string);
 
 lli *parent;
+lli *countryMembers;
 
 void MakeSet(lli vertex)
 {
@@ -15,9 +16,11 @@ void MakeSet(lli vertex)
 
 void InitDisjoint(lli vertex)
 {
-    for (int i = 0; i < vertex; ++i)
+    for (lli i = 0; i < vertex; ++i)
     {
         MakeSet(i);
+
+        countryMembers[i] = 1; // starting the count as 1 cause i is already a country member
     }
 }
 
@@ -31,11 +34,54 @@ lli SearchMother(lli vertex)
     return parent[vertex] = SearchMother(parent[vertex]);
 }
 
+void Union(lli xVertex, lli yVertex)
+{
+    lli xParent = SearchMother(xVertex);
+    lli yParent = SearchMother(yVertex);
+
+    if (xParent != yParent)
+    {
+        parent[yParent] = xParent;
+
+        countryMembers[xParent]++;
+        countryMembers[yParent]--;
+    }
+
+}
+
 // Complete the journeyToMoon function below.
 lli journeyToMoon(lli n, vector<vector<lli>> astronaut) 
 {
+    parent = new int[n];
+    countryMembers = new int[n];
 
+    InitDisjoint(n);
 
+    vector <lli> countries;
+
+    for (lli i = 0; i < n; ++i)
+    {
+        if (countryMembers[i] > 0)
+        {
+            countries.push_back(countryMembers[i]);
+        }
+    }
+
+    lli pairCount = 0;
+
+    for (lli i = 0; i < countries.size(); ++i)
+    {
+        for (lli j = i+1; j < countries.size(); ++j)
+        {
+            // this is combination but as we know nC1 = n
+            // we skip the calculation for better time complexity
+
+            pairCount += countries[i] * countries[j]; 
+            
+        }
+    }
+
+    return pairCount;
 }
 
 int main()
