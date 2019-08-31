@@ -7,6 +7,8 @@ vector<string> split_string(string);
 int *parent;
 vector <bool> currentParent;
 
+int roadsNeed;
+
 void MakeSet(int vertex)
 {
 	parent[vertex] = vertex;
@@ -20,14 +22,20 @@ void InitDisjoint(int vertex)
 	}
 }
 
+int SearchParent()
+
 // Complete the roadsAndLibraries function below.
 long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) 
 {
 	parent = new int[n + 1];
 	InitDisjoint(n);
-	
+
 	currentParent(n+1, true);
 	currentParent[0] = false;
+
+	roadsNeed = 0;
+
+
 }
 
 int main()
