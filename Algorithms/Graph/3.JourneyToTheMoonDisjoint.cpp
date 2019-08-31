@@ -2,6 +2,8 @@
 
 using namespace std;
 
+typedef long long int lli;
+
 vector<string> split_string(string);
 
 // Complete the journeyToMoon function below.

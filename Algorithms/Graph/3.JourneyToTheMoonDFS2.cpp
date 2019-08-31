@@ -7,7 +7,7 @@ typedef long long int lli;
 vector<string> split_string(string);
 
 vector <lli> *adjacency;
-int count;
+lli countMembers;
 
 void AddEdge(lli source, lli destination)
 {
@@ -23,9 +23,9 @@ void DFS(lli current, vector <bool> &visited)
         {
             visited[adjacency[current][k]] = true;
 
-            count++;
+            countMembers++;
 
-            DFS(adjacency[current][k], visited, count);
+            DFS(adjacency[current][k], visited);
         }
     }
 }
@@ -51,11 +51,11 @@ lli journeyToMoon(lli n, vector<vector<lli>> astronaut)
         {
             visited[i] = true;
 
-            count = 1;
+            countMembers = 1;
 
             DFS(i, visited);
 
-            countries.push_back(count); // starting the count as 1 cause 
+            countries.push_back(countMembers); // starting the count as 1 cause 
         }                                           //  i is already a country member
     }
 
