@@ -14,6 +14,20 @@ void AddEdge(int source, int destination)
 	adjacency[destination].push_back(source);
 }
 
+void DFS(int current, vector <bool> &visited)
+{
+	for (int k = 0; k < adjacency[current].size(); ++k)
+	{
+		if (!visited[adjacency[current][k]])
+		{
+			visited[adjacency[current][k]] = true;
+			roadsNeed++;
+
+			DFS(adjacency[current][k], visited);
+		}
+	}
+}
+
 
 // Complete the roadsAndLibraries function below.
 long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) 
@@ -28,10 +42,15 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 		AddEdge(cities[i][0], cities[i][1]);
 	}
 
+	vector <bool> visited(n+1, false);
+
 	for (int i = 1; i <= n; ++i)
 	{
-		if (currentParent[i])
+		if (!visited[i])
 		{
+			visited[i] = true;
+
+			DFS(i, visited);
 			libraryNeed++;
 		}
 	}
