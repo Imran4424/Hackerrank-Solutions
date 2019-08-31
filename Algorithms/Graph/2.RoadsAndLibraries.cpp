@@ -58,6 +58,12 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 
 	roadsNeed = 0;
 
+	for (int i = 0; i < cities.size(); ++i)
+	{
+		Union(cities[i][0], cities[i][1]);
+	}
+
+	
 
 }
 
