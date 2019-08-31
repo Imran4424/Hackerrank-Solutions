@@ -20,7 +20,11 @@ void DFS(lli current, vector <bool> &visited, lli count)
     {
         if (!visited[adjacency[current][k]])
         {
-            
+            visited[adjacency[current][k]] = true;
+
+            count++;
+
+            return DFS(adjacency[current][k], visited, count);
         }
     }
 }
@@ -29,7 +33,7 @@ void DFS(lli current, vector <bool> &visited, lli count)
 // Complete the journeyToMoon function below.
 lli journeyToMoon(lli n, vector<vector<lli>> astronaut) 
 {
-
+    adjacency = new vector <lli> [n+1];
 
 }
 
