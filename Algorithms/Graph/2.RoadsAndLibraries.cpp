@@ -4,19 +4,19 @@ using namespace std;
 
 vector<string> split_string(string);
 
-vector <int> *adjacency;
+vector <long> *adjacency;
 
-int roadsNeed;
+long roadsNeed;
 
-void AddEdge(int source, int destination)
+void AddEdge(long source, long destination)
 {
 	adjacency[source].push_back(destination);
 	adjacency[destination].push_back(source);
 }
 
-void DFS(int current, vector <bool> &visited)
+void DFS(long current, vector <bool> &visited)
 {
-	for (int k = 0; k < adjacency[current].size(); ++k)
+	for (long k = 0; k < adjacency[current].size(); ++k)
 	{
 		if (!visited[adjacency[current][k]])
 		{
@@ -30,21 +30,21 @@ void DFS(int current, vector <bool> &visited)
 
 
 // Complete the roadsAndLibraries function below.
-long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) 
+long roadsAndLibraries(long n, long c_lib, long c_road, vector<vector<long>> cities) 
 {
-	int libraryNeed = 0;
+	long libraryNeed = 0;
 	roadsNeed = 0;
 	
-	adjacency = new vector <int> [n+1];
+	adjacency = new vector <long> [n+1];
 
-	for (int i = 0; i < cities.size(); ++i)
+	for (long i = 0; i < cities.size(); ++i)
 	{
 		AddEdge(cities[i][0], cities[i][1]);
 	}
 
 	vector <bool> visited(n+1, false);
 
-	for (int i = 1; i <= n; ++i)
+	for (long i = 1; i <= n; ++i)
 	{
 		if (!visited[i])
 		{
@@ -55,8 +55,8 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 		}
 	}
 
-	int totalCost = (libraryNeed * c_lib) + (roadsNeed * c_road);
-	int allLibraryCost = n * c_lib;
+	long totalCost = (libraryNeed * c_lib) + (roadsNeed * c_road);
+	long allLibraryCost = n * c_lib;
 
 	if (allLibraryCost < totalCost)
 	{
@@ -68,34 +68,34 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 
 int main()
 {
-	freopen ("input.txt","r",stdin);
- 	freopen ("output.txt","w",stdout);
+	// freopen ("input.txt","r",stdin);
+ // 	freopen ("output.txt","w",stdout);
 
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    int q;
+    long q;
     cin >> q;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int q_itr = 0; q_itr < q; q_itr++) {
+    for (long q_itr = 0; q_itr < q; q_itr++) {
         string nmC_libC_road_temp;
         getline(cin, nmC_libC_road_temp);
 
         vector<string> nmC_libC_road = split_string(nmC_libC_road_temp);
 
-        int n = stoi(nmC_libC_road[0]);
+        long n = stoi(nmC_libC_road[0]);
 
-        int m = stoi(nmC_libC_road[1]);
+        long m = stoi(nmC_libC_road[1]);
 
-        int c_lib = stoi(nmC_libC_road[2]);
+        long c_lib = stoi(nmC_libC_road[2]);
 
-        int c_road = stoi(nmC_libC_road[3]);
+        long c_road = stoi(nmC_libC_road[3]);
 
-        vector<vector<int>> cities(m);
-        for (int i = 0; i < m; i++) {
+        vector<vector<long>> cities(m);
+        for (long i = 0; i < m; i++) {
             cities[i].resize(2);
 
-            for (int j = 0; j < 2; j++) {
+            for (long j = 0; j < 2; j++) {
                 cin >> cities[i][j];
             }
 

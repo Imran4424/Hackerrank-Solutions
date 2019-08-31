@@ -2,27 +2,29 @@
 
 using namespace std;
 
+typedef long long int lli;
+
 vector<string> split_string(string);
 
-int *parent;
+lli *parent;
 
-int libraryNeed;
-int roadsNeed;
+lli libraryNeed;
+lli roadsNeed;
 
-void MakeSet(int vertex)
+void MakeSet(lli vertex)
 {
 	parent[vertex] = vertex;
 }
 
-void InitDisjoint(int vertex)
+void InitDisjolli(lli vertex)
 {
-	for (int i = 1; i <= vertex; ++i)
+	for (lli i = 1; i <= vertex; ++i)
 	{
 		MakeSet(i);
 	}
 }
 
-int SearchParent(int vertex)
+lli SearchParent(lli vertex)
 {
 	if (parent[vertex] == vertex)
 	{
@@ -32,10 +34,10 @@ int SearchParent(int vertex)
 	return parent[vertex] = SearchParent(parent[vertex]);
 }
 
-void Union(int xVertex, int yVertex)
+void Union(lli xVertex, lli yVertex)
 {
-	int xParent = SearchParent(xVertex);
-	int yParent = SearchParent(yVertex);
+	lli xParent = SearchParent(xVertex);
+	lli yParent = SearchParent(yVertex);
 
 	if (xParent != yParent)
 	{
@@ -48,22 +50,22 @@ void Union(int xVertex, int yVertex)
 }
 
 // Complete the roadsAndLibraries function below.
-long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) 
+lli roadsAndLibraries(lli n, lli c_lib, lli c_road, vector<vector<lli>> cities) 
 {
-	parent = new int[n + 1];
-	InitDisjoint(n);
+	parent = new lli[n + 1];
+	InitDisjolli(n);
 
     libraryNeed = n;
 	roadsNeed = 0;
 
-	for (int i = 0; i < cities.size(); ++i)
+	for (lli i = 0; i < cities.size(); ++i)
 	{
 		Union(cities[i][0], cities[i][1]);
 	}
 
 
-	long totalCost = (libraryNeed * c_lib) + (roadsNeed * c_road);
-	long allLibraryCost = n * c_lib;
+	lli totalCost = (libraryNeed * c_lib) + (roadsNeed * c_road);
+	lli allLibraryCost = n * c_lib;
 
 	if (allLibraryCost < totalCost)
 	{
@@ -75,41 +77,39 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 
 int main()
 {
-    freopen ("input.txt","r",stdin);
-    freopen ("output.txt","w",stdout);
 
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    int q;
+    lli q;
     cin >> q;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int q_itr = 0; q_itr < q; q_itr++) {
+    for (lli q_itr = 0; q_itr < q; q_itr++) {
         string nmC_libC_road_temp;
         getline(cin, nmC_libC_road_temp);
 
         vector<string> nmC_libC_road = split_string(nmC_libC_road_temp);
 
-        int n = stoi(nmC_libC_road[0]);
+        lli n = stoi(nmC_libC_road[0]);
 
-        int m = stoi(nmC_libC_road[1]);
+        lli m = stoi(nmC_libC_road[1]);
 
-        int c_lib = stoi(nmC_libC_road[2]);
+        lli c_lib = stoi(nmC_libC_road[2]);
 
-        int c_road = stoi(nmC_libC_road[3]);
+        lli c_road = stoi(nmC_libC_road[3]);
 
-        vector<vector<int>> cities(m);
-        for (int i = 0; i < m; i++) {
+        vector<vector<lli>> cities(m);
+        for (lli i = 0; i < m; i++) {
             cities[i].resize(2);
 
-            for (int j = 0; j < 2; j++) {
+            for (lli j = 0; j < 2; j++) {
                 cin >> cities[i][j];
             }
 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
 
-        long result = roadsAndLibraries(n, c_lib, c_road, cities);
+        lli result = roadsAndLibraries(n, c_lib, c_road, cities);
 
         fout << result << "\n";
     }
