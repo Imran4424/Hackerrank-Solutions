@@ -16,7 +16,7 @@ void AddEdge(lli source, lli destination)
 
 void DFS(lli current, vector <bool> &visited, lli count)
 {
-    for(int k = 0; k < adjacency[current].size(); k++)
+    for(lli k = 0; k < adjacency[current].size(); k++)
     {
         if (!visited[adjacency[current][k]])
         {
@@ -35,6 +35,39 @@ lli journeyToMoon(lli n, vector<vector<lli>> astronaut)
 {
     adjacency = new vector <lli> [n+1];
 
+    vector <bool> visited(n+1, false);
+
+    for (lli i = 0; i < astronaut.size(); ++i)
+    {
+        AddEdge(astronaut[i][0], astronaut[i][1]);
+    }
+
+    vector <lli> countries;
+
+    for (lli i = 0; i < n; ++i)
+    {
+        if (!visited[i])
+        {
+            visited[i] = true;
+
+            countries.push_back(DFS(i, visited, 0));
+        }
+    }
+
+    lli pairCount = 0;
+
+    for (lli i = 0; i < countries.size(); ++i)
+    {
+        for (lli j = 0; j < countries.size(); ++j)
+        {
+            if (i != j)
+            {
+                pairCount += countries[i] * countries[j];
+            }
+        }
+    }
+
+    return pairCount;
 }
 
 int main()
