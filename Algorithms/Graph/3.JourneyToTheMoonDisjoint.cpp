@@ -20,7 +20,7 @@ void InitDisjoint(lli vertex)
     {
         MakeSet(i);
 
-        countryMembers[i] = 1; // starting the count as 1 cause i is already a country member
+        countryMembers[i] = 0; // starting the count as 1 cause i is already a country member
     }
 }
 
@@ -52,8 +52,8 @@ void Union(lli xVertex, lli yVertex)
 // Complete the journeyToMoon function below.
 lli journeyToMoon(lli n, vector<vector<lli>> astronaut) 
 {
-    parent = new int[n];
-    countryMembers = new int[n];
+    parent = new lli[n];
+    countryMembers = new lli[n];
 
     InitDisjoint(n);
 
@@ -86,6 +86,8 @@ lli journeyToMoon(lli n, vector<vector<lli>> astronaut)
 
 int main()
 {
+    freopn("input.txt", "r", stdin);
+
     ofstream fout(getenv("OUTPUT_PATH"));
 
     string np_temp;
