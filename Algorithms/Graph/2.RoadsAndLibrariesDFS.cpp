@@ -68,16 +68,14 @@ long roadsAndLibraries(long n, long c_lib, long c_road, vector<vector<long>> cit
 
 int main()
 {
-	// freopen ("input.txt","r",stdin);
- // 	freopen ("output.txt","w",stdout);
-
     ofstream fout(getenv("OUTPUT_PATH"));
 
     long q;
     cin >> q;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (long q_itr = 0; q_itr < q; q_itr++) {
+    for (long q_itr = 0; q_itr < q; q_itr++) 
+    {
         string nmC_libC_road_temp;
         getline(cin, nmC_libC_road_temp);
 
@@ -92,10 +90,12 @@ int main()
         long c_road = stoi(nmC_libC_road[3]);
 
         vector<vector<long>> cities(m);
-        for (long i = 0; i < m; i++) {
+        for (long i = 0; i < m; i++) 
+        {
             cities[i].resize(2);
 
-            for (long j = 0; j < 2; j++) {
+            for (long j = 0; j < 2; j++) 
+            {
                 cin >> cities[i][j];
             }
 
