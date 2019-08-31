@@ -14,7 +14,7 @@ void AddEdge(lli source, lli destination)
     adjacency[destination].push_back(source);
 }
 
-void DFS(lli current, vector <bool> &visited, lli count)
+lli DFS(lli current, vector <bool> &visited, lli count)
 {
     for(lli k = 0; k < adjacency[current].size(); k++)
     {
@@ -24,9 +24,11 @@ void DFS(lli current, vector <bool> &visited, lli count)
 
             count++;
 
-            return DFS(adjacency[current][k], visited, count);
+            count = DFS(adjacency[current][k], visited, count);
         }
     }
+
+    return count;
 }
 
 
@@ -44,26 +46,27 @@ lli journeyToMoon(lli n, vector<vector<lli>> astronaut)
 
     vector <lli> countries;
 
-    for (lli i = 0; i < n; ++i)
+    for (lli i = 0; i < n; ++i) // vertex count starts from 0
     {
         if (!visited[i])
         {
             visited[i] = true;
 
-            countries.push_back(DFS(i, visited, 0));
-        }
+            countries.push_back(DFS(i, visited, 1)); // starting the count as 1 cause 
+        }                                           //  i is already a country member
     }
 
     lli pairCount = 0;
 
     for (lli i = 0; i < countries.size(); ++i)
     {
-        for (lli j = 0; j < countries.size(); ++j)
+        for (lli j = i+1; j < countries.size(); ++j)
         {
-            if (i != j)
-            {
-                pairCount += countries[i] * countries[j];
-            }
+            // this is combination but as we know nC1 = n
+            // we skip the calculation for better time complexity
+
+            pairCount += countries[i] * countries[j]; 
+            
         }
     }
 
