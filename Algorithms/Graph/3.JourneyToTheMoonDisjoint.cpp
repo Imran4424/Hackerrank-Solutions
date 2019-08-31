@@ -6,6 +6,31 @@ typedef long long int lli;
 
 vector<string> split_string(string);
 
+lli *parent;
+
+void MakeSet(lli vertex)
+{
+    parent[vertex] = vertex;
+}
+
+void InitDisjoint(lli vertex)
+{
+    for (int i = 0; i < vertex; ++i)
+    {
+        MakeSet(i);
+    }
+}
+
+lli SearchMother(lli vertex)
+{
+    if (parent[vertex] == vertex)
+    {
+        return vertex;
+    }
+
+    return parent[vertex] = SearchMother(parent[vertex]);
+}
+
 // Complete the journeyToMoon function below.
 lli journeyToMoon(lli n, vector<vector<lli>> astronaut) 
 {
