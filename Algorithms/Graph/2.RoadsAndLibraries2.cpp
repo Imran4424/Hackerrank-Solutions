@@ -53,8 +53,8 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 	parent = new int[n + 1];
 	InitDisjoint(n);
 
-	roadsNeed = n;
-	libraryNeed = 0;
+    libraryNeed = n;
+	roadsNeed = 0;
 
 	for (int i = 0; i < cities.size(); ++i)
 	{
