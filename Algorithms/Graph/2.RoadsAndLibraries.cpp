@@ -1,45 +1,83 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
-typedef long long int lli;
+vector<string> split_string(string);
 
-vector <lli> *adjacency;
+// Complete the roadsAndLibraries function below.
+long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) {
 
-void AddEdge(lli u, lli v) // unidirected
-{
-	adjacency[u].push_back(v);
-	adjacency[v].push_back(u);
+
 }
 
-lli FindMinimumCost(lli cities, lli libraryCost, lli roadCost)
+int main()
 {
-	
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int q;
+    cin >> q;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int q_itr = 0; q_itr < q; q_itr++) {
+        string nmC_libC_road_temp;
+        getline(cin, nmC_libC_road_temp);
+
+        vector<string> nmC_libC_road = split_string(nmC_libC_road_temp);
+
+        int n = stoi(nmC_libC_road[0]);
+
+        int m = stoi(nmC_libC_road[1]);
+
+        int c_lib = stoi(nmC_libC_road[2]);
+
+        int c_road = stoi(nmC_libC_road[3]);
+
+        vector<vector<int>> cities(m);
+        for (int i = 0; i < m; i++) {
+            cities[i].resize(2);
+
+            for (int j = 0; j < 2; j++) {
+                cin >> cities[i][j];
+            }
+
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+
+        long result = roadsAndLibraries(n, c_lib, c_road, cities);
+
+        fout << result << "\n";
+    }
+
+    fout.close();
+
+    return 0;
 }
 
+vector<string> split_string(string input_string) {
+    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
+        return x == y and x == ' ';
+    });
 
-int main(int argc, char const *argv[])
-{
-	lli test;
-	cin >> test;
+    input_string.erase(new_end, input_string.end());
 
-	while(test--)
-	{
-		lli cities, roads, libraryCost, roadCost;
-		cin >> cities >> roads >> libraryCost >> roadCost;
+    while (input_string[input_string.length() - 1] == ' ') {
+        input_string.pop_back();
+    }
 
-		adjacency = new vector <lli> [cities+1];
+    vector<string> splits;
+    char delimiter = ' ';
 
-		lli u, v;
+    size_t i = 0;
+    size_t pos = input_string.find(delimiter);
 
-		for (lli i = 0; i < roads; ++i)
-		{
-			cin >> u >> v;
+    while (pos != string::npos) {
+        splits.push_back(input_string.substr(i, pos - i));
 
-			AddEdge(u, v);
-		}
+        i = pos + 1;
+        pos = input_string.find(delimiter, i);
+    }
 
+    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
 
-	}
-	
-	return 0;
+    return splits;
 }
