@@ -6,6 +6,26 @@ typedef long long int lli;
 
 vector<string> split_string(string);
 
+vector <lli> *adjacency;
+
+void AddEdge(lli source, lli destination)
+{
+    adjacency[source].push_back(destination);
+    adjacency[destination].push_back(source);
+}
+
+void DFS(lli current, vector <bool> &visited, lli count)
+{
+    for(int k = 0; k < adjacency[current].size(); k++)
+    {
+        if (!visited[adjacency[current][k]])
+        {
+            
+        }
+    }
+}
+
+
 // Complete the journeyToMoon function below.
 lli journeyToMoon(lli n, vector<vector<lli>> astronaut) 
 {
