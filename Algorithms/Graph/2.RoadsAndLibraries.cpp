@@ -68,6 +68,9 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 
 int main()
 {
+	freopen ("input.txt","r",stdin);
+ 	freopen ("output.txt","w",stdout);
+
     ofstream fout(getenv("OUTPUT_PATH"));
 
     int q;
