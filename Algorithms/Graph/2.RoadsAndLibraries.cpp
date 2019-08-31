@@ -22,7 +22,30 @@ void InitDisjoint(int vertex)
 	}
 }
 
-int SearchParent()
+int SearchParent(int vertex)
+{
+	if (parent[vertex] == vertex)
+	{
+		return vertex;
+	}
+
+	return parent[vertex] = SearchParent(parent[vertex]);
+}
+
+void Union(int xVertex, yVertex)
+{
+	int xParent = SearchParent(xVertex);
+	int yParent = SearchParent(yVertex);
+
+	if (xParent != yParent)
+	{
+		parent[yParent] = xParent;
+
+		currentParent[yParent] = false;
+
+		roadsNeed++;
+	}
+}
 
 // Complete the roadsAndLibraries function below.
 long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) 
