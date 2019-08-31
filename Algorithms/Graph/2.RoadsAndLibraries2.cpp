@@ -62,8 +62,8 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 	}
 
 
-	int totalCost = (libraryNeed * c_lib) + (roadsNeed * c_road);
-	int allLibraryCost = n * c_lib;
+	long totalCost = (libraryNeed * c_lib) + (roadsNeed * c_road);
+	long allLibraryCost = n * c_lib;
 
 	if (allLibraryCost < totalCost)
 	{

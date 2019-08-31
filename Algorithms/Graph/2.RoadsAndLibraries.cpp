@@ -64,7 +64,7 @@ long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities)
 		Union(cities[i][0], cities[i][1]);
 	}
 
-	for (int i = 1; i < currentParent.size(); ++i)
+	for (int i = 1; i <= n; ++i)
 	{
 		if (currentParent[i])
 		{
