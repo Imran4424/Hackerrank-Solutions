@@ -50,6 +50,8 @@ void Union(int xVertex, int yVertex)
 // Complete the roadsAndLibraries function below.
 long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) 
 {
+    freopen ("input.txt","r",stdin);
+
 	parent = new int[n + 1];
 	InitDisjoint(n);
 
