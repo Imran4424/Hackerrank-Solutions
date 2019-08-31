@@ -4,64 +4,28 @@ using namespace std;
 
 vector<string> split_string(string);
 
-int *parent;
-vector <bool> currentParent;
+vector <int> *adjacency;
 
 int roadsNeed;
 
-void MakeSet(int vertex)
+void AddEdge(int source, int destination)
 {
-	parent[vertex] = vertex;
+	adjacency[source].push_back(destination);
+	adjacency[destination].push_back(source);
 }
 
-void InitDisjoint(int vertex)
-{
-	for (int i = 1; i <= vertex; ++i)
-	{
-		MakeSet(i);
-	}
-}
-
-int SearchParent(int vertex)
-{
-	if (parent[vertex] == vertex)
-	{
-		return vertex;
-	}
-
-	return parent[vertex] = SearchParent(parent[vertex]);
-}
-
-void Union(int xVertex, int yVertex)
-{
-	int xParent = SearchParent(xVertex);
-	int yParent = SearchParent(yVertex);
-
-	if (xParent != yParent)
-	{
-		parent[yParent] = xParent;
-
-		currentParent[yParent] = false;
-
-		roadsNeed++;
-	}
-}
 
 // Complete the roadsAndLibraries function below.
 long roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) 
 {
-	parent = new int[n + 1];
-	InitDisjoint(n);
-
-	currentParent.resize(n+1, true);
-	currentParent[0] = false;
-
-	roadsNeed = 0;
 	int libraryNeed = 0;
+	roadsNeed = 0;
+	
+	adjacency = new vector <int> [n+1];
 
 	for (int i = 0; i < cities.size(); ++i)
 	{
-		Union(cities[i][0], cities[i][1]);
+		AddEdge(cities[i][0], cities[i][1]);
 	}
 
 	for (int i = 1; i <= n; ++i)
