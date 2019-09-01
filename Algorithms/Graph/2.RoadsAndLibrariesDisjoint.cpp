@@ -84,7 +84,8 @@ int main()
     cin >> q;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (lli q_itr = 0; q_itr < q; q_itr++) {
+    for (lli q_itr = 0; q_itr < q; q_itr++) 
+    {
         string nmC_libC_road_temp;
         getline(cin, nmC_libC_road_temp);
 
@@ -99,10 +100,12 @@ int main()
         lli c_road = stoi(nmC_libC_road[3]);
 
         vector<vector<lli>> cities(m);
-        for (lli i = 0; i < m; i++) {
+        for (lli i = 0; i < m; i++) 
+        {
             cities[i].resize(2);
 
-            for (lli j = 0; j < 2; j++) {
+            for (lli j = 0; j < 2; j++) 
+            {
                 cin >> cities[i][j];
             }
 
