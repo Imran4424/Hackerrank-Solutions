@@ -85,7 +85,12 @@ void Dijkstra(int startVertex, int totalVertex)
 
 int shop(int n, int k, vector<string> centers, vector<vector<int>> roads) 
 {
+    adjacency = new vector <couple> [n + 1];
 
+    for (int i = 0; i < roads.size(); ++i)
+    {
+        AddEdge(roads[i][0], roads[i][1]);
+    }
 }
 
 int main()
