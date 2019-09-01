@@ -8,6 +8,70 @@ vector<string> split(const string &);
 
 typedef pair <int, int> couple;
 
+vector <couple> *adjacency;
+
+vector <int> distanceFromSource;
+
+void AddEdge(int source, int destination, int weight)
+{
+    adjacency[source].push_back(make_pair(destination, weight));
+
+    adjacency[destination].push_back(make_pair(source, weight));
+}
+
+void Dijkstra(int startVertex, int totalVertex)
+{
+
+    distanceFromSource.resize(totalVertex + 1, INT_MAX);
+
+    priority_queue<couple, vector <couple>, greater <couple> > weightedList;
+
+    int iteration = (totalVertex / 2);
+
+    while(iteration--)
+    {
+
+        vector <bool> visited(totalVertex + 1, false);
+
+        weightedList.push(make_pair(0, startVertex));
+
+        // following two statements won't create any problem for next iteration
+        distanceFromSource[startVertex] = 0;
+        visited[startVertex] = true;
+
+
+        while(!weightedList.empty())
+        {
+            // cout << "Hi" << endl;
+
+            couple hand = weightedList.top();
+            weightedList.pop();
+
+            int current = hand.second;
+
+            for (int k = 0; k < adjacency[current].size(); ++k)
+            {
+                int neighbour = adjacency[current][k].first;
+                int neighbourDistance = adjacency[current][k].second;
+
+                if(distanceFromSource[current] + neighbourDistance < distanceFromSource[neighbour])
+                {
+                    distanceFromSource[neighbour] = distanceFromSource[current] + neighbourDistance;
+                }
+
+                if (!visited[neighbour])
+                {
+                    weightedList.push(make_pair(neighbourDistance, neighbour));
+
+                    visited[neighbour] = true;
+                }
+            }
+        }
+
+    }
+
+}
+
 /*
  * Complete the 'shop' function below.
  *
