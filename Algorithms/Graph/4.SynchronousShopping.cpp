@@ -38,7 +38,8 @@ int main()
 
     vector<string> centers(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         string centers_item;
         getline(cin, centers_item);
 
@@ -47,7 +48,8 @@ int main()
 
     vector<vector<int>> roads(m);
 
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < m; i++) 
+    {
         roads[i].resize(3);
 
         string roads_row_temp_temp;
@@ -55,7 +57,8 @@ int main()
 
         vector<string> roads_row_temp = split(rtrim(roads_row_temp_temp));
 
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < 3; j++) 
+        {
             int roads_row_item = stoi(roads_row_temp[j]);
 
             roads[i][j] = roads_row_item;
