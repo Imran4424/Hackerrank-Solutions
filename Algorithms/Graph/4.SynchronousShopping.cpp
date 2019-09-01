@@ -6,6 +6,8 @@ string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 
+typedef pair <int, int> couple;
+
 /*
  * Complete the 'shop' function below.
  *
@@ -17,7 +19,8 @@ vector<string> split(const string &);
  *  4. 2D_INTEGER_ARRAY roads
  */
 
-int shop(int n, int k, vector<string> centers, vector<vector<int>> roads) {
+int shop(int n, int k, vector<string> centers, vector<vector<int>> roads) 
+{
 
 }
 
