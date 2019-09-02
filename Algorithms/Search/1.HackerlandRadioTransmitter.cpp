@@ -11,30 +11,28 @@ lli hackerlandRadioTransmitters(vector<lli> x, lli k)
 {
     sort(x.begin(), x.end());
 
-   
-
     lli current = 0;
     lli transmitterCount = 0;
 
-    for (lli i = 0; current < x.size(); ++i)
+    while(current < x.size())
     {
-        lli upperRange = x[current] + (2 * k);
+        lli upperRange = x[current] + k;
 
-        lli previous = x[current];
-
-        lli j;
+        lli j = current;
 
 
-        for(j = current; x[j] <= upperRange && j < x.size(); j++)
+        while(x[j] <= upperRange && j < x.size())
         {
-            if (previous + k >= x[j])
-            {
-                previous = x[j];
-            }
-            else
-            {
-                break;
-            }
+            j++;
+        }
+    
+        j--;
+
+        upperRange = x[j] + k;
+
+        while(x[j] <= upperRange && j < x.size())
+        {
+            j++;
         }
 
         transmitterCount++;
