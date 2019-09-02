@@ -29,7 +29,19 @@ int hackerlandRadioTransmitters(vector<int> x, int k)
 
     int transmitterCount = 0;
 
-        
+    for (int i = 0; i < coverage.size(); ++i)
+    {
+        if (coverage[i] > 0)
+        {
+            transmitterCount++;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    return transmitterCount;    
 }
 
 int main()
