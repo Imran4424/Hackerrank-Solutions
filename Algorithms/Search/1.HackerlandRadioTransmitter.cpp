@@ -7,8 +7,16 @@ vector<string> split_string(string);
 // Complete the hackerlandRadioTransmitters function below.
 int hackerlandRadioTransmitters(vector<int> x, int k) 
 {
+    sort(x.begin(), x.end());
+
     vector <int> coverage[x.size()];
 
+    int current = 0;
+
+    for (int i = 0; i < x.size(); ++i)
+    {
+        int upperRange = x[current] + (2*k);
+    }    
 }
 
 int main()
