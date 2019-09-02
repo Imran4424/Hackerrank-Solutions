@@ -2,29 +2,31 @@
 
 using namespace std;
 
+typedef long long int lli;
+
 vector<string> split_string(string);
 
 // Complete the hackerlandRadioTransmitters function below.
-int hackerlandRadioTransmitters(vector<int> x, int k) 
+lli hackerlandRadioTransmitters(vector<lli> x, lli k) 
 {
     sort(x.begin(), x.end());
 
-    vector <int> coverage[x.size()];
+    vector <lli> coverage[x.size()];
 
-    int current = 0;
+    lli current = 0;
 
-    for (int i = 0; current < x.size(); ++i)
+    for (lli i = 0; current < x.size(); ++i)
     {
-        int upperRange = x[current] + (2 * k);
+        lli upperRange = x[current] + (2 * k);
 
-        int previous = x[current];
+        lli previous = x[current];
 
-        int j;
+        lli j;
 
 
         for(j = current; x[j] <= upperRange && j < x.size(); j++)
         {
-            if (previous + k <= x[j])
+            if (previous + k >= x[j])
             {
                 coverage[i].push_back(x[j]);
                 
@@ -39,9 +41,9 @@ int hackerlandRadioTransmitters(vector<int> x, int k)
         current = j;
     }
 
-    int transmitterCount = 0;
+    lli transmitterCount = 0;
 
-    for (int i = 0; i < x.size(); ++i)
+    for (lli i = 0; i < x.size(); ++i)
     {
         if (coverage[i].size() > 0)
         {
@@ -58,6 +60,8 @@ int hackerlandRadioTransmitters(vector<int> x, int k)
 
 int main()
 {
+    freopen("input.txt", "r", stdin);
+
     ofstream fout(getenv("OUTPUT_PATH"));
 
     string nk_temp;
@@ -65,25 +69,25 @@ int main()
 
     vector<string> nk = split_string(nk_temp);
 
-    int n = stoi(nk[0]);
+    lli n = stoi(nk[0]);
 
-    int k = stoi(nk[1]);
+    lli k = stoi(nk[1]);
 
     string x_temp_temp;
     getline(cin, x_temp_temp);
 
     vector<string> x_temp = split_string(x_temp_temp);
 
-    vector<int> x(n);
+    vector<lli> x(n);
 
-    for (int i = 0; i < n; i++) 
+    for (lli i = 0; i < n; i++) 
     {
-        int x_item = stoi(x_temp[i]);
+        lli x_item = stoi(x_temp[i]);
 
         x[i] = x_item;
     }
 
-    int result = hackerlandRadioTransmitters(x, k);
+    lli result = hackerlandRadioTransmitters(x, k);
 
     fout << result << "\n";
 
