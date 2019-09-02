@@ -9,27 +9,24 @@ typedef pair <lli, lli> couple;
 vector<string> split_string(string);
 
 // Complete the gridlandMetro function below.
-lli gridlandMetro(lli n, lli m, lli k, vector<vector<lli>> track) 
+lli gridlandMetro(lli n, lli m, lli k, map <lli, vector<couple> > track) 
 {
-    vector < vector <bool> > visited(n + 1, vector<bool> (m+1, false));
+    //vector < vector <bool> > visited(n + 1, vector<bool> (m+1, false));
 
     lli trackCount = 0;
 
-    for (lli i = 0; i < track.size(); ++i)
+    map <lli, couple> :: iterator it;
+
+    for (it = track.begin(); it != track.end(); ++it)
     {
-        lli row = track[i][0];
-        lli trackStart = track[i][1];
-        lli trackEnd = track[i][2];
+        lli row = it -> first;
+        
+        couple helper = it -> second;
+        
+        lli trackStart = helper.first;
+        lli trackEnd = helper.second;
 
-        for (lli x = trackStart; x <= trackEnd; ++x)
-        {
-            if (!visited[row][x])
-            {
-                visited[row][x] = true;
-
-                trackCount++;
-            }
-        }
+        trackCount += (trackEnd - trackStart + 1);
     }
 
     lli lampPosts = (n * m) - trackCount;
@@ -54,18 +51,41 @@ int main()
 
     lli row, trackStart, trackEnd;
 
-    map<lli, couple> track;
+    map<lli, vector <couple> > track;
 
     for (lli i = 0; i < k; i++) 
     {
         cin >> row >> trackStart >> trackEnd;
 
+        bool merged = false;
+
         if(track.count(lli(row)))
         {
-            if (trackStart )
+            for(lli m = 0; m < track[row].size(); m++)
             {
-                /* code */
+                if (trackStart < track[row][m].first)
+                {
+                    track[row][m].first = trackStart;
+
+                    merged = true;
+                }
+
+                if (trackEnd > track[row][m].second)
+                {
+                    track[row][m].second = trackEnd;
+
+                    merged = true;
+                }
             }
+
+            if (!merged)
+            {
+                track[row].push_back(make_pair(trackStart, trackEnd));
+            }
+        }
+        else
+        {
+            track[row].push_back(make_pair(trackStart, trackEnd));
         }
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');

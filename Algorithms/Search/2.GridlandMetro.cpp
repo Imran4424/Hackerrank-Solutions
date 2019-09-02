@@ -4,30 +4,29 @@ using namespace std;
 
 typedef long long int lli;
 
+typedef pair <lli, lli> couple;
+
 vector<string> split_string(string);
 
 // Complete the gridlandMetro function below.
-lli gridlandMetro(lli n, lli m, lli k, vector<vector<lli>> track) 
+lli gridlandMetro(lli n, lli m, lli k, map <lli, couple> track) 
 {
-    vector < vector <bool> > visited(n + 1, vector<bool> (m+1, false));
+    //vector < vector <bool> > visited(n + 1, vector<bool> (m+1, false));
 
     lli trackCount = 0;
 
-    for (lli i = 0; i < track.size(); ++i)
+    map <lli, couple> :: iterator it;
+
+    for (it = track.begin(); it != track.end(); ++it)
     {
-        lli row = track[i][0];
-        lli trackStart = track[i][1];
-        lli trackEnd = track[i][2];
+        lli row = it -> first;
+        
+        couple helper = it -> second;
+        
+        lli trackStart = helper.first;
+        lli trackEnd = helper.second;
 
-        for (lli x = trackStart; x <= trackEnd; ++x)
-        {
-            if (!visited[row][x])
-            {
-                visited[row][x] = true;
-
-                trackCount++;
-            }
-        }
+        trackCount += (trackEnd - trackStart + 1);
     }
 
     lli lampPosts = (n * m) - trackCount;
@@ -50,13 +49,29 @@ int main()
 
     lli k = stoi(nmk[2]);
 
-    vector<vector<lli>> track(k);
+    lli row, trackStart, trackEnd;
+
+    map<lli, couple> track;
+
     for (lli i = 0; i < k; i++) 
     {
-        track[i].resize(3);
+        cin >> row >> trackStart >> trackEnd;
 
-        for (lli j = 0; j < 3; j++) {
-            cin >> track[i][j];
+        if(track.count(lli(row)))
+        {
+            if (trackStart < track[row].first)
+            {
+                track[row].first = trackStart;
+            }
+
+            if (trackEnd > track[row].second)
+            {
+                track[row].second = trackEnd;
+            }
+        }
+        else
+        {
+            track[row] = make_pair(trackStart, trackEnd);
         }
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -71,7 +86,8 @@ int main()
     return 0;
 }
 
-vector<string> split_string(string input_string) {
+vector<string> split_string(string input_string) 
+{
     string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) 
     {
         return x == y and x == ' ';
