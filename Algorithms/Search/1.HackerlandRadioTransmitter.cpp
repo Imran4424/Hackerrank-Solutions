@@ -26,7 +26,7 @@ lli hackerlandRadioTransmitters(vector<lli> x, lli k)
             j++;
         }
     
-        j--;
+        j--; // transmitter position
 
         upperRange = x[j] + k;
 
@@ -40,15 +40,12 @@ lli hackerlandRadioTransmitters(vector<lli> x, lli k)
         current = j;
     }
 
-
-    cout << transmitterCount << endl;
-
     return transmitterCount;    
 }
 
 int main()
 {
-    freopen("input.txt", "r", stdin);
+    //freopen("input.txt", "r", stdin);
 
     ofstream fout(getenv("OUTPUT_PATH"));
 
