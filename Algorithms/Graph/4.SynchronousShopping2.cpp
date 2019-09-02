@@ -12,6 +12,20 @@ vector <couple> *adjacency;
 
 vector <int> distanceFromSource;
 
+struct compare
+{
+    bool operator()(couple& a, couple& b)
+    {
+        if(a.first == b.first)
+        {
+            return a.first < b.first;
+        }
+
+        return a.first > b.first;
+    }
+};
+
+
 void AddEdge(int source, int destination, int weight)
 {
     adjacency[source].push_back(make_pair(destination, weight));
@@ -27,7 +41,7 @@ vector<couple> Dijkstra(int startVertex, int totalVertex) // here totalvertex al
 
     distanceFromSource.resize(totalVertex + 1, INT_MAX);
 
-    priority_queue<couple, vector <couple>, greater <couple> > weightedList;
+    priority_queue<couple, vector <couple>, compare > weightedList;
 
     int iteration = (totalVertex / 2);
 
