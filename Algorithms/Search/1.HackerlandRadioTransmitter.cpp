@@ -17,21 +17,33 @@ int hackerlandRadioTransmitters(vector<int> x, int k)
     {
         int upperRange = x[current] + (2 * k);
 
+        int previous = x[current];
+
         int j;
 
-        for(j = current; x[j] <= upperRange; j++)
+
+        for(j = current; x[j] <= upperRange && j < x.size(); j++)
         {
-            coverage[i].push_back(x[j]);
+            if (previous + k <= x[j])
+            {
+                coverage[i].push_back(x[j]);
+                
+                previous = x[j];
+            }
+            else
+            {
+                break;
+            }
         }
 
-        current = x[j];
+        current = j;
     }
 
     int transmitterCount = 0;
 
-    for (int i = 0; i < coverage.size(); ++i)
+    for (int i = 0; i < x.size(); ++i)
     {
-        if (coverage[i] > 0)
+        if (coverage[i].size() > 0)
         {
             transmitterCount++;
         }
