@@ -21,6 +21,8 @@ void AddEdge(int source, int destination, int weight)
 
 void Dijkstra(int startVertex, int totalVertex)
 {
+    priority_queue <int, vector<int> , greater <int> > pathVertex;
+    int lastTime;
 
     distanceFromSource.resize(totalVertex + 1, INT_MAX);
 
@@ -30,7 +32,8 @@ void Dijkstra(int startVertex, int totalVertex)
 
     while(iteration--)
     {
-
+        
+        
         vector <bool> visited(totalVertex + 1, false);
 
         weightedList.push(make_pair(0, startVertex));
@@ -42,7 +45,9 @@ void Dijkstra(int startVertex, int totalVertex)
 
         while(!weightedList.empty())
         {
-            // cout << "Hi" << endl;
+            bool isFound = false;
+
+            
 
             couple hand = weightedList.top();
             weightedList.pop();
@@ -54,10 +59,33 @@ void Dijkstra(int startVertex, int totalVertex)
                 int neighbour = adjacency[current][k].first;
                 int neighbourDistance = adjacency[current][k].second;
 
-                if(distanceFromSource[current] + neighbourDistance < distanceFromSource[neighbour])
+                if (!isFound)
                 {
-                    distanceFromSource[neighbour] = distanceFromSource[current] + neighbourDistance;
+                    pathVertexCount++;
                 }
+
+                if (neighbour == totalVertex)
+                {
+                    isFound = true;
+
+                    pathVertex.push(pathVertexCount);
+
+                    if(distanceFromSource[current] + neighbourDistance < distanceFromSource[neighbour])
+                    {
+                        lastTime = distanceFromSource[neighbour];
+
+                        distanceFromSource[neighbour] = distanceFromSource[current] + neighbourDistance;
+                    }
+                }
+                else
+                {
+                    
+                    if(distanceFromSource[current] + neighbourDistance < distanceFromSource[neighbour])
+                    {
+                        distanceFromSource[neighbour] = distanceFromSource[current] + neighbourDistance;
+                    }
+                }
+
 
                 if (!visited[neighbour])
                 {
