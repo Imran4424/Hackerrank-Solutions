@@ -25,7 +25,11 @@ int hackerlandRadioTransmitters(vector<int> x, int k)
         }
 
         current = x[j];
-    }    
+    }
+
+    int transmitterCount = 0;
+
+        
 }
 
 int main()
