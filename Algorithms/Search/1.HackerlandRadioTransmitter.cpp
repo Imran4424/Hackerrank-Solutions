@@ -55,6 +55,8 @@ lli hackerlandRadioTransmitters(vector<lli> x, lli k)
         }
     }
 
+    cout << transmitterCount << endl;
+
     return transmitterCount;    
 }
 
