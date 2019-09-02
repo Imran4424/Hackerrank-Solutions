@@ -89,8 +89,10 @@ int shop(int n, int k, vector<string> centers, vector<vector<int>> roads)
 
     for (int i = 0; i < roads.size(); ++i)
     {
-        AddEdge(roads[i][0], roads[i][1]);
+        AddEdge(roads[i][0], roads[i][1], roads[i][2]);
     }
+
+    vector <couple> shortestPath = Dijkstra(1, n);
 }
 
 int main()
