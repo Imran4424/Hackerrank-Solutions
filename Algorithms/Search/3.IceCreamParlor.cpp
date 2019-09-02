@@ -7,8 +7,25 @@ vector<string> split_string(string);
 // Complete the icecreamParlor function below.
 vector<int> icecreamParlor(int m, vector<int> arr) 
 {
+    vector <int> result;
 
+    for (int i = 0; i < arr.size(); ++i)
+    {
+        for (int j = i + 1; i < arr.size(); ++j)
+        {
+            if (arr[i] + arr[j] == m)
+            {
+                result.push_back(i+1);
+                result.push_back(j+1);
 
+                i = arr.size();
+
+                break;
+            }
+        }
+    }
+
+    return result
 }
 
 int main()
