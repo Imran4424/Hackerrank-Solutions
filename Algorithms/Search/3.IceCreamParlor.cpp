@@ -11,7 +11,7 @@ vector<int> icecreamParlor(int m, vector<int> arr)
 
     for (int i = 0; i < arr.size(); ++i)
     {
-        for (int j = i + 1; i < arr.size(); ++j)
+        for (int j = i + 1; j < arr.size(); ++j)
         {
             if (arr[i] + arr[j] == m)
             {
@@ -25,7 +25,7 @@ vector<int> icecreamParlor(int m, vector<int> arr)
         }
     }
 
-    return result
+    return result;
 }
 
 int main()
@@ -53,7 +53,8 @@ int main()
 
         vector<int> arr(n);
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) 
+        {
             int arr_item = stoi(arr_temp[i]);
 
             arr[i] = arr_item;
