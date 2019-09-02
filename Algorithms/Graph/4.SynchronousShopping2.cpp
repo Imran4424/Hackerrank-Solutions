@@ -1,3 +1,7 @@
+/*
+    not solved yet
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -41,7 +45,7 @@ vector<couple> Dijkstra(int startVertex, int totalVertex) // here totalvertex al
 
     distanceFromSource.resize(totalVertex + 1, INT_MAX);
 
-    priority_queue<couple, vector <couple>, compare > weightedList;
+    queue <couple> weightedList;
 
     int iteration = (totalVertex / 2);
 
@@ -61,7 +65,7 @@ vector<couple> Dijkstra(int startVertex, int totalVertex) // here totalvertex al
 
         while(!weightedList.empty())
         {
-            couple hand = weightedList.top();
+            couple hand = weightedList.front();
             weightedList.pop();
 
             int current = hand.second;
