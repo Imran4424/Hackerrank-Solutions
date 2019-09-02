@@ -15,7 +15,7 @@ int hackerlandRadioTransmitters(vector<int> x, int k)
 
     for (int i = 0; i < x.size(); ++i)
     {
-        int upperRange = x[current] + (2*k);
+        int upperRange = x[current] + (2 * k);
     }    
 }
 
