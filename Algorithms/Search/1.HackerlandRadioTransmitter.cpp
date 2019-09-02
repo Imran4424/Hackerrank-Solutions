@@ -11,9 +11,10 @@ lli hackerlandRadioTransmitters(vector<lli> x, lli k)
 {
     sort(x.begin(), x.end());
 
-    vector <lli> coverage[x.size()];
+   
 
     lli current = 0;
+    lli transmitterCount = 0;
 
     for (lli i = 0; current < x.size(); ++i)
     {
@@ -28,8 +29,6 @@ lli hackerlandRadioTransmitters(vector<lli> x, lli k)
         {
             if (previous + k >= x[j])
             {
-                coverage[i].push_back(x[j]);
-                
                 previous = x[j];
             }
             else
@@ -38,22 +37,11 @@ lli hackerlandRadioTransmitters(vector<lli> x, lli k)
             }
         }
 
+        transmitterCount++;
+
         current = j;
     }
 
-    lli transmitterCount = 0;
-
-    for (lli i = 0; i < x.size(); ++i)
-    {
-        if (coverage[i].size() > 0)
-        {
-            transmitterCount++;
-        }
-        else
-        {
-            break;
-        }
-    }
 
     cout << transmitterCount << endl;
 
