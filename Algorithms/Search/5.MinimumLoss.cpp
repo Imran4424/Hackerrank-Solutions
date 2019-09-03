@@ -7,18 +7,28 @@ typedef long long int lli;
 vector<string> split_string(string);
 
 // Complete the minimumLoss function below.
-lli minimumLoss(vector<long> price) 
+lli minimumLoss(vector<lli> price) 
 {
-    lli loss = 99999999999999999;
+    vector <lli> sortedPrice = price;
 
-    for (lli i = 0; i < price.size(); ++i)
+    sort(sortedPrice.rbegin(), sortedPrice.rend());
+
+    lli minLoss = 99999999999999999;
+
+    for (lli i = 0; i < sortedPrice.size(); ++i)
     {
-        /* code */
+
+        if (sortedPrice[i] - sortedPrice[i+1] < minLoss && price[i] > price[i+1])
+        {
+            minLoss = price[i] - price[j];
+        }
+
     }
 
+    return minLoss;
 }
 
-lli main()
+int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
 
