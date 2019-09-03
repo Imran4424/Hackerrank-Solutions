@@ -25,7 +25,8 @@ int main()
 
     vector<int> arr(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int arr_item = stoi(arr_temp[i]);
 
         arr[i] = arr_item;
@@ -42,7 +43,8 @@ int main()
 
     vector<int> brr(m);
 
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < m; i++) 
+    {
         int brr_item = stoi(brr_temp[i]);
 
         brr[i] = brr_item;
@@ -50,10 +52,12 @@ int main()
 
     vector<int> result = missingNumbers(arr, brr);
 
-    for (int i = 0; i < result.size(); i++) {
+    for (int i = 0; i < result.size(); i++) 
+    {
         fout << result[i];
 
-        if (i != result.size() - 1) {
+        if (i != result.size() - 1) 
+        {
             fout << " ";
         }
     }
