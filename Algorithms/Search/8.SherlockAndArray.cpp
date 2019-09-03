@@ -2,13 +2,43 @@
 
 using namespace std;
 
+typedef long long int lli;
+
 string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 
-// Complete the balancedSums function below.
-string balancedSums(vector<int> arr) {
+lli LeftSum(vector<lli> arr, lli EndIndex)
+{
+    lli sum = 0;
 
+    for (lli i = 0; i < EndIndex; ++i)
+    {
+        sum += arr[i];
+    }
+
+    return sum;
+}
+
+lli RightSum(vector <lli> arr, lli startIndex)
+{
+    lli sum = 0;
+
+    for (int i = startIndex; i < arr.size(); ++i)
+    {
+        sum += arr[i];
+    }
+
+    return sum;
+}
+
+// Complete the balancedSums function below.
+string balancedSums(vector<lli> arr) 
+{
+    for (lli i = 0; i < arr.size(); ++i)
+    {
+        /* code */
+    }
 
 }
 
@@ -19,24 +49,25 @@ int main()
     string T_temp;
     getline(cin, T_temp);
 
-    int T = stoi(ltrim(rtrim(T_temp)));
+    lli T = stoi(ltrim(rtrim(T_temp)));
 
-    for (int T_itr = 0; T_itr < T; T_itr++) {
+    for (lli T_itr = 0; T_itr < T; T_itr++) 
+    {
         string n_temp;
         getline(cin, n_temp);
 
-        int n = stoi(ltrim(rtrim(n_temp)));
+        lli n = stoi(ltrim(rtrim(n_temp)));
 
         string arr_temp_temp;
         getline(cin, arr_temp_temp);
 
         vector<string> arr_temp = split(rtrim(arr_temp_temp));
 
-        vector<int> arr(n);
+        vector<lli> arr(n);
 
-        for (int i = 0; i < n; i++) 
+        for (lli i = 0; i < n; i++) 
         {
-            int arr_item = stoi(arr_temp[i]);
+            lli arr_item = stoi(arr_temp[i]);
 
             arr[i] = arr_item;
         }
@@ -57,7 +88,7 @@ string ltrim(const string &str)
 
     s.erase(
         s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+        find_if(s.begin(), s.end(), not1(ptr_fun<lli, lli>(isspace)))
     );
 
     return s;
@@ -69,7 +100,7 @@ string rtrim(const string &str)
 
     s.erase
     (
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<lli, lli>(isspace))).base(),
         s.end()
     );
 
