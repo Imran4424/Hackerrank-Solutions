@@ -2,13 +2,29 @@
 
 using namespace std;
 
+typedef long long int lli;
+
 vector<string> split_string(string);
 
 // Complete the pairs function below.
-int pairs(int k, vector<int> arr) 
+lli pairs(lli k, vector<lli> arr) 
 {
+    sort(arr.begin(), arr.end());
 
+    lli pairCount = 0;
 
+    for (lli i = 0; i < arr.size(); ++i)
+    {
+        for (lli j = i + 1; arr[j] <= arr[i] + k && j < arr.size(); ++j)
+        {
+            if (abs(arr[i] - arr[j]) == k)
+            {
+                pairCount++;
+            }
+        }
+    }
+
+    return pairCount;
 }
 
 int main()
@@ -20,25 +36,25 @@ int main()
 
     vector<string> nk = split_string(nk_temp);
 
-    int n = stoi(nk[0]);
+    lli n = stoi(nk[0]);
 
-    int k = stoi(nk[1]);
+    lli k = stoi(nk[1]);
 
     string arr_temp_temp;
     getline(cin, arr_temp_temp);
 
     vector<string> arr_temp = split_string(arr_temp_temp);
 
-    vector<int> arr(n);
+    vector<lli> arr(n);
 
-    for (int i = 0; i < n; i++) 
+    for (lli i = 0; i < n; i++) 
     {
-        int arr_item = stoi(arr_temp[i]);
+        lli arr_item = stoi(arr_temp[i]);
 
         arr[i] = arr_item;
     }
 
-    int result = pairs(k, arr);
+    lli result = pairs(k, arr);
 
     fout << result << "\n";
 
