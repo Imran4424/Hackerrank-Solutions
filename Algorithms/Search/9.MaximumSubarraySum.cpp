@@ -18,7 +18,8 @@ int main()
     cin >> q;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int q_itr = 0; q_itr < q; q_itr++) {
+    for (int q_itr = 0; q_itr < q; q_itr++) 
+    {
         string nm_temp;
         getline(cin, nm_temp);
 
@@ -35,7 +36,8 @@ int main()
 
         vector<long> a(n);
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) 
+        {
             long a_item = stol(a_temp[i]);
 
             a[i] = a_item;
