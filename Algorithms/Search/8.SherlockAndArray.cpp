@@ -24,7 +24,7 @@ lli RightSum(vector <lli> arr, lli startIndex)
 {
     lli sum = 0;
 
-    for (int i = startIndex; i < arr.size(); ++i)
+    for (lli i = startIndex; i < arr.size(); ++i)
     {
         sum += arr[i];
     }
@@ -37,9 +37,38 @@ string balancedSums(vector<lli> arr)
 {
     for (lli i = 0; i < arr.size(); ++i)
     {
-        /* code */
+        if (0 == i)
+        {
+            lli right = RightSum(arr, i+1);
+
+            if (0 == right)
+            {
+                return "YES";
+            }
+        }
+        else if (arr.size() - 1 == i)
+        {
+            lli left = LeftSum(arr, i-1);
+
+            if (0 == left)
+            {
+                return "YES";
+            }
+        }
+        else
+        {
+            lli left = LeftSum(arr, i-1);
+            lli right = RightSum(arr, i+1);
+
+            if (left == right)
+            {
+                return "YES";
+            }            
+        }
+
     }
 
+    return "NO";
 }
 
 int main()
@@ -88,7 +117,7 @@ string ltrim(const string &str)
 
     s.erase(
         s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<lli, lli>(isspace)))
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
     );
 
     return s;
@@ -100,7 +129,7 @@ string rtrim(const string &str)
 
     s.erase
     (
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<lli, lli>(isspace))).base(),
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
         s.end()
     );
 
