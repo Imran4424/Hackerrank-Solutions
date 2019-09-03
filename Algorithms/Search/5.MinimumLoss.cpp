@@ -9,7 +9,14 @@ vector<string> split_string(string);
 // Complete the minimumLoss function below.
 lli minimumLoss(vector<lli> price) 
 {
+    map <lli, lli> keyHolder;
+
     vector <lli> sortedPrice = price;
+
+    for (int i = 0; i < price.size(); ++i)
+    {
+        keyHolder[price[i]] = i;
+    }
 
     sort(sortedPrice.rbegin(), sortedPrice.rend());
 
@@ -18,9 +25,9 @@ lli minimumLoss(vector<lli> price)
     for (lli i = 0; i < sortedPrice.size(); ++i)
     {
 
-        if (sortedPrice[i] - sortedPrice[i+1] < minLoss && price[i] > price[i+1])
+        if (sortedPrice[i] - sortedPrice[i+1] < minLoss && keyHolder[sortedPrice[i]] < keyHolder[sortedPrice[i+1]])
         {
-            minLoss = price[i] - price[j];
+            minLoss = sortedPrice[i] - sortedPrice[i+1];
         }
 
     }
@@ -41,11 +48,11 @@ int main()
 
     vector<string> price_temp = split_string(price_temp_temp);
 
-    vector<long> price(n);
+    vector<lli> price(n);
 
     for (lli i = 0; i < n; i++) 
     {
-        long price_item = stol(price_temp[i]);
+        lli price_item = stol(price_temp[i]);
 
         price[i] = price_item;
     }
