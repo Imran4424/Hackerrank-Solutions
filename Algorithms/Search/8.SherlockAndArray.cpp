@@ -8,59 +8,58 @@ string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 
-lli LeftSum(vector<lli> arr, lli EndIndex)
+lli leftArraySum, rightArraySum;
+
+void LeftSum(vector<lli> arr, lli addIndex) // just adding a single element to left sum
 {
-    lli sum = 0;
-
-    for (lli i = 0; i < EndIndex; ++i)
-    {
-        sum += arr[i];
-    }
-
-    return sum;
+    leftArraySum += arr[addIndex];
 }
 
-lli RightSum(vector <lli> arr, lli startIndex)
+void RightSum(vector<lli> arr, lli subIndex) // just subtracting a single element to right sum
 {
-    lli sum = 0;
+    rightArraySum -= arr[addIndex];
+}
+
+void RightSumFirst(vector <lli> arr, lli startIndex) // Initiating the right sum with all elements
+{                                                   //  except left most element
 
     for (lli i = startIndex; i < arr.size(); ++i)
     {
-        sum += arr[i];
+        rightArraySum += arr[i];
     }
-
-    return sum;
 }
 
 // Complete the balancedSums function below.
 string balancedSums(vector<lli> arr) 
 {
+    leftArraySum = 0, rightArraySum =0;
+
     for (lli i = 0; i < arr.size(); ++i)
     {
         if (0 == i)
         {
-            lli right = RightSum(arr, i+1);
+            RightSumFirst(arr, i+1);
 
-            if (0 == right)
+            if (0 == rightArraySum)
             {
                 return "YES";
             }
         }
         else if (arr.size() - 1 == i)
         {
-            lli left = LeftSum(arr, i-1);
+            LeftSum(arr, i-1);
 
-            if (0 == left)
+            if (0 == leftArraySum)
             {
                 return "YES";
             }
         }
         else
         {
-            lli left = LeftSum(arr, i-1);
-            lli right = RightSum(arr, i+1);
+            LeftSum(arr, i-1);
+            RightSum(arr, i+1);
 
-            if (left == right)
+            if (leftArraySum == rightArraySum)
             {
                 return "YES";
             }            
