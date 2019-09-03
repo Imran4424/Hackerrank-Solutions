@@ -17,7 +17,7 @@ void LeftSum(vector<lli> arr, lli addIndex) // just adding a single element to l
 
 void RightSum(vector<lli> arr, lli subIndex) // just subtracting a single element to right sum
 {
-    rightArraySum -= arr[addIndex];
+    rightArraySum -= arr[subIndex];
 }
 
 void RightSumFirst(vector <lli> arr, lli startIndex) // Initiating the right sum with all elements
