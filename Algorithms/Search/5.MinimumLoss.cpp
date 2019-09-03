@@ -2,20 +2,27 @@
 
 using namespace std;
 
+typedef long long int lli;
+
 vector<string> split_string(string);
 
 // Complete the minimumLoss function below.
-int minimumLoss(vector<long> price) 
+lli minimumLoss(vector<long> price) 
 {
+    lli loss = 99999999999999999;
 
+    for (lli i = 0; i < price.size(); ++i)
+    {
+        /* code */
+    }
 
 }
 
-int main()
+lli main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    int n;
+    lli n;
     cin >> n;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
@@ -26,14 +33,14 @@ int main()
 
     vector<long> price(n);
 
-    for (int i = 0; i < n; i++) 
+    for (lli i = 0; i < n; i++) 
     {
         long price_item = stol(price_temp[i]);
 
         price[i] = price_item;
     }
 
-    int result = minimumLoss(price);
+    lli result = minimumLoss(price);
 
     fout << result << "\n";
 
