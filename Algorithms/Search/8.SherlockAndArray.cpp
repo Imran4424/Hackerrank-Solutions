@@ -59,6 +59,8 @@ string balancedSums(vector<lli> arr)
             LeftSum(arr, i-1);
             RightSum(arr, i+1);
 
+            cout << leftArraySum << " " << rightArraySum << endl;
+
             if (leftArraySum == rightArraySum)
             {
                 return "YES";
