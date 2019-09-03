@@ -19,7 +19,7 @@ vector<int> missingNumbers(vector<int> arr, vector<int> brr)
         }
         else
         {
-            missingFrequency[arr[i]] = 0;
+            missingFrequency[arr[i]] = 1;
         }
 
         if (originalFrequency.count(brr[i]))
@@ -28,13 +28,36 @@ vector<int> missingNumbers(vector<int> arr, vector<int> brr)
         }
         else
         {
-            originalFrequency[brr[i]] = 0;
+            originalFrequency[brr[i]] = 1;
         }
-
 
     }
 
+    for (int j = i; j < brr.size(); ++j)
+    {
+        if (originalFrequency.count(brr[j]))
+        {
+            originalFrequency[brr[j]]++;
+        }
+        else
+        {
+            originalFrequency[brr[j]] = 1;
+        }
+    }
 
+    vector <int> missNum;
+
+    map<int, int> :: iterator it;
+
+    for (it = originalFrequency.begin(); it != originalFrequency.end(); ++it)
+    {
+        if (originalFrequency[it -> first] != missingFrequency[it -> first])
+        {
+            missNum.push_back(it -> first);
+        }
+    }
+
+    return missNum;
 }
 
 int main()
