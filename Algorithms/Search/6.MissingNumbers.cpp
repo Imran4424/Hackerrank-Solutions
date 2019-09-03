@@ -5,7 +5,34 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the missingNumbers function below.
-vector<int> missingNumbers(vector<int> arr, vector<int> brr) {
+vector<int> missingNumbers(vector<int> arr, vector<int> brr) 
+{
+    map <int, int> originalFrequency, missingFrequency;
+
+    int i;
+
+    for (i = 0; i < arr.size(); ++i)
+    {
+        if (missingFrequency.count(arr[i]))
+        {
+            missingFrequency[arr[i]]++;
+        }
+        else
+        {
+            missingFrequency[arr[i]] = 0;
+        }
+
+        if (originalFrequency.count(brr[i]))
+        {
+            originalFrequency[brr[i]]++;
+        }
+        else
+        {
+            originalFrequency[brr[i]] = 0;
+        }
+
+
+    }
 
 
 }
