@@ -10,16 +10,6 @@ vector<string> split(const string &);
 
 lli leftArraySum, rightArraySum;
 
-void LeftSum(vector<lli> arr, lli addIndex) // just adding a single element to left sum
-{
-    leftArraySum += arr[addIndex];
-}
-
-void RightSum(vector<lli> arr, lli subIndex) // just subtracting a single element to right sum
-{
-    rightArraySum -= arr[subIndex];
-}
-
 void RightSumFirst(vector <lli> arr, lli startIndex) // Initiating the right sum with all elements
 {                                                   //  except left most element
 
@@ -47,7 +37,7 @@ string balancedSums(vector<lli> arr)
         }
         else if (arr.size() - 1 == i)
         {
-            LeftSum(arr, i-1);
+            leftArraySum += arr[i - 1];
 
             if (0 == leftArraySum)
             {
@@ -56,10 +46,8 @@ string balancedSums(vector<lli> arr)
         }
         else
         {
-            LeftSum(arr, i-1);
-            RightSum(arr, i+1);
-
-            cout << leftArraySum << " " << rightArraySum << endl;
+            leftArraySum += arr[i - 1]; // just adding a single element to left sum
+            rightArraySum -= arr[i]; // just subtracting a single element to right sum
 
             if (leftArraySum == rightArraySum)
             {
