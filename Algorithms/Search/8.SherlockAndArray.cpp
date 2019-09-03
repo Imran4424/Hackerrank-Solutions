@@ -34,7 +34,8 @@ int main()
 
         vector<int> arr(n);
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) 
+        {
             int arr_item = stoi(arr_temp[i]);
 
             arr[i] = arr_item;
@@ -50,7 +51,8 @@ int main()
     return 0;
 }
 
-string ltrim(const string &str) {
+string ltrim(const string &str) 
+{
     string s(str);
 
     s.erase(
