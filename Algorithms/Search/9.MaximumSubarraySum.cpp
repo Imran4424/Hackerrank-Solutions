@@ -9,6 +9,7 @@ vector<string> split_string(string);
 int *bits;
 
 int maxRemSum;
+vector < vector <int> > dpRemSum;
 
 void Binary(lli i,lli sum, vector<lli> a, lli m)
 {
@@ -18,6 +19,8 @@ void Binary(lli i,lli sum, vector<lli> a, lli m)
         {
             maxRemSum = sum % m;
         }
+
+        return;
     }
 
 
