@@ -12,29 +12,39 @@ vector<string> split_string(string);
 // Complete the maximumSum function below.
 lli maximumSum(vector<lli> a, lli m) 
 {
-    vector <couple> prefixSum;
+    vector <lli> prefixSum;
 
-    lli sum =0;
+    prefixSum.push_back(a[0] % m);
 
-    for (lli i = 0; i < a.size(); ++i)
+    lli totalPrefix = prefixSum[0];
+
+    for (lli i = 1; i < a.size(); ++i)
     {
-        sum += ar[i];
+        prefixSum.push_back((prefixSum[i-1] + a[i]) % m);
+
+        totalPrefix += prefixSum[i];
     }
 
-    lli maxMSum = 0;
+    sort(prefixSum.begin(), prefixSum.end());
 
-    for (int i = 0; i < a.size(); ++i)
+    lli sortedMaxMod = prefixSum[prefixSum.size() - 1];
+
+    lli maxMod = 0;
+
+    for (lli i = 0; i < prefixSum.size(); ++i)
     {
-        if ((sum - a[i]) % m > maxMSum)
+        if ((totalPrefix - prefixSum[i]) % m > maxMod)
         {
-            maxMSum = (sum - a[i]) % m;
+            maxMod = (totalPrefix - prefixSum[i]) % m;
         }
     }
     
+    return max(maxMod, sortedMaxMod);
 }
 
 int main()
 {
+
     ofstream fout(getenv("OUTPUT_PATH"));
 
     int q;
@@ -50,7 +60,7 @@ int main()
 
         int n = stoi(nm[0]);
 
-        lli m = stol(nm[1]);
+        lli m = (lli) stol(nm[1]);
 
         string a_temp_temp;
         getline(cin, a_temp_temp);
