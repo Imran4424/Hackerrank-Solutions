@@ -6,19 +6,26 @@ typedef long long int lli;
 
 vector<string> split_string(string);
 
-int *bits;
+lli *bits;
 
-int maxRemSum;
-vector < vector <int> > dpRemSum;
+lli maxRemSum;
+vector < vector <lli> > dpRemSum;
 
 void Binary(lli i,lli sum, vector<lli> a, lli m)
 {
+    if (-1 != dpRemSum[i][sum])
+    {
+        return;
+    }
+
     if (a.size() == i)
     {
         if (sum % m > maxRemSum)
         {
             maxRemSum = sum % m;
         }
+
+        dpRemSum[i][sum] = sum % m;
 
         return;
     }
@@ -29,13 +36,15 @@ void Binary(lli i,lli sum, vector<lli> a, lli m)
 
 
     bits[i] = 1;
-    Binary(i+1, sum + a[i], a, m);
+    Binary(i+1, (sum + a[i]) % m, a, m);
 }
 
 // Complete the maximumSum function below.
 void maximumSum(vector<lli> a, lli m) 
 {
     bits = new int[a.size()];
+
+    dpRemSum.resize(a.size()+1, vector<lli> (m, -1));
 
     maxRemSum = 0;
 
