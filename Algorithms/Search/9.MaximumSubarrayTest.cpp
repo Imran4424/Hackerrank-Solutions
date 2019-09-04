@@ -21,6 +21,8 @@ lli maximumSum(vector<lli> a, lli m)
         totalPrefix += prefixSum[i];
     }
 
+    cout << totalPrefix << endl;
+
     sort(prefixSum.begin(), prefixSum.end());
 
     lli sortedMaxMod = prefixSum[prefixSum.size() - 1];
