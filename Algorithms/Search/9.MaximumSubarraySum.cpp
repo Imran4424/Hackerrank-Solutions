@@ -2,12 +2,43 @@
 
 using namespace std;
 
+typedef long long int lli;
+
 vector<string> split_string(string);
 
+int *bits;
+
+int maxRemSum;
+
+void Binary(lli i,lli sum, vector<lli> a, lli m)
+{
+    if (a.size() == i)
+    {
+        if (sum % m > maxRemSum)
+        {
+            maxRemSum = sum % m;
+        }
+    }
+
+
+    a[i] = 0;
+    Binary(i+1, sum, a, m);
+
+
+    a[i] = 1;
+    Binary(i+1, sum + a[i], a, m);
+}
+
 // Complete the maximumSum function below.
-long maximumSum(vector<long> a, long m) {
+void maximumSum(vector<lli> a, lli m) 
+{
+    bits = new int[a.size()];
 
+    maxRemSum = 0;
 
+    Binary(0, 0, a, m);
+
+    // return maxRemSum;
 }
 
 int main()
@@ -27,25 +58,25 @@ int main()
 
         int n = stoi(nm[0]);
 
-        long m = stol(nm[1]);
+        lli m = stol(nm[1]);
 
         string a_temp_temp;
         getline(cin, a_temp_temp);
 
         vector<string> a_temp = split_string(a_temp_temp);
 
-        vector<long> a(n);
+        vector<lli> a(n);
 
         for (int i = 0; i < n; i++) 
         {
-            long a_item = stol(a_temp[i]);
+            lli a_item = stol(a_temp[i]);
 
             a[i] = a_item;
         }
 
-        long result = maximumSum(a, m);
+        maximumSum(a, m);
 
-        fout << result << "\n";
+        fout << maxRemSum << "\n";
     }
 
     fout.close();
