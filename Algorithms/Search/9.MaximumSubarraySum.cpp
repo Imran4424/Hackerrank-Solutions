@@ -16,9 +16,12 @@ lli maximumSum(vector<lli> a, lli m)
 
     lli sum =0;
 
-    for (lli i = 0; i < a.size(); ++i)
+    for (lli i = 1; i < a.size(); ++i)
     {
-        prefixSum.push_back(make_pair((sum + a[i] % m) % m, i+1));
+        sum = (sum + a[i] % m) % m;
+
+        prefixSum.push_back(make_pair(sum, i+1));
+
     }
 
     sort(prefixSum.begin(), prefixSum.end());
@@ -27,14 +30,16 @@ lli maximumSum(vector<lli> a, lli m)
 
     for (lli i = 1; i < prefixSum.size(); ++i)
     {
-        if (abs(prefixSum[i].first - prefixSum[i - 1].first) < minDiff && prefixSum[i].second < prefixSum[i-1].second)
+        if (prefixSum[i].first - prefixSum[i - 1].first < minDiff && prefixSum[i].second < prefixSum[i-1].second)
         {
-            minDiff = abs(prefixSum[i].first - prefixSum[i-1].first);
+            minDiff = prefixSum[i].first - prefixSum[i-1].first;
             minIndex = prefixSum[i-1].second;
         }
     }
 
     return max(prefixSum[prefixSum.size() - 1].first, m - minIndex);
+
+    //return m - minIndex;
 }
 
 int main()
