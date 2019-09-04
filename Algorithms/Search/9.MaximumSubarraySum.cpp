@@ -4,7 +4,7 @@ using namespace std;
 
 typedef long long int lli;
 
-typedef pair<int, int> couple;
+typedef pair<lli, lli> couple;
 
 vector<string> split_string(string);
 
@@ -16,18 +16,18 @@ lli maximumSum(vector<lli> a, lli m)
 
     lli sum =0;
 
-    for (int i = 0; i < a.size(); ++i)
+    for (lli i = 0; i < a.size(); ++i)
     {
-        prefixSum.push_back(make_pair((sum + a[i]) % m, i+1));
+        prefixSum.push_back(make_pair((sum + a[i] % m) % m, i+1));
     }
 
     sort(prefixSum.begin(), prefixSum.end());
 
     lli minDiff = INT_MAX, minIndex;
 
-    for (int i = 0; i < prefixSum.size(); ++i)
+    for (lli i = 0; i < prefixSum.size(); ++i)
     {
-        for (int j = i+1; j < prefixSum.size(); ++j)
+        for (lli j = i+1; j < prefixSum.size(); ++j)
         {
             if (abs(prefixSum[i].first - prefixSum[j].first) < minDiff && prefixSum[i].second > prefixSum[j].second)
             {
@@ -37,7 +37,7 @@ lli maximumSum(vector<lli> a, lli m)
         }
     }
 
-    return m - minIndex;
+    return max(prefixSum[prefixSum.size() - 1].first, m - minIndex);
 }
 
 int main()
