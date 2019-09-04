@@ -73,9 +73,9 @@ int main()
             a[i] = a_item;
         }
 
-        maximumSum(a, m);
+        lli result = maximumSum(a, m);
 
-        fout << maxRemSum << "\n";
+        fout << result << "\n";
     }
 
     fout.close();
