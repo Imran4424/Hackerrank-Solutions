@@ -21,11 +21,11 @@ void Binary(lli i,lli sum, vector<lli> a, lli m)
     }
 
 
-    a[i] = 0;
+    bits[i] = 0;
     Binary(i+1, sum, a, m);
 
 
-    a[i] = 1;
+    bits[i] = 1;
     Binary(i+1, sum + a[i], a, m);
 }
 
