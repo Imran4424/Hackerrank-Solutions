@@ -25,15 +25,12 @@ lli maximumSum(vector<lli> a, lli m)
 
     lli minDiff = INT_MAX, minIndex;
 
-    for (lli i = 0; i < prefixSum.size(); ++i)
+    for (lli i = 1; i < prefixSum.size(); ++i)
     {
-        for (lli j = i+1; j < prefixSum.size(); ++j)
+        if (abs(prefixSum[i].first - prefixSum[i - 1].first) < minDiff && prefixSum[i].second < prefixSum[i-1].second)
         {
-            if (abs(prefixSum[i].first - prefixSum[j].first) < minDiff && prefixSum[i].second > prefixSum[j].second)
-            {
-                minDiff = abs(prefixSum[i].first - prefixSum[j].first);
-                minIndex = prefixSum[j].second;
-            }
+            minDiff = abs(prefixSum[i].first - prefixSum[i-1].first);
+            minIndex = prefixSum[i-1].second;
         }
     }
 
