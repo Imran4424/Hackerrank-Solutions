@@ -23,12 +23,21 @@ lli maximumSum(vector<lli> a, lli m)
 
     sort(prefixSum.begin(), prefixSum.end());
 
-    lli minDiff = INT_MAX;
+    lli minDiff = INT_MAX, minIndex;
 
     for (int i = 0; i < prefixSum.size(); ++i)
     {
-        /* code */
+        for (int j = i+1; j < prefixSum.size(); ++j)
+        {
+            if (abs(prefixSum[i].first - prefixSum[j].first) < minDiff && prefixSum[i].second > prefixSum[j].second)
+            {
+                minDiff = abs(prefixSum[i].first - prefixSum[j].first);
+                minIndex = prefixSum[j].second;
+            }
+        }
     }
+
+    return m - minIndex;
 }
 
 int main()
