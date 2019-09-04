@@ -6,20 +6,53 @@ typedef long long int lli;
 
 vector<string> split_string(string);
 
+lli *bits;
+
+// lli maxRemSum;
+vector < vector <lli> > dpRemSum;
+
+lli Binary(lli i,lli sum, vector<lli> a, lli m)
+{
+    if (-1 != dpRemSum[i][sum])
+    {
+        return dpRemSum[i][sum];
+    }
+
+    if (a.size() == i)
+    {
+        return dpRemSum[i][sum] = sum % m;
+    }
+
+
+    bits[i] = 0;
+    int left = Binary(i+1, sum, a, m);
+
+
+    bits[i] = 1;
+    int right = Binary(i+1, (sum + a[i]) % m, a, m);
+
+    if (left > right)
+    {
+        dpRemSum[i][sum] = left;
+    }
+    else
+    {
+        dpRemSum[i][sum] = right;
+    }
+
+    return dpRemSum[i][sum];
+}
 
 // Complete the maximumSum function below.
 lli maximumSum(vector<lli> a, lli m) 
 {
-    map <lli, lli> prefixSum;
+    bits = new lli[a.size()];
 
-    lli sum =0;
+    dpRemSum.resize(a.size()+1, vector<lli> (a.size()*2, -1));
 
-    for (int i = 0; i < a.size(); ++i)
-    {
-        prefixSum[(sum + a[i]) % m] = i;
-    }
+    // maxRemSum = 0;
 
-    // sort(prefixSum.begin(), prefixSum.end());
+    return Binary(0, 0, a, m);
 }
 
 int main()
@@ -55,9 +88,9 @@ int main()
             a[i] = a_item;
         }
 
-        maximumSum(a, m);
+        lli result = maximumSum(a, m);
 
-        fout << maxRemSum << "\n";
+        fout << result << "\n";
     }
 
     fout.close();
