@@ -4,22 +4,31 @@ using namespace std;
 
 typedef long long int lli;
 
+typedef pair<int, int> couple;
+
 vector<string> split_string(string);
 
 
 // Complete the maximumSum function below.
 lli maximumSum(vector<lli> a, lli m) 
 {
-    map <lli, lli> prefixSum;
+    vector <couple> prefixSum;
 
     lli sum =0;
 
     for (int i = 0; i < a.size(); ++i)
     {
-        prefixSum[(sum + a[i]) % m] = i;
+        prefixSum.push_back(make_pair((sum + a[i]) % m, i+1));
     }
 
-    // sort(prefixSum.begin(), prefixSum.end());
+    sort(prefixSum.begin(), prefixSum.end());
+
+    lli minDiff = INT_MAX;
+
+    for (int i = 0; i < prefixSum.size(); ++i)
+    {
+        /* code */
+    }
 }
 
 int main()
