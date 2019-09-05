@@ -15,7 +15,7 @@ bool IsSafe(int x, int y)
 // Complete the connectedCell function below.
 int connectedCell(vector<vector<int>> matrix) 
 {
-
+    vector < vector<bool> > visited(matrix.size(), vector <bool> (matrix[0].size(), false));
 
 }
 
