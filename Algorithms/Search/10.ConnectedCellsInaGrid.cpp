@@ -17,6 +17,14 @@ int connectedCell(vector<vector<int>> matrix)
 {
     vector < vector<bool> > visited(matrix.size(), vector <bool> (matrix[0].size(), false));
 
+    for (int i = 0; i < matrix.size(); ++i)
+    {
+        for (int j = 0; j < matrix[i].size(); ++j)
+        {
+            /* code */
+        }
+    }
+
 }
 
 int main()
