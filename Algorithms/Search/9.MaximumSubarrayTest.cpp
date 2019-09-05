@@ -12,16 +12,24 @@ lli maximumSum(vector<lli> a, lli m)
 
     prefixSum.push_back(a[0] % m);
 
-    lli totalPrefix = prefixSum[0];
+    lli totalPrefix = 0;
+
+    //cout << prefixSum[0] << " ";
 
     for (lli i = 1; i < a.size(); ++i)
     {
         prefixSum.push_back((prefixSum[i-1] + a[i]) % m);
 
+        //cout << prefixSum[i] << " ";
+
         totalPrefix += prefixSum[i];
     }
 
-    cout << totalPrefix << endl;
+    lli totalMod = totalPrefix % m;
+
+    //cout << endl;
+
+    //cout << totalPrefix << endl;
 
     sort(prefixSum.begin(), prefixSum.end());
 
@@ -31,13 +39,13 @@ lli maximumSum(vector<lli> a, lli m)
 
     for (lli i = 0; i < prefixSum.size(); ++i)
     {
-        if ((totalPrefix - prefixSum[i]) % m > maxMod)
+        if ((m - prefixSum[i]) % m > maxMod)
         {
-            maxMod = (totalPrefix - prefixSum[i]) % m;
+            maxMod = (m - prefixSum[i]) % m;
         }
     }
     
-    return max(maxMod, sortedMaxMod);
+    return max(maxMod, max(sortedMaxMod, totalMod));
 }
 
 int main()
