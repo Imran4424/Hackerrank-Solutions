@@ -2,6 +2,16 @@
 
 using namespace std;
 
+bool IsSafe(int x, int y)
+{
+    if (x < 0 || y < 0)
+    {
+        return false;
+    }
+
+    return true;
+}
+
 // Complete the connectedCell function below.
 int connectedCell(vector<vector<int>> matrix) 
 {
