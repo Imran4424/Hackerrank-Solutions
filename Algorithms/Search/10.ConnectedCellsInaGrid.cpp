@@ -21,7 +21,20 @@ int connectedCell(vector<vector<int>> matrix)
     {
         for (int j = 0; j < matrix[i].size(); ++j)
         {
-            /* code */
+            if (!visited[i][j])
+            {
+                if (matrix[i][j])
+                {
+                    visited[i][j] = true;
+
+                    /* code */
+                }
+                else
+                {
+                    visited[i][j] = true;
+                }
+
+            }
         }
     }
 
