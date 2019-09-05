@@ -2,9 +2,16 @@
 
 using namespace std;
 
-bool IsSafe(int x, int y)
+int cellCount;
+
+bool IsSafe(vector<vector<int>> matrix,int x, int y)
 {
     if (x < 0 || y < 0)
+    {
+        return false;
+    }
+
+    if (x > matrix.size() || y > matrix[0].size())
     {
         return false;
     }
@@ -12,9 +19,126 @@ bool IsSafe(int x, int y)
     return true;
 }
 
+void FindRegion(vector<vector<int>> matrix, vector < vector <bool> > &visited, int x, int y)
+{
+    visited[x][y] = true;
+
+    count++;
+
+    if (IsSafe(x+1, y)) // lower column
+    {
+        if (!visited[x+1][y])
+        {
+            if (matrix[x+1][y])
+            {
+                FindRegion(matrix, visited, x + 1, y)
+            }
+            else
+            {
+                visited[x+1][y] = true;
+            }
+        }
+    }
+
+    if (IsSafe(x-1, y)) // upper column
+    {
+        if (!visited[x-1][y])
+        {
+            if (matrix[x-1][y])
+            {
+                FindRegion(matrix, visited, x - 1, y)
+            }
+            else
+            {
+                visited[x-1][y] = true;
+            }
+        }
+    }
+
+    if (IsSafe(x, y+1)) // right column
+    {
+        if (!visited[x][y+1])
+        {
+            if (matrix[x][y+1])
+            {
+                FindRegion(matrix, visited, x, y+1)
+            }
+            else
+            {
+                visited[x][y+1] = true;
+            }
+        }
+    }
+
+    if (IsSafe(x, y-1)) // left column
+    {
+        if (!visited[x][y-1])
+        {
+            if (matrix[x][y-1])
+            {
+                FindRegion(matrix, visited, x, y-1)
+            }
+            else
+            {
+                visited[x][y-1] = true;
+            }
+        }
+    }
+
+    if (IsSafe(x+1, y+1)) // lower right
+    {
+        if (!visited[x+1][y+1])
+        {
+            if (matrix[x+1][y+1])
+            {
+                FindRegion(matrix, visited, x+1, y+1)
+            }
+            else
+            {
+                visited[x+1][y+1] = true;
+            }
+        }
+    }
+
+    if (IsSafe(x-1, y+1)) // upper right
+    {
+        if (!visited[x-1][y+1])
+        {
+            if (matrix[x-1][y+1])
+            {
+                FindRegion(matrix, visited, x-1, y+1)
+            }
+            else
+            {
+                visited[x-1][y+1] = true;
+            }
+        }
+    }
+
+    if (IsSafe(x-1, y-1)) // upper left
+    {
+        if (!visited[x-1][y-1])
+        {
+            if (matrix[x-1][y-1])
+            {
+                FindRegion(matrix, visited, x-1, y-1)
+            }
+            else
+            {
+                visited[x-1][y-1] = true;
+            }
+        }
+    }
+
+    
+
+}
+
 // Complete the connectedCell function below.
 int connectedCell(vector<vector<int>> matrix) 
 {
+    vector <int> allCellCount;
+
     vector < vector<bool> > visited(matrix.size(), vector <bool> (matrix[0].size(), false));
 
     for (int i = 0; i < matrix.size(); ++i)
