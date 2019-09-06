@@ -49,11 +49,11 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
                 countingCandies = (countingCandies % p);
 
+                even = false;
+
             }
             else
             {
-
-                
                 if (divide % 2 == 0)
                 {
                     m += (divide / 2);
@@ -66,6 +66,8 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
                 }
 
                 countingCandies = (countingCandies % p);
+
+                even = true;
             }
 
             
