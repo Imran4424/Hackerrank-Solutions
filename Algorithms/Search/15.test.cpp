@@ -19,7 +19,7 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
     while(countingCandies < n)
     {
         
-        if (countingCandies < price && (price - countingCandies) > (machine * workers))
+        if (countingCandies < price && (price - countingCandies) >= (machine * workers))
         {
             lli candyOneIterate = (machine * workers);
 
@@ -40,6 +40,11 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
         if (countingCandies >= n)
         {
             break;
+        }
+
+        if (n/2 <= countingCandies)
+        {
+            continue;
         }
     
         lli buyResource = countingCandies / price;
@@ -67,11 +72,11 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
 
 int main()
 {
-    lli m, w, p, n;
+    lli machine, workers, price, n;
 
-    cin >> m >> w >> p >> n;
+    cin >> machine >> workers >> price >> n;
 
-    lli result = minimumPasses(m, w, p, n);
+    lli result = minimumPasses(machine, workers, price, n);
 
     cout << result << "\n";
 
