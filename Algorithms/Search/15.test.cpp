@@ -56,6 +56,12 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
         phases++;
 
         countingCandies += (machine * workers);
+
+        lli candyOneIterate = (machine * workers);
+
+        lli helper = ceil((n - countingCandies) / candyOneIterate );
+
+        phasesAlter = min(phasesAlter, helper);
     }
 
     return phases;
