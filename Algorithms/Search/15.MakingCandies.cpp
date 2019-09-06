@@ -7,68 +7,83 @@ typedef unsigned long long int lli;
 vector<string> split_string(string);
 
 // Complete the minimumPasses function below.
-lli minimumPasses(lli m, lli w, lli p, lli n) 
-{   
+lli minimumPasses(lli machine, lli workers, lli price, lli n) 
+{
+    if (n <= price)
+    {
+        return ceil(n / (machine * workers));
+    }
+
     lli phases = 0;
 
     lli countingCandies = 0;
 
+    lli phasesAlter = 1844674407370955161;
+
     while(countingCandies < n)
     {
-        phases++;
-        countingCandies += (m * w);
-
-        if(countingCandies >= n)
+        
+        if (countingCandies < price)
         {
-            break;
-        }
+            lli steps;
 
-        if (countingCandies < p || (n/2) < countingCandies)
-        {
-            continue;
-        }
-        else
-        {
+            lli candyOneIterate = (machine * workers);
 
-            lli divide = countingCandies / p;
-
-            if (m <= w)
+            if ((price - countingCandies) % candyOneIterate == 0)
             {
-                if (divide % 2 == 0)
-                {
-                    m += (divide / 2);
-                    w += (divide / 2);
-                }
-                else
-                {
-                    m += (divide / 2) + 1;
-                    w += (divide / 2);    
-                }
-
-                countingCandies = (countingCandies % p);
-
+                steps = ((price - countingCandies) / candyOneIterate);
             }
             else
             {
-                if (divide % 2 == 0)
-                {
-                    m += (divide / 2);
-                    w += (divide / 2);
-                }
-                else
-                {
-                    m += (divide / 2);
-                    w += (divide / 2) + 1;    
-                }
-
-                countingCandies = (countingCandies % p);
+                steps = 1 + ((price - countingCandies) / candyOneIterate);
             }
 
-            
+            phases += steps;
+
+            countingCandies += (steps * candyOneIterate);
+
+            continue;
         }
+    
+        lli buyResource = countingCandies / price;
+
+        countingCandies = (countingCandies - (buyResource * price));
+
+        lli totalResource = machine + workers + buyResource;
+
+        lli halfResource = totalResource / 2;
+
+        if (machine > workers)
+        {
+            machine = max(machine, halfResource); // smaller or equal
+            workers = totalResource - machine; // bigger or equal
+        }
+        else
+        {
+            workers = max(workers, halfResource); // smaller or equal
+            machine = totalResource - workers; // bigger or equal
+        }
+        
+        phases++;
+
+        countingCandies += (machine * workers);
+
+        lli helper;
+        lli candyOneIterate = (machine * workers);
+
+        if ((n - countingCandies) % candyOneIterate == 0)
+        {
+            helper = ((n - countingCandies) / candyOneIterate );
+        }
+        else
+        {
+            helper = 1 + ((n - countingCandies) / candyOneIterate );
+        } 
+
+        phasesAlter = min(phasesAlter, helper);
     }
 
-    return phases;
+    return min(phases, phasesAlter);
 }
 
 int main()
