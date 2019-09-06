@@ -16,17 +16,39 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
     while(countingCandies < n)
     {
         phases++;
-        lli producedCandies = m * w;
+        countingCandies += m * w;
 
-        if(producedCandies + countingCandies >= n)
+        if(countingCandies >= n)
         {
             break;
         }
 
-        
+        if (n/2 <= countingCandies)
+        {
+            continue;
+        }
+        else
+        {
+
+            lli divide = countingCandies / p;
+
+            if (divide % 2 == 0)
+            {
+                m += (divide / 2);
+                w += (divide / 2);
+            }
+            else
+            {
+                m += (divide / 2) + 1;
+                w += (divide / 2);    
+            }
+
+            countingCandies = (countingCandies % p);
+            
+        }
     }
 
-
+    return phases;
 }
 
 int main()
