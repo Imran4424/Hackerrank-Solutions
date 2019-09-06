@@ -18,6 +18,8 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
     lli countingCandies = 0;
 
+    lli phasesAlter = LLONG_MAX;
+
     while(countingCandies < n)
     {
         
@@ -32,55 +34,33 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
             continue;
         }
     
-        if ((n/2) < countingCandies)
+        lli buyResource = countingCandies / p;
+
+        countingCandies = countingCandies % p;
+
+        lli totalResource = m + w + buyResource;
+
+        lli halfResource = floor(totalResource / 2);
+
+        if (m > w)
         {
-            continue;
+            m = halfResource; // smaller or equal
+            w = totalResource - halfResource; // bigger or equal
         }
         else
         {
-
-            lli divide = countingCandies / p;
-
-            if (m <= w)
-            {
-                if (divide % 2 == 0)
-                {
-                    m += (divide / 2);
-                    w += (divide / 2);
-                }
-                else
-                {
-                    m += (divide / 2) + 1;
-                    w += (divide / 2);    
-                }
-
-                countingCandies = (countingCandies % p);
-
-            }
-            else
-            {
-                if (divide % 2 == 0)
-                {
-                    m += (divide / 2);
-                    w += (divide / 2);
-                }
-                else
-                {
-                    m += (divide / 2);
-                    w += (divide / 2) + 1;    
-                }
-
-                countingCandies = (countingCandies % p);
-            }
-
+            w = halfResource; // smaller or equal
+            m = totalResource - halfResource; // bigger or equal
         }
-
+        
         phases++;
 
         countingCandies += (m * w);
+
+        phasesAlter = min(phasesAlter, ceil((n - countingCandies) / ( m * w) ) );
     }
 
-    return phases;
+    return min(phases, phasesAlter);
 }
 
 int main()
