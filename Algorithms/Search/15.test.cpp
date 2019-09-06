@@ -16,8 +16,6 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
 
     lli countingCandies = 0;
 
-    lli phasesAlter = 1844674407370955161;
-
     while(countingCandies < n)
     {
         
@@ -31,7 +29,17 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
 
             countingCandies += (steps * candyOneIterate);
 
-            continue;
+        }
+        else
+        {
+            phases++;
+
+            countingCandies += (machine * workers);
+        }
+
+        if (countingCandies >= n)
+        {
+            break;
         }
     
         lli buyResource = countingCandies / price;
@@ -52,16 +60,6 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
             workers = max(workers, halfResource); // smaller or equal
             machine = totalResource - workers; // bigger or equal
         }
-        
-        phases++;
-
-        countingCandies += (machine * workers);
-
-        lli candyOneIterate = (machine * workers);
-
-        lli helper = ceil((n - countingCandies) / candyOneIterate );
-
-        phasesAlter = min(phasesAlter, helper);
     }
 
     return phases;

@@ -23,20 +23,11 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
     while(countingCandies < n)
     {
         
-        if (countingCandies < price)
+        if (countingCandies < price && (price - countingCandies) > (machine * workers))
         {
-            lli steps;
-
             lli candyOneIterate = (machine * workers);
 
-            if ((price - countingCandies) % candyOneIterate == 0)
-            {
-                steps = ((price - countingCandies) / candyOneIterate);
-            }
-            else
-            {
-                steps = 1 + ((price - countingCandies) / candyOneIterate);
-            }
+            lli steps = ceil((price - countingCandies) / candyOneIterate);
 
             phases += steps;
 
@@ -68,22 +59,14 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
 
         countingCandies += (machine * workers);
 
-        lli helper;
         lli candyOneIterate = (machine * workers);
 
-        if ((n - countingCandies) % candyOneIterate == 0)
-        {
-            helper = ((n - countingCandies) / candyOneIterate );
-        }
-        else
-        {
-            helper = 1 + ((n - countingCandies) / candyOneIterate );
-        } 
+        lli helper = ceil((n - countingCandies) / candyOneIterate );
 
         phasesAlter = min(phasesAlter, helper);
     }
 
-    return min(phases, phasesAlter);
+    return min(phases,phasesAlter);
 }
 
 int main()
