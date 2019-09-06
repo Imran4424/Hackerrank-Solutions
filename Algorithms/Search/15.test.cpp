@@ -15,9 +15,9 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
     while(countingCandies < n)
     {
-        if (countingCandies < p)
+        if (0 == countingCandies)
         {
-            phases = (p / (m*n + countingCandies));
+            phases = (p / (m * n));
 
             countingCandies += (phases * m * n);
         }
