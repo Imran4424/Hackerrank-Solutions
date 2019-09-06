@@ -8,31 +8,30 @@ vector<string> split_string(string);
 
 // Complete the minimumPasses function below.
 lli minimumPasses(lli m, lli w, lli p, lli n) 
-{   
+{
+    if (n <= p)
+    {
+        return ceil(n / (m * w));
+    }
+
     lli phases = 0;
 
     lli countingCandies = 0;
 
     while(countingCandies < n)
     {
-        if (0 == countingCandies)
+        
+        if (countingCandies < p)
         {
-            phases = (p / (m * n));
+            lli steps = ceil((p - countingCandies) / (m * n));
 
-            countingCandies += (phases * m * n);
-        }
-        else
-        {
-            phases++;
+            phases += steps;
 
-            countingCandies += (m * w);
-        }
-       
-        if(countingCandies >= n)
-        {
-            break;
-        }
+            countingCandies += (steps * m * n);
 
+            continue;
+        }
+    
         if ((n/2) < countingCandies)
         {
             continue;
@@ -74,8 +73,11 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
                 countingCandies = (countingCandies % p);
             }
 
-            
         }
+
+        phases++;
+
+        countingCandies += (m * w);
     }
 
     return phases;
