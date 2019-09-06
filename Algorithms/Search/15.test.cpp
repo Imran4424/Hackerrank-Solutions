@@ -32,7 +32,13 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
             lli divide = countingCandies / p;
 
-            if (m <= w)
+            if (m < w)
+            {
+                m += divide;
+
+                countingCandies = (countingCandies % p);
+            }
+            else if( m == w)
             {
                 if (divide % 2 == 0)
                 {
@@ -46,20 +52,10 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
                 }
 
                 countingCandies = (countingCandies % p);
-
             }
             else
             {
-                if (divide % 2 == 0)
-                {
-                    m += (divide / 2);
-                    w += (divide / 2);
-                }
-                else
-                {
-                    m += (divide / 2);
-                    w += (divide / 2) + 1;    
-                }
+                w += divide;
 
                 countingCandies = (countingCandies % p);
             }
