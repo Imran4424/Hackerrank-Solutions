@@ -13,17 +13,19 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
     lli countingCandies = 0;
 
+    bool even = false;
+
     while(countingCandies < n)
     {
         phases++;
-        countingCandies += m * w;
+        countingCandies += (m * w);
 
         if(countingCandies >= n)
         {
             break;
         }
 
-        if (n/2 <= countingCandies)
+        if (n/2 < countingCandies)
         {
             continue;
         }
@@ -32,18 +34,40 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
             lli divide = countingCandies / p;
 
-            if (divide % 2 == 0)
+            if (even)
             {
-                m += (divide / 2);
-                w += (divide / 2);
+                if (divide % 2 == 0)
+                {
+                    m += (divide / 2);
+                    w += (divide / 2);
+                }
+                else
+                {
+                    m += (divide / 2);
+                    w += (divide / 2)+1;    
+                }
+
+                countingCandies = (countingCandies % p);
+
             }
             else
             {
-                m += (divide / 2) + 1;
-                w += (divide / 2);    
+
+                
+                if (divide % 2 == 0)
+                {
+                    m += (divide / 2);
+                    w += (divide / 2);
+                }
+                else
+                {
+                    m += (divide / 2) + 1;
+                    w += (divide / 2);    
+                }
+
+                countingCandies = (countingCandies % p);
             }
 
-            countingCandies = (countingCandies % p);
             
         }
     }
