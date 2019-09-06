@@ -18,7 +18,7 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
     lli countingCandies = 0;
 
-    lli phasesAlter = 9999999999999999;
+    lli phasesAlter = 999999999999999999;
 
     while(countingCandies < n)
     {
@@ -40,16 +40,16 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
         lli totalResource = m + w + buyResource;
 
-        lli halfResource = floor(totalResource / 2);
+        lli halfResource = totalResource / 2;
 
         if (m > w)
         {
-            m = halfResource; // smaller or equal
-            w = totalResource - halfResource; // bigger or equal
+            m = max(m, halfResource); // smaller or equal
+            w = totalResource - m; // bigger or equal
         }
         else
         {
-            w = halfResource; // smaller or equal
+            w = max(w. halfResource); // smaller or equal
             m = totalResource - halfResource; // bigger or equal
         }
         
@@ -57,7 +57,9 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
         countingCandies += (m * w);
 
-        phasesAlter = min(phasesAlter, ceil((n - countingCandies) / ( m * w) ) );
+        lli helper = ceil((n - countingCandies) / ( m * w) );
+
+        phasesAlter = min(phasesAlter, helper);
     }
 
     return min(phases, phasesAlter);
