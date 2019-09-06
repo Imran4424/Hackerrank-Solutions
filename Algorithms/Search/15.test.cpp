@@ -16,10 +16,12 @@ lli minimumPasses(lli machine, lli workers, lli price, lli n)
 
     lli countingCandies = 0;
 
+    lli phasesAlter = 1844674407370955161;
+
     while(countingCandies < n)
     {
         
-        if (countingCandies < price)
+        if (countingCandies < price && (price - countingCandies) > (machine * workers))
         {
             lli candyOneIterate = (machine * workers);
 
