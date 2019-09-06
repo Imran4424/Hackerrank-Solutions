@@ -25,7 +25,7 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
             break;
         }
 
-        if (0)
+        if (n/2 < countingCandies - (2 * p))
         {
             continue;
         }
