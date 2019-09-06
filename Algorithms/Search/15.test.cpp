@@ -18,7 +18,7 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
 
     lli countingCandies = 0;
 
-    lli phasesAlter = LLONG_MAX;
+    lli phasesAlter = 9999999999999999;
 
     while(countingCandies < n)
     {
