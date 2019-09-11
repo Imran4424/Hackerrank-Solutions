@@ -7,66 +7,80 @@ typedef unsigned long long int lli;
 vector<string> split_string(string);
 
 // Complete the minimumPasses function below.
-lli minimumPasses(lli machine, lli workers, lli price, lli n) 
-{
-    if (n <= price)
+lli minimumPasses(lli m, lli w, lli p, lli n) 
+{   
+    if(p >= n)
     {
-        return ceil(n / (machine * workers));
+        int multi = (m*w);
+
+        if(n % multi != 0)
+        {
+            return (n/multi) + 1;
+        }
+
+        return n / multi;
     }
 
     lli phases = 0;
 
     lli countingCandies = 0;
 
-    lli phasesAlter = 1844674407370955161;
-
     while(countingCandies < n)
     {
-        
-        if (countingCandies < price && (price - countingCandies) > (machine * workers))
+        phases++;
+        countingCandies += (m * w);
+
+        if(countingCandies >= n)
         {
-            lli candyOneIterate = (machine * workers);
-
-            lli steps = ceil((price - countingCandies) / candyOneIterate);
-
-            phases += steps;
-
-            countingCandies += (steps * candyOneIterate);
-
-            continue;
+            break;
         }
-    
-        lli buyResource = countingCandies / price;
 
-        countingCandies = (countingCandies - (buyResource * price));
-
-        lli totalResource = machine + workers + buyResource;
-
-        lli halfResource = totalResource / 2;
-
-        if (machine > workers)
+        if (countingCandies < p || (n/2) < countingCandies)
         {
-            machine = max(machine, halfResource); // smaller or equal
-            workers = totalResource - machine; // bigger or equal
+            continue;
         }
         else
         {
-            workers = max(workers, halfResource); // smaller or equal
-            machine = totalResource - workers; // bigger or equal
+
+            lli divide = countingCandies / p;
+
+            if (m <= w)
+            {
+                if (divide % 2 == 0)
+                {
+                    m += (divide / 2);
+                    w += (divide / 2);
+                }
+                else
+                {
+                    m += (divide / 2) + 1;
+                    w += (divide / 2);    
+                }
+
+                countingCandies = (countingCandies % p);
+
+            }
+            else
+            {
+                if (divide % 2 == 0)
+                {
+                    m += (divide / 2);
+                    w += (divide / 2);
+                }
+                else
+                {
+                    m += (divide / 2);
+                    w += (divide / 2) + 1;    
+                }
+
+                countingCandies = (countingCandies % p);
+            }
+
+            
         }
-        
-        phases++;
-
-        countingCandies += (machine * workers);
-
-        lli candyOneIterate = (machine * workers);
-
-        lli helper = ceil((n - countingCandies) / candyOneIterate );
-
-        phasesAlter = min(phasesAlter, helper);
     }
 
-    return min(phases,phasesAlter);
+    return phases;
 }
 
 int main()
@@ -95,7 +109,8 @@ int main()
     return 0;
 }
 
-vector<string> split_string(string input_string) {
+vector<string> split_string(string input_string) 
+{
     string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
         return x == y and x == ' ';
     });
