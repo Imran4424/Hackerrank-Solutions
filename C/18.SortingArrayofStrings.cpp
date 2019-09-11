@@ -32,15 +32,34 @@ int DistCharacter(const char* a)
 
 int sort_by_number_of_distinct_characters(const char* a, const char* b) 
 {
-    
+    int distVal = DistCharacter(a) - DistCharacter(b);
+
+    if(distVal > 0)
+    {
+        return distVal;
+    } 
+    else
+    {
+        lexicographic_sort(a, b);
+    }
 }
 
 int sort_by_length(const char* a, const char* b) 
 {
+    int lenVal = strlen(a) - strlen(b);
 
+    if (lenVal > 0)
+    {
+        return lenVal;
+    }
+    else
+    {
+        return lexicographic_sort(a, b);
+    }
 }
 
-void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const char* b)){
+void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const char* b))
+{
 
 }
 
