@@ -60,7 +60,7 @@ void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const c
     {
         for(int j = 0; j < len - 1 - i)
         {
-            if (cmp_func(arr[j], arr[j+1]) > 0)
+            if (cmp_func(arr[j], arr[j+1]) > 0; ++j)
             {
                 char* temp = arr[j];
 
