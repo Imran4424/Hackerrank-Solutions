@@ -14,17 +14,25 @@ int lexicographic_sort_reverse(const char* a, const char* b)
 
 int DistCharacter(const char* a)
 {
-    int dist = 0;
-    int i = 0;
+    // int dist = 0;
+    // int i = 0;
 
-    while(a[i] != '\0')
-    {
-        if (!strchr(a, a[i]))
-        {
+    // while(a[i] != '\0')
+    // {
+    //     if (!strchr(a, a[i]))
+    //     {
+    //         dist++;
+    //     }
+
+    //     i++;
+    // }
+
+      int dist = 0;
+   
+    while (*a != '\0') {
+        if (!strchr(a + 1, *a))
             dist++;
-        }
-
-        i++;
+        a++;
     }
 
     return dist;
@@ -34,24 +42,24 @@ int sort_by_number_of_distinct_characters(const char* a, const char* b)
 {
     int distVal = DistCharacter(a) - DistCharacter(b);
 
-    // if(distVal)
-    // {
-    //     return distVal;
-    // } 
+    if(distVal)
+    {
+        return distVal;
+    } 
     
-    return (distVal) ? distVal : lexicographic_sort(a, b);
+    return lexicographic_sort(a, b);
 }
 
 int sort_by_length(const char* a, const char* b) 
 {
     int lenVal = strlen(a) - strlen(b);
 
-    // if (lenVal)
-    // {
-    //     return lenVal;
-    // }
+    if (lenVal)
+    {
+        return lenVal;
+    }
    
-    return (lenVal) ? lenVal : lexicographic_sort(a, b);
+    return lexicographic_sort(a, b);
 }
 
 void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const char* b))
