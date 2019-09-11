@@ -58,9 +58,9 @@ void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const c
 {
     for (int i = 0; i < len - 1; ++i)
     {
-        for(int j = 0; j < len - 1 - i)
+        for(int j = 0; j < len - 1 - i; ++j)
         {
-            if (cmp_func(arr[j], arr[j+1]) > 0; ++j)
+            if (cmp_func(arr[j], arr[j+1]) > 0)
             {
                 char* temp = arr[j];
 
