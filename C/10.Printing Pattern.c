@@ -36,7 +36,7 @@ int main()
                     j++;
                 }
 
-                j--;
+                j--; // decrementing cause extra increment one
                 val++;
                 done = true;
             }
