@@ -14,7 +14,7 @@ int main()
     for(int i= 1; i <= n*2-1; i++)
     {
         int seed = n-i+1, val = n; // seed for the middle point of the pattern, val is for each column
-        bool done = false;
+        bool done = false; // half column done or not
 
         if(seed < 1) // for printing the next half rows
         {
