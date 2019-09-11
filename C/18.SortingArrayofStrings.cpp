@@ -14,25 +14,17 @@ int lexicographic_sort_reverse(const char* a, const char* b)
 
 int DistCharacter(const char* a)
 {
-    // int dist = 0;
-    // int i = 0;
+    int dist = 0;
+    int i = 0;
 
-    // while(a[i] != '\0')
-    // {
-    //     if (!strchr(a, a[i]))
-    //     {
-    //         dist++;
-    //     }
-
-    //     i++;
-    // }
-
-      int dist = 0;
-   
-    while (*a != '\0') {
-        if (!strchr(a + 1, *a))
+    while(a[i] != '\0')
+    {
+        if (!strchr(&a[i]+1, a[i]))
+        {
             dist++;
-        a++;
+        }
+
+        i++;
     }
 
     return dist;
@@ -89,7 +81,8 @@ int main()
     char** arr;
 	arr = (char**)malloc(n * sizeof(char*));
   
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++)
+    {
         *(arr + i) = malloc(1024 * sizeof(char));
         scanf("%s", *(arr + i));
         *(arr + i) = realloc(*(arr + i), strlen(*(arr + i)) + 1);
@@ -97,21 +90,30 @@ int main()
   
     string_sort(arr, n, lexicographic_sort);
     for(int i = 0; i < n; i++)
+    {
         printf("%s\n", arr[i]);
+    }
     printf("\n");
 
     string_sort(arr, n, lexicographic_sort_reverse);
     for(int i = 0; i < n; i++)
+    {
         printf("%s\n", arr[i]); 
+    }
     printf("\n");
 
     string_sort(arr, n, sort_by_length);
     for(int i = 0; i < n; i++)
+    {
         printf("%s\n", arr[i]);    
+    }
     printf("\n");
 
     string_sort(arr, n, sort_by_number_of_distinct_characters);
     for(int i = 0; i < n; i++)
+    {
         printf("%s\n", arr[i]); 
+    }
+    
     printf("\n");
 }
