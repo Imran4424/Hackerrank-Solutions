@@ -11,7 +11,7 @@ int main()
     scanf("%d", &n);
   	// Complete the code to print the pattern.
 
-    for(int i= 1; i <= n*2-1; i++)
+    for(int i= 1; i < n*2; i++)
     {
         int seed = n-i+1, val = n; // seed for the middle point of the pattern, val is for each column
         bool done = false; // half column done or not
@@ -21,7 +21,7 @@ int main()
             seed = abs(seed-2);
         }
 
-        for(int j=1; j <= n*2-1; j++)
+        for(int j=1; j < n*2; j++)
         {
             if(val > seed && !done) // first half columns
             {
