@@ -38,10 +38,8 @@ int sort_by_number_of_distinct_characters(const char* a, const char* b)
     {
         return distVal;
     } 
-    else
-    {
-        lexicographic_sort(a, b);
-    }
+    
+    return lexicographic_sort(a, b);
 }
 
 int sort_by_length(const char* a, const char* b) 
@@ -52,10 +50,8 @@ int sort_by_length(const char* a, const char* b)
     {
         return lenVal;
     }
-    else
-    {
-        return lexicographic_sort(a, b);
-    }
+   
+    return lexicographic_sort(a, b);
 }
 
 void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const char* b))
@@ -66,7 +62,11 @@ void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const c
         {
             if (cmp_func(arr[j], arr[j+1]) > 0)
             {
-                /* code */
+                char* temp = arr[j];
+
+                arr[j] = arr[j+1];
+                
+                arr[j+1] = temp;
             }
         }
     }
