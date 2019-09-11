@@ -23,7 +23,12 @@ int main()
 
         for(int j=1; j <= n*2-1; j++)
         {
-            if(val == seed && !done) // middle equal value columns
+            if(val > seed && !done) // first half columns
+            {
+                printf("%d ", val);
+                val--;
+            }
+            else if(val == seed && !done) // middle equal value columns
             {
                 for(int k=1; k < seed*2; k++)
                 {
@@ -34,11 +39,6 @@ int main()
                 j--;
                 val++;
                 done = true;
-            }
-            else if(val > seed && !done) // first half columns
-            {
-                printf("%d ", val);
-                val--;
             }
             else  // last half columns
             {
