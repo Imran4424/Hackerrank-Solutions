@@ -1,8 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int, int> couple;
-typedef pair<int, couple> nestedCouple;
+struct EdgeInstance
+{
+    int source, destination, weight;
+
+    bool operator<(const EdgeInstance &obj)
+    {
+        return weight < obj.weight;
+    }
+};
 
 int *parent;
 
@@ -59,17 +66,21 @@ vector<string> split(const string &);
  *
  */
 
-int kruskals(int g_nodes, vector<int> g_from, vector<int> g_to, vector<int> g_weight) 
+int kruskals(int g_nodes, vector <EdgeInstance> EdgeList) 
 {
     parent = new int[g_nodes + 1];
 
     Init(g_nodes);
 
-    vector <nestedCouple> EdgeList;
+    EdgeInstance temp;
 
     for (int i = 0; i < g_from.size(); ++i)
     {
-        EdgeList.push_back(make_pair(g_weight[i], make_pair(g_to[i], g_from[i])));
+        temp.source = g_from[i];
+        temp.destination = g_to[i];
+        temp.weight = g_weight[i];
+
+        EdgeList.push_back(temp);
     }
 
     sort(EdgeList.begin(), EdgeList.end());
@@ -78,9 +89,9 @@ int kruskals(int g_nodes, vector<int> g_from, vector<int> g_to, vector<int> g_we
 
     for (int i = 0; i < EdgeList.size(); ++i)
     {
-        if(Union(EdgeList[i].second.first, EdgeList[i].second.second))
+        if(Union(EdgeList[i].source, EdgeList[i].destination))
         {
-            minWeight += EdgeList[i].first;
+            minWeight += EdgeList[i].weight;
         }
     }
 
@@ -103,7 +114,10 @@ int main()
     vector<int> g_to(g_edges);
     vector<int> g_weight(g_edges);
 
-    for (int i = 0; i < g_edges; i++) {
+    vector <EdgeInstance> EdgeList;
+
+    for (int i = 0; i < g_edges; i++) 
+    {
         string g_from_to_weight_temp;
         getline(cin, g_from_to_weight_temp);
 
