@@ -108,16 +108,13 @@ int main()
 
         vector<int> result = RusMurderer(s, n);
 
-        for (int result_itr = 1; result_itr < result.size(); result_itr++) 
+        for (int result_itr = 0; result_itr < result.size(); result_itr++) 
         {
-            if()
-
-            fout << result[result_itr];
-
-            if (result_itr != result.size() - 1) 
+            if(result[result_itr] != 0)
             {
-                fout << " ";
+                fout << result[result_itr] << " ";
             }
+
         }
 
         fout << "\n";
