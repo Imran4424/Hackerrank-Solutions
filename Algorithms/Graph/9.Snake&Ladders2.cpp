@@ -1,15 +1,11 @@
+/*
+    This solution is not accepted
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
-int assignPositions[101];
-
-void Init()
-{
-    for(int i = 1; i <= 100; i++)
-    {
-        assignPositions[i] = i;
-    }
-}
+map <int, int> powerMoves;
 
 
 // Complete the quickestWayUp function below.
@@ -32,11 +28,18 @@ int QuickestWayUp()
         int current = qList.front();
         qList.pop();
 
-        
+        int nextMove;
 
         for(int k = 1; k <= 6; k++)
         {
-            int nextMove = assignPositions[current + k];
+            if(powerMoves.count(current + k) != 0)
+            {
+                nextMove = powerMoves[current + k];
+            }
+            else
+            {
+                nextMove = current + k;
+            }
 
             if(nextMove >= 1 && nextMove <= 100 && !visited[nextMove])
             {
@@ -64,10 +67,7 @@ int main()
     cin >> t;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int t_itr = 0; t_itr < t; t_itr++) 
-    {
-        Init();
-
+    for (int t_itr = 0; t_itr < t; t_itr++) {
         int n;
         cin >> n;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -78,7 +78,7 @@ int main()
 
             cin >> ladders[i][0] >> ladders[i][1];
 
-            assignPositions[ladders[i][0]] = ladders[i][1];
+            powerMoves[ladders[i][0]] = ladders[i][1];
 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
@@ -93,7 +93,7 @@ int main()
 
             cin >> snakes[i][0] >> snakes[i][1];
 
-            assignPositions[snakes[i][0]] = snakes[i][1];
+            powerMoves[snakes[i][0]] = snakes[i][1];
 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
