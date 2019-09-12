@@ -17,7 +17,23 @@ vector<string> split_string(string);
  */
 vector<int> rustMurdered(int source, int totalVertex) 
 {
-   
+    queue <int> qList;
+
+    vector <bool> visited(totalVertex+1, false);
+
+    set <int> listOne, ListTwo;
+
+    for(int i = 1; i <= totalVertex; i++)
+    {
+        if (i != source)
+        {
+            listOne.insert(i);
+        }
+    }
+
+    
+
+
 
 }
 
