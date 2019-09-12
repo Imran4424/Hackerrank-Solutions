@@ -21,19 +21,48 @@ vector<int> rustMurdered(int source, int totalVertex)
 
     vector <bool> visited(totalVertex+1, false);
 
-    set <int> listOne, ListTwo;
+    set <int> complement, given;
 
     for(int i = 1; i <= totalVertex; i++)
     {
         if (i != source)
         {
-            listOne.insert(i);
+            complement.insert(i);
         }
     }
 
-    
+    vector <int> minDistance(totalVertex+1, 0);
 
+    visited[source] = true;
 
+    qList.push(source);
+
+    while(!qList.empty())
+    {
+        int current = qList.front();
+        qList.pop();
+
+        for(int k = 0; k < adjacency[current].size(); k++)
+        {
+            if (!visited[adjacency[current][k]])
+            {
+                complement.erase(adjacency[current][k]); // taking only the complement
+                given.insert(adjacency[current][k]);  // storing the given for next iteration
+            }
+        }
+
+        for(auto k = complement.begin(); k != complement.end(); k++)
+        {
+            visited[*k] = true;
+            qList.push(*k);
+
+            minDistance[*k] = minDistance[u] + 1;
+        }
+
+        // for next test case
+        complement = given; 
+        given.clear();
+    }
 
 }
 
