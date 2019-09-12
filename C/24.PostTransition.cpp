@@ -53,7 +53,7 @@ void send_all_acceptable_packages(town* source, int source_office_index, town* t
 
 town town_with_most_packages(town* towns, int towns_count) 
 {
-
+	int max = -999, 
 }
 
 town* find_town(town* towns, int towns_count, char* name) 
