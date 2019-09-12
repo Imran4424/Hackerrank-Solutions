@@ -5,13 +5,42 @@ typedef pair<int, int> couple;
 typedef pair<int, couple> nestedCouple;
 
 vector <nestedCouple> adjacency;
-vector <int> parent;
+vector *parent;
 
 void AddEdge(int source, int destination, int weight)
 {
     adjacency.push_back(make_pair(weight, make_pair(source, destination)));
 
     adjacency.push_back(make_pair(weight, make_pair(destination, source)));
+}
+
+void Init(int vertex)
+{
+    for (int i = 1; i <= vertex; ++i)
+    {
+        parent[i] = i;
+    }
+}
+
+int SearchParent(int vertex)
+{
+    if (vertex == parent[vertex])
+    {
+        return vertex;
+    }
+
+    return parent[vertex] = SearchParent(parent[vertex]);
+}
+
+bool Union(int xVertex, int yVertex)
+{
+    int xParent = SearchParent(xVertex);
+    int yParent = SearchParent(yVertex);
+
+    if (xParent != yParent)
+    {
+        
+    }
 }
 
 string ltrim(const string &);
@@ -36,10 +65,16 @@ vector<string> split(const string &);
 
 int kruskals(int g_nodes, vector<int> g_from, vector<int> g_to, vector<int> g_weight) 
 {
+    parent = new int[g_nodes + 1];
+
     for (int i = 0; i < g_from.size(); ++i)
     {
         AddEdge(g_from[i], g_to[i], g_weight);
     }
+
+    sort(adjacency.begin(), adjacency.end());
+
+
 }
 
 int main()
