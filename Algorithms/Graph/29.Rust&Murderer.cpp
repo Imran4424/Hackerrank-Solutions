@@ -15,11 +15,9 @@ vector<string> split_string(string);
 /*
  * Complete the rustMurdered function below.
  */
-vector<int> rustMurdered(int n, vector<vector<int>> roads) 
+vector<int> rustMurdered(int source, int totalVertex) 
 {
-    /*
-     * Write your code here.
-     */
+   
 
 }
 
@@ -51,6 +49,8 @@ int main()
             {
                 cin >> roads[roads_row_itr][roads_column_itr];
             }
+
+            AddEdge(roads[roads_row_itr][0], roads[roads_row_itr][1]);
 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
