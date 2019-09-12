@@ -39,8 +39,12 @@ bool Union(int xVertex, int yVertex)
 
     if (xParent != yParent)
     {
-        
+        parent[yParent] = xParent;
+
+        return true;
     }
+
+    return false;
 }
 
 string ltrim(const string &);
@@ -67,6 +71,8 @@ int kruskals(int g_nodes, vector<int> g_from, vector<int> g_to, vector<int> g_we
 {
     parent = new int[g_nodes + 1];
 
+    Init(g_nodes);
+
     for (int i = 0; i < g_from.size(); ++i)
     {
         AddEdge(g_from[i], g_to[i], g_weight);
@@ -74,7 +80,17 @@ int kruskals(int g_nodes, vector<int> g_from, vector<int> g_to, vector<int> g_we
 
     sort(adjacency.begin(), adjacency.end());
 
+    int minWeight = 0;
 
+    for (int i = 0; i < adjacency.size(); ++i)
+    {
+        if(Union(adjacency[i].second.first, adjacency[i].second.second))
+        {
+            minWeight += adjacency[i].first;
+        }
+    }
+
+    return minWeight;
 }
 
 int main()
