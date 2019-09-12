@@ -1,3 +1,7 @@
+/*
+	not accepted yet
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX_STRING_LENGTH 6
@@ -51,38 +55,34 @@ void send_all_acceptable_packages(town* source, int source_office_index, town* t
 	post_office sOffice = source -> offices[source_office_index];
 	post_office tOffice = target -> offices[target_office_index];
 
-	int count, k, max, min, mxg;
     
 	for(int i = 0; i < sOffice.packages_count; i++)
 	{
-		mxg = sOffice.packages[i].weight;
-		min = tOffice.min_weight;
-		max = tOffice.max_weight;
+		int weight = sOffice.packages[i].weight;
+		int minWeight = tOffice.min_weight;
+		int maxWeight = tOffice.max_weight;
 
-		if((min<=mxg)&&(mxg<=max))
+		if(weight >= maxWeight && weight <= minWeight)
 		{
-		    	count=tOffice.packages_count;
-		   	tOffice.packages = realloc(tOffice.packages, sizeof(package) * (count+1)); 
+		    	int count = tOffice.packages_count;
+		   	tOffice.packages = realloc(tOffice.packages, sizeof(package) * (count + 1)); 
 							
 			tOffice.packages[count] = sOffice.packages[i];
 		    
 		    	count = sOffice.packages_count;
-		       	k = i;
+		       	
+			for(int k = i; k < count-1; k++)
+			{
+				package temp = sOffice.packages[k];
+				sOffice.packages[k] = sOffice.packages[k+1];
+				sOffice.packages[k+1]=temp;
+			}
 
-		    while(k<count-1)
-		    {
-		        package temp=sOffice.packages[k];
-			sOffice.packages[k]=source->offices[SOIndex].packages[k+1];
-		        sOffice.packages[k+1]=temp;
-		        k++;
-		    }
-		    
-		    sOffice.packages=
-		    realloc(sOffice.packages, sizeof(package) * (count-1));
-		    
-		    tOffice.packages_count++;
-		    sOffice.packages_count--;
-		    i--;
+			sOffice.packages = realloc(sOffice.packages, sizeof(package) * (count-1));
+
+			tOffice.packages_count++;
+			sOffice.packages_count--;
+			i--;
 		}
 	}
 
@@ -125,7 +125,7 @@ town* find_town(town* towns, int towns_count, char* name)
 		}
 	}
 
-	return towns[found];
+	return &towns[found];
 }
 
 int main()
