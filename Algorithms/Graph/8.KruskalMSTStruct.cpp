@@ -13,7 +13,7 @@ struct EdgeInstance
 
 int *parent;
 
-void Init(int vertex)
+void InitDisjoint(int vertex)
 {
     for (int i = 1; i <= vertex; ++i)
     {
@@ -70,7 +70,7 @@ int kruskals(int g_nodes, vector<int> g_from, vector<int> g_to, vector<int> g_we
 {
     parent = new int[g_nodes + 1];
 
-    Init(g_nodes);
+    InitDisjoint(g_nodes);
 
     vector <EdgeInstance> EdgeList;
 
@@ -102,79 +102,24 @@ int kruskals(int g_nodes, vector<int> g_from, vector<int> g_to, vector<int> g_we
 
 int main()
 {
-    ofstream fout(getenv("OUTPUT_PATH"));
+    int g_nodes, g_edges;
+    cin >> g_nodes >> g_edges;
 
-    string g_nodes_edges_temp;
-    getline(cin, g_nodes_edges_temp);
+    vector <int> g_to, g_from, g_weight;
 
-    vector<string> g_nodes_edges = split(rtrim(g_nodes_edges_temp));
+    int source, destination, weight;
 
-    int g_nodes = stoi(g_nodes_edges[0]);
-    int g_edges = stoi(g_nodes_edges[1]);
+    for (int i = 0; i < g_edges; ++i)
+    {
+        cin >> source >> destination >> weight;
 
-    vector<int> g_from(g_edges);
-    vector<int> g_to(g_edges);
-    vector<int> g_weight(g_edges);
-
-    for (int i = 0; i < g_edges; i++) {
-        string g_from_to_weight_temp;
-        getline(cin, g_from_to_weight_temp);
-
-        vector<string> g_from_to_weight = split(rtrim(g_from_to_weight_temp));
-
-        int g_from_temp = stoi(g_from_to_weight[0]);
-        int g_to_temp = stoi(g_from_to_weight[1]);
-        int g_weight_temp = stoi(g_from_to_weight[2]);
-
-        g_from[i] = g_from_temp;
-        g_to[i] = g_to_temp;
-        g_weight[i] = g_weight_temp;
+        g_to.push_back(source);
+        g_from.push_back(destination);
+        g_weight.push_back(weight);
     }
 
-    int res = kruskals(g_nodes, g_from, g_to, g_weight);
-
-    // Write your code here.
-
-    fout.close();
-
+    cout << kruskals(g_nodes, g_to, g_from, g_weight);
+    
     return 0;
 }
 
-string ltrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
-
-    return s;
-}
-
-string rtrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
-
-    return s;
-}
-
-vector<string> split(const string &str) {
-    vector<string> tokens;
-
-    string::size_type start = 0;
-    string::size_type end = 0;
-
-    while ((end = str.find(" ", start)) != string::npos) {
-        tokens.push_back(str.substr(start, end - start));
-
-        start = end + 1;
-    }
-
-    tokens.push_back(str.substr(start));
-
-    return tokens;
-}
