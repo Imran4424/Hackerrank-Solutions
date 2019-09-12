@@ -15,7 +15,7 @@ vector<string> split_string(string);
 /*
  * Complete the rustMurdered function below.
  */
-vector<int> rustMurdered(int source, int totalVertex) 
+vector<int> RusMurderer(int source, int totalVertex) 
 {
     queue <int> qList;
 
@@ -31,7 +31,7 @@ vector<int> rustMurdered(int source, int totalVertex)
         }
     }
 
-    vector <int> minDistance(totalVertex, 0);
+    vector <int> minDistance(totalVertex + 1, 0);
 
     visited[source] = true;
 
@@ -56,7 +56,7 @@ vector<int> rustMurdered(int source, int totalVertex)
             visited[*k] = true;
             qList.push(*k);
 
-            minDistance[*k - 1] = minDistance[u - 1] + 1; // cause start counting at 0
+            minDistance[*k] = minDistance[current] + 1; // cause start counting at 0
         }
 
         // for next test case
@@ -75,7 +75,8 @@ int main()
     cin >> t;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int t_itr = 0; t_itr < t; t_itr++) {
+    for (int t_itr = 0; t_itr < t; t_itr++) 
+    {
         string nm_temp;
         getline(cin, nm_temp);
 
@@ -85,7 +86,7 @@ int main()
 
         int m = stoi(nm[1]);
 
-        adjacency = vector <int> [n + 1];
+        adjacency = new vector <int> [n + 1];
 
         vector<vector<int>> roads(m);
         for (int roads_row_itr = 0; roads_row_itr < m; roads_row_itr++) {
@@ -105,10 +106,12 @@ int main()
         cin >> s;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        vector<int> result = rustMurderer(s, n);
+        vector<int> result = RusMurderer(s, n);
 
-        for (int result_itr = 0; result_itr < result.size(); result_itr++) 
+        for (int result_itr = 1; result_itr < result.size(); result_itr++) 
         {
+            if()
+
             fout << result[result_itr];
 
             if (result_itr != result.size() - 1) 
