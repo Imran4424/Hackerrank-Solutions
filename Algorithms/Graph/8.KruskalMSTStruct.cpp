@@ -66,11 +66,13 @@ vector<string> split(const string &);
  *
  */
 
-int kruskals(int g_nodes, vector <EdgeInstance> EdgeList) 
+int kruskals(int g_nodes, vector<int> g_from, vector<int> g_to, vector<int> g_weight) 
 {
     parent = new int[g_nodes + 1];
 
     Init(g_nodes);
+
+    vector <EdgeInstance> EdgeList;
 
     EdgeInstance temp;
 
@@ -114,10 +116,7 @@ int main()
     vector<int> g_to(g_edges);
     vector<int> g_weight(g_edges);
 
-    vector <EdgeInstance> EdgeList;
-
-    for (int i = 0; i < g_edges; i++) 
-    {
+    for (int i = 0; i < g_edges; i++) {
         string g_from_to_weight_temp;
         getline(cin, g_from_to_weight_temp);
 
