@@ -30,12 +30,19 @@ lli minimumPasses(lli m, lli w, lli p, lli n)
         phases++;
         countingCandies += (m * w);
 
+        while(countingCandies < p)
+        {
+            countingCandies += (m * w);
+
+            phases++;
+        }
+
         if(countingCandies >= n)
         {
             break;
         }
 
-        if (countingCandies < p || (n/2) < countingCandies)
+        if ((n/2) < countingCandies)
         {
             continue;
         }

@@ -29,7 +29,7 @@ void FindRegion(vector<vector<int>> matrix, vector < vector <bool> > &visited, i
     {
         if (!visited[x+1][y])
         {
-            if (matrix, matrix[x+1][y])
+            if (matrix[x+1][y])
             {
                 FindRegion(matrix, visited, x + 1, y);
             }

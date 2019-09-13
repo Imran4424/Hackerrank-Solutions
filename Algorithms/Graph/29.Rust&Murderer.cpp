@@ -56,7 +56,7 @@ vector<int> RusMurderer(int source, int totalVertex)
             visited[*k] = true;
             qList.push(*k);
 
-            minDistance[*k] = minDistance[current] + 1; // cause start counting at 0
+            minDistance[*k] = minDistance[current] + 1; 
         }
 
         // for next test case

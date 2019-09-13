@@ -11,18 +11,19 @@ lli minimumLoss(vector<lli> price)
 {
     map <lli, lli> keyHolder;
 
-    vector <lli> sortedPrice = price;
 
     for (int i = 0; i < price.size(); ++i)
     {
         keyHolder[price[i]] = i;
     }
 
+    vector <lli> sortedPrice = price;
+
     sort(sortedPrice.rbegin(), sortedPrice.rend());
 
     lli minLoss = 99999999999999999;
 
-    for (lli i = 0; i < sortedPrice.size(); ++i)
+    for (lli i = 0; i < sortedPrice.size() - 1; ++i)
     {
 
         if (sortedPrice[i] - sortedPrice[i+1] < minLoss && keyHolder[sortedPrice[i]] < keyHolder[sortedPrice[i+1]])
