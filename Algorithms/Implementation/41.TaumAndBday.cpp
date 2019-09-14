@@ -44,7 +44,8 @@ int main()
 
     vector<int> c(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int c_item = stoi(c_temp[i]);
 
         c[i] = c_item;
