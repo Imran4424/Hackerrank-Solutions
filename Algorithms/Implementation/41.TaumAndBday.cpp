@@ -2,93 +2,130 @@
 
 using namespace std;
 
-vector<string> split_string(string);
+typedef long long int lli;
 
-// Complete the jumpingOnClouds function below.
-int jumpingOnClouds(vector<int> c) 
+string ltrim(const string &);
+string rtrim(const string &);
+vector<string> split(const string &);
+
+/*
+ * Complete the 'taumBday' function below.
+ *
+ * The function is expected to return a LONG_INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER b
+ *  2. INTEGER w
+ *  3. INTEGER bc
+ *  4. INTEGER wc
+ *  5. INTEGER z
+ */
+
+lli  taumBday(lli b, lli w, lli bc, lli wc, lli z) 
 {
-    int jumpCount = 0;
-
-    for(int i = 0; i < c.size(); i++)
+    lli totalMoney = (b* bc) + (w * wc);
+    
+    lli convertingCost = 0;
+    
+    if(bc < wc)
     {
-        if(c[i+2] == 0 && (i+2 < c.size()))
-        {
-            jumpCount++;
-
-            i++;
-        }
-        else
-        {
-            if(i+1 < c.size())
-            {
-                jumpCount++;
-            }
-        }
+        b += w;
+        
+        convertingCost += (w * z);
+        
+        convertingCost += (b * bc);
     }
-
-    return jumpCount;
+    else
+    {
+        w += b;
+        
+        convertingCost += (b * z);
+        
+        convertingCost += (w * wc);
+    }
+    
+    if(totalMoney < convertingCost)
+    {
+        return totalMoney;
+    }
+    
+    return convertingCost;
 }
 
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    int n;
-    cin >> n;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    string t_temp;
+    getline(cin, t_temp);
 
-    string c_temp_temp;
-    getline(cin, c_temp_temp);
+    int t = stoi(ltrim(rtrim(t_temp)));
 
-    vector<string> c_temp = split_string(c_temp_temp);
+    for (int t_itr = 0; t_itr < t; t_itr++) {
+        string first_multiple_input_temp;
+        getline(cin, first_multiple_input_temp);
 
-    vector<int> c(n);
+        vector<string> first_multiple_input = split(rtrim(first_multiple_input_temp));
 
-    for (int i = 0; i < n; i++) 
-    {
-        int c_item = stoi(c_temp[i]);
+        lli b = stol(first_multiple_input[0]);
 
-        c[i] = c_item;
+        lli w = stol(first_multiple_input[1]);
+
+        string second_multiple_input_temp;
+        getline(cin, second_multiple_input_temp);
+
+        vector<string> second_multiple_input = split(rtrim(second_multiple_input_temp));
+
+        lli bc = stol(second_multiple_input[0]);
+
+        lli wc = stol(second_multiple_input[1]);
+
+        lli z = stol(second_multiple_input[2]);
+
+        lli result = taumBday(b, w, bc, wc, z);
+
+        fout << result << "\n";
     }
-
-    int result = jumpingOnClouds(c);
-
-    fout << result << "\n";
 
     fout.close();
 
     return 0;
 }
 
-vector<string> split_string(string input_string) 
-{
-    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) 
-    {
-        return x == y and x == ' ';
-    });
+string ltrim(const string &str) {
+    string s(str);
 
-    input_string.erase(new_end, input_string.end());
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
 
-    while (input_string[input_string.length() - 1] == ' ') 
-    {
-        input_string.pop_back();
+    return s;
+}
+
+string rtrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end()
+    );
+
+    return s;
+}
+
+vector<string> split(const string &str) {
+    vector<string> tokens;
+
+    string::size_type start = 0;
+    string::size_type end = 0;
+
+    while ((end = str.find(" ", start)) != string::npos) {
+        tokens.push_back(str.substr(start, end - start));
+
+        start = end + 1;
     }
 
-    vector<string> splits;
-    char delimiter = ' ';
+    tokens.push_back(str.substr(start));
 
-    size_t i = 0;
-    size_t pos = input_string.find(delimiter);
-
-    while (pos != string::npos) 
-    {
-        splits.push_back(input_string.substr(i, pos - i));
-
-        i = pos + 1;
-        pos = input_string.find(delimiter, i);
-    }
-
-    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
-
-    return splits;
+    return tokens;
 }
