@@ -31,9 +31,12 @@ class SinglyLinkedList
         {
             SinglyLinkedListNode* node = new SinglyLinkedListNode(node_data);
 
-            if (!this->head) {
+            if (!this->head) 
+            {
                 this->head = node;
-            } else {
+            } 
+            else 
+            {
                 this->tail->next = node;
             }
 
