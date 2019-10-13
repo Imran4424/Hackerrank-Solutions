@@ -6,12 +6,14 @@
 
 using namespace std;
 
-class SinglyLinkedListNode {
+class SinglyLinkedListNode 
+{
     public:
         int data;
         SinglyLinkedListNode *next;
 
-        SinglyLinkedListNode(int node_data) {
+        SinglyLinkedListNode(int node_data) 
+        {
             this->data = node_data;
             this->next = nullptr;
         }
