@@ -2,33 +2,41 @@
 
 using namespace std;
 
-class SinglyLinkedListNode {
+class SinglyLinkedListNode 
+{
     public:
         int data;
         SinglyLinkedListNode *next;
 
-        SinglyLinkedListNode(int node_data) {
+        SinglyLinkedListNode(int node_data) 
+        {
             this->data = node_data;
             this->next = nullptr;
         }
 };
 
-class SinglyLinkedList {
+class SinglyLinkedList 
+{
     public:
         SinglyLinkedListNode *head;
         SinglyLinkedListNode *tail;
 
-        SinglyLinkedList() {
+        SinglyLinkedList() 
+        {
             this->head = nullptr;
             this->tail = nullptr;
         }
 
-        void insert_node(int node_data) {
+        void insert_node(int node_data) 
+        {
             SinglyLinkedListNode* node = new SinglyLinkedListNode(node_data);
 
-            if (!this->head) {
+            if (!this->head) 
+            {
                 this->head = node;
-            } else {
+            } 
+            else 
+            {
                 this->tail->next = node;
             }
 
@@ -36,20 +44,25 @@ class SinglyLinkedList {
         }
 };
 
-void print_singly_linked_list(SinglyLinkedListNode* node, string sep, ofstream& fout) {
-    while (node) {
+void print_singly_linked_list(SinglyLinkedListNode* node, string sep, ofstream& fout) 
+{
+    while (node) 
+    {
         fout << node->data;
 
         node = node->next;
 
-        if (node) {
+        if (node) 
+        {
             fout << sep;
         }
     }
 }
 
-void free_singly_linked_list(SinglyLinkedListNode* node) {
-    while (node) {
+void free_singly_linked_list(SinglyLinkedListNode* node) 
+{
+    while (node) 
+    {
         SinglyLinkedListNode* temp = node;
         node = node->next;
 
