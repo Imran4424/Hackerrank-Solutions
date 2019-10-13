@@ -114,14 +114,16 @@ int main()
     cin >> tests;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int tests_itr = 0; tests_itr < tests; tests_itr++) {
+    for (int tests_itr = 0; tests_itr < tests; tests_itr++) 
+    {
         SinglyLinkedList* llist1 = new SinglyLinkedList();
 
         int llist1_count;
         cin >> llist1_count;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        for (int i = 0; i < llist1_count; i++) {
+        for (int i = 0; i < llist1_count; i++) 
+        {
             int llist1_item;
             cin >> llist1_item;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -135,7 +137,8 @@ int main()
         cin >> llist2_count;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        for (int i = 0; i < llist2_count; i++) {
+        for (int i = 0; i < llist2_count; i++) 
+        {
             int llist2_item;
             cin >> llist2_item;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
