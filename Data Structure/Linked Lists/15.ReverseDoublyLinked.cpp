@@ -8,30 +8,35 @@
 
 using namespace std;
 
-class DoublyLinkedListNode {
+class DoublyLinkedListNode 
+{
     public:
         int data;
         DoublyLinkedListNode *next;
         DoublyLinkedListNode *prev;
 
-        DoublyLinkedListNode(int node_data) {
+        DoublyLinkedListNode(int node_data) 
+        {
             this->data = node_data;
             this->next = nullptr;
             this->prev = nullptr;
         }
 };
 
-class DoublyLinkedList {
+class DoublyLinkedList 
+{
     public:
         DoublyLinkedListNode *head;
         DoublyLinkedListNode *tail;
 
-        DoublyLinkedList() {
+        DoublyLinkedList() 
+        {
             this->head = nullptr;
             this->tail = nullptr;
         }
 
-        void insert_node(int node_data) {
+        void insert_node(int node_data) 
+        {
             DoublyLinkedListNode* node = new DoublyLinkedListNode(node_data);
 
             if (!this->head) {
