@@ -45,19 +45,23 @@ class SinglyLinkedList
 };
 
 void print_singly_linked_list(SinglyLinkedListNode* node, string sep, ofstream& fout) {
-    while (node) {
+    while (node) 
+    {
         fout << node->data;
 
         node = node->next;
 
-        if (node) {
+        if (node) 
+        {
             fout << sep;
         }
     }
 }
 
-void free_singly_linked_list(SinglyLinkedListNode* node) {
-    while (node) {
+void free_singly_linked_list(SinglyLinkedListNode* node) 
+{
+    while (node) 
+    {
         SinglyLinkedListNode* temp = node;
         node = node->next;
 
@@ -107,14 +111,16 @@ int main()
     cin >> tests;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int tests_itr = 0; tests_itr < tests; tests_itr++) {
+    for (int tests_itr = 0; tests_itr < tests; tests_itr++) 
+    {
         SinglyLinkedList* llist = new SinglyLinkedList();
 
         int llist_count;
         cin >> llist_count;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        for (int i = 0; i < llist_count; i++) {
+        for (int i = 0; i < llist_count; i++) 
+        {
             int llist_item;
             cin >> llist_item;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
