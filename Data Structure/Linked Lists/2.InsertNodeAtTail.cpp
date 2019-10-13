@@ -99,7 +99,8 @@ int main()
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
   
-    for (int i = 0; i < llist_count; i++) {
+    for (int i = 0; i < llist_count; i++) 
+    {
         int llist_item;
         cin >> llist_item;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
