@@ -65,23 +65,13 @@ void free_singly_linked_list(SinglyLinkedListNode* node)
  */
 SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) 
 {
-    SinglyLinkedListNode* temp = new SinglyLinkedListNode(data);
-
     if(NULL == head)
     {
-        head = temp;
-        
-        return head;
+        return new SinglyLinkedListNode(data);
     }
 
-    SinglyLinkedListNode* travel = head;
 
-    while(travel -> next != NULL)
-    {
-        travel = travel -> next;
-    }
-
-    travel -> next = temp;
+    head -> next = insertNodeAtTail(head -> next, data);
 
     return head;
 }
