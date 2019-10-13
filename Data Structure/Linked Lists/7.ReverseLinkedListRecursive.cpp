@@ -87,11 +87,11 @@ SinglyLinkedListNode* reverse(SinglyLinkedListNode* head)
         return head;
     }
 
-    SinglyLinkedListNode* temp = reverse(head -> next);
+    SinglyLinkedListNode* reverseHead = reverse(head -> next);
 
     head -> next = NULL;
 
-    SinglyLinkedListNode* travel = temp;
+    SinglyLinkedListNode* travel = reverseHead;
 
     while(travel -> next != NULL)
     {
@@ -100,7 +100,7 @@ SinglyLinkedListNode* reverse(SinglyLinkedListNode* head)
 
     travel -> next = head;
 
-    return temp;
+    return reverseHead;
 }
 
 int main()
