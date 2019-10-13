@@ -46,12 +46,14 @@ class SinglyLinkedList
 
 void print_singly_linked_list(SinglyLinkedListNode* node, string sep, ofstream& fout) 
 {
-    while (node) {
+    while (node) 
+    {
         fout << node->data;
 
         node = node->next;
 
-        if (node) {
+        if (node) 
+        {
             fout << sep;
         }
     }
@@ -100,7 +102,8 @@ int main()
     cin >> llist_count;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int i = 0; i < llist_count; i++) {
+    for (int i = 0; i < llist_count; i++) 
+    {
         int llist_item;
         cin >> llist_item;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
