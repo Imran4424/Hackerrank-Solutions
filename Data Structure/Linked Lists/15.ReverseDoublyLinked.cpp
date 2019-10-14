@@ -50,8 +50,10 @@ class DoublyLinkedList
         }
 };
 
-void print_doubly_linked_list(DoublyLinkedListNode* node, string sep, ofstream& fout) {
-    while (node) {
+void print_doubly_linked_list(DoublyLinkedListNode* node, string sep, ofstream& fout) 
+{
+    while (node) 
+    {
         fout << node->data;
 
         node = node->next;
