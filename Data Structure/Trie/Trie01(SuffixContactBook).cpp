@@ -158,9 +158,75 @@ void trieDeleteSuffix(char *word) {
 	node* travel = rootTrie;
 	int length = stringLength(word);
 	word = reverseString(word, length);
+
+	for(int i = 0; word[i]; i++) {
+		int letter;
+		if(word[i] >= 'A' && word[i] <= 'Z') {
+			letter = word[i] - 'A';
+		} else if(word[i] >= 'a' && word[i] <= 'z') {
+			letter = word[i] - 'a' + 25;
+		} else {
+			letter = word[i] - '0' + 51;
+		}
+
+		if(NULL == travel -> next[letter]) {
+			return;
+		}
+
+		travel = travel -> next[letter];
+	}
+
+	trieDeleteAll(travel);
 }
 
+void triePrintAll(node* travel, char *word, int pos) {
+	if(NULL == travel) {
+		return;
+	}
 
+	if(travel -> endMark) {
+		word[pos] = '\0';
+		word = reverseString(word, pos);
+
+		for(int i = 0; i < travel -> count; i++) {
+			printf("%s\n", word);
+		}
+	}
+
+	for (int i = 0; i < 26; ++i)
+	{
+		if(travel -> next[i]) {
+			word[pos] = i + 'a';
+			triePrintAll(travel -> next[i], word, pos + 1);
+		}
+	}
+}
+
+void triePrintSuffix(char *word) {
+	node* travel = rootTrie;
+	int length = stringLength(word);
+	word = reverseString(word, length);
+
+	int i;
+	for(i = 0; word[i]; i++) {
+		int letter;
+		if(word[i] >= 'A' && word[i] <= 'Z') {
+			letter = word[i] - 'A';
+		} else if(word[i] >= 'a' && word[i] <= 'z') {
+			letter = word[i] - 'a' + 25;
+		} else {
+			letter = word[i] - '0' + 51;
+		}
+
+		if(NULL == travel -> next[letter]) {
+			return;
+		}
+
+		travel = travel -> next[letter];
+	}
+
+	triePrintAll(travel, word, i);
+}
 
 int main() 
 {
