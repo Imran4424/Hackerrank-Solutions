@@ -1,37 +1,19 @@
-#include <map>
-#include <set>
-#include <list>
-#include <cmath>
-#include <ctime>
-#include <deque>
-#include <queue>
-#include <stack>
-#include <string>
-#include <bitset>
-#include <cstdio>
-#include <limits>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <fstream>
-#include <numeric>
-#include <sstream>
 #include <iostream>
-#include <algorithm>
-#include <unordered_map>
+#include <stdio.h>
 using namespace std;
 
-worduct node
+const int tSize = 62;
+
+struct node
 {
 	bool endMark;
 	int count;
-	node *next[62];
+	node *next[tSize];
 
 	node () {
 		endMark = false;
 		count = 0;
-		for(int i = 0; i < 62; i++) {
+		for(int i = 0; i < tSize; i++) {
 			next[i] = NULL;
 		}
 	}
@@ -39,7 +21,7 @@ worduct node
 
 node *rootTrie;
 
-char* reversewording(char *word, int length) {
+char* reverseString(char *word, int length) {
 	char *reversed = new char[length + 1];
 
 	int i, j;
@@ -52,7 +34,7 @@ char* reversewording(char *word, int length) {
 	return reversed;
 }
 
-int wordingLength(char *word) {
+int stringLength(char *word) {
 	int length = 0;
 	for(int i = 0; word[i]; i++) {
 		length++;
@@ -63,8 +45,8 @@ int wordingLength(char *word) {
 
 void trieInsert(char *word) {
 	node* travel = rootTrie;
-	int length = wordingLength(word);
-	word = reversewording(word, length);
+	int length = stringLength(word);
+	word = reverseString(word, length);
 
 	for(int i = 0; word[i]; i++) {
 		int letter;
@@ -89,8 +71,8 @@ void trieInsert(char *word) {
 
 int trieSearch(char *word) {
 	node* travel = rootTrie;
-	int length = wordingLength(word);
-	word = reversewording(word, length);
+	int length = stringLength(word);
+	word = reverseString(word, length);
 
 	for(int i = 0; word[i]; i++) {
 		int letter;
@@ -118,7 +100,7 @@ int trieSearch(char *word) {
 
 void trieDeleteAll(node* travel) {
 	
-	for (int i = 0; i < 62; ++i)
+	for (int i = 0; i < tSize; ++i)
 	{
 		if(travel -> next[i]) {
 			trieDeleteAll(travel -> next[i]);
@@ -130,8 +112,8 @@ void trieDeleteAll(node* travel) {
 
 void trieDelete(char *word) {
 	node* travel = rootTrie;
-	int length = wordingLength(word);
-	word = reversewording(word, length);
+	int length = stringLength(word);
+	word = reverseString(word, length);
 
 	for(int i = 0; word[i]; i++) {
 		int letter;
@@ -156,8 +138,8 @@ void trieDelete(char *word) {
 
 void trieDeleteSuffix(char *word) {
 	node* travel = rootTrie;
-	int length = wordingLength(word);
-	word = reversewording(word, length);
+	int length = stringLength(word);
+	word = reverseString(word, length);
 
 	for(int i = 0; word[i]; i++) {
 		int letter;
@@ -186,17 +168,25 @@ void triePrintAll(node* travel, char *word, int pos) {
 
 	if(travel -> endMark) {
 		word[pos] = '\0';
-		word = reversewording(word, pos);
+		word = reverseString(word, pos);
 
 		for(int i = 0; i < travel -> count; i++) {
 			printf("%s\n", word);
 		}
 	}
 
-	for (int i = 0; i < 26; ++i)
+	for (int i = 0; i < tSize; ++i)
 	{
 		if(travel -> next[i]) {
-			word[pos] = i + 'a';
+			if(i >= 0 && i <= 25) {
+				word[pos] = i + 'A';
+			} else if(i >= 26 && i <= 51) {
+				word[pos] = (i + 'a' - 25);
+			} else {
+				word[pos] = i + '0' - 51;
+			}
+
+			
 			triePrintAll(travel -> next[i], word, pos + 1);
 		}
 	}
@@ -204,8 +194,8 @@ void triePrintAll(node* travel, char *word, int pos) {
 
 void triePrintSuffix(char *word) {
 	node* travel = rootTrie;
-	int length = wordingLength(word);
-	word = reversewording(word, length);
+	int length = stringLength(word);
+	word = reverseString(word, length);
 
 	int i;
 	for(i = 0; word[i]; i++) {
@@ -233,30 +223,30 @@ int main()
 	/* Enter your code here. Read input from STDIN. Print output to STDOUT */
 	rootTrie = new node();
 
-	char word[13];
+	char *word = new char[100];
 	int command;
 
 	while(scanf("%d", &command) != EOF) {
 		if(0 == command) {
 			triePrintAll(rootTrie, word, 0);
 		} else if (1 == command) {
-			scanf("%s", word);
+			scanf("%s", &word);
 
 			trieInsert(word);
 		} else if (2 == command) {
-			scanf("%s", word);
+			scanf("%s", &word);
 
 			printf("%d\n", trieSearch(word));
 		} else if (3 == command) {
-			scanf("%s", word);
+			scanf("%s", &word);
 
 			trieDelete(word);
 		} else if(4 == command) {
-			scanf("%s", word);
+			scanf("%s", &word);
 
 			triePrintSuffix(word);
 		} else if(5 == command) {
-			scanf("%s", word);
+			scanf("%s", &word);
 
 			trieDeleteSuffix(word);
 		}
