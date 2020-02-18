@@ -116,15 +116,16 @@ int trieSearch(char *word) {
 	return 0;
 }
 
-void trieDeleteAll() {
-	node* travel = rootTrie;
-
+void trieDeleteAll(node* travel) {
+	
 	for (int i = 0; i < 62; ++i)
 	{
 		if(travel -> next[i]) {
-			trieDeleteAll
+			trieDeleteAll(travel -> next[i]);
 		}
 	}
+
+	delete(travel);
 }
 
 void trieDelete(char *word) {
@@ -151,6 +152,12 @@ void trieDelete(char *word) {
 
 	travel -> endMark = false;
 	travel -> count = 0;
+}
+
+void trieDeleteSuffix(char *word) {
+	node* travel = rootTrie;
+	int length = stringLength(word);
+	word = reverseString(word, length);
 }
 
 
