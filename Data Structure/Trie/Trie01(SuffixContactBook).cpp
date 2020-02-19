@@ -93,6 +93,7 @@ struct node
 
 node *rootTrie;
 
+/// string reverse
 char* reverseString(char *word, int length) {
     char *reversed = new char[length + 1];
 
@@ -106,6 +107,7 @@ char* reverseString(char *word, int length) {
     return reversed;
 }
 
+/// string length
 int stringLength(char *word) {
     int length = 0;
     for(int i = 0; word[i]; i++) {
