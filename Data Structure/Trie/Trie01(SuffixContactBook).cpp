@@ -2,7 +2,79 @@
 #include <stdio.h>
 using namespace std;
 
-const int tSize = 65;
+const int tSize = 63;
+
+/// string merge sort
+
+/// compare String
+int compareString(char *source, char *destination) {
+    int i;
+    for(i = 0; source[i]; i++) {
+        if(source[i] != destination[i]) {
+            return source[i] - destination[i];
+        }
+    }
+
+    return source[i] - destination[i];
+}
+
+/// copy string
+void copyString(char *dest, char *source) {
+    int i;
+    for(i = 0; source[i]; i++) {
+        dest[i] = source[i];
+    }
+
+    dest[i] = '\0';
+}
+
+void merge(char arr[][12], char left[][12], int leftSize, char right[][12], int rightSize) {
+    int i = 0, j = 0, index = 0;
+
+    while(i < leftSize && j < rightSize) {
+        if(compareString(left[i], right[j]) <= 0) {
+            copyString(arr[index], left[i++]);
+        } else {
+            copyString(arr[index], right[j++]);
+        }
+
+        index++;
+    }
+
+    while(i < leftSize) {
+        copyString(arr[index++], left[i++]);
+    }
+
+    while(j < rightSize) {
+        copyString(arr[index++], right[j++]);
+    }
+}
+
+void mergeSort(char (*arr)[12], int aSize) {
+    if(aSize < 2) {
+        return;
+    }
+
+    int mid = aSize / 2;
+    char left[mid][12];
+    char right[aSize - mid][12];
+
+    int index = 0;
+
+    for(int i = 0; i < mid; i++) {
+        copyString(left[i], arr[index++]);
+    }
+
+    for(int i = 0; i < aSize - mid; i++) {
+        copyString(right[i], arr[index++]);
+    }
+
+    mergeSort(left, mid);
+    mergeSort(right, aSize - mid);
+
+    merge(arr, left, mid, right, aSize - mid);
+}
+
 
 struct node
 {
@@ -21,16 +93,17 @@ struct node
 
 node *rootTrie;
 
-void reverseString(char *word, int length) {
-    int availSize = length - 1;
-    
-    for(int i = 0; i < length / 2; i++) {
+char* reverseString(char *word, int length) {
+    char *reversed = new char[length + 1];
 
-        // using a third variable to swap two variables
-        char temp = word[i];
-            word[i] = word[availSize - i];
-            word[availSize - i] = temp;
+    int i, j;
+    for(i = 0, j = length - 1; i < length && j >= 0; i++, j--) {
+        reversed[i] = word[j];
     }
+
+    reversed[i] = '\0';
+
+    return reversed;
 }
 
 int stringLength(char *word) {
@@ -45,16 +118,16 @@ int stringLength(char *word) {
 void trieInsert(char *word) {
     node* travel = rootTrie;
     int length = stringLength(word);
-    reverseString(word, length);
+    word = reverseString(word, length);
 
     for(int i = 0; word[i]; i++) {
         int letter;
         if(word[i] >= 'A' && word[i] <= 'Z') {
             letter = word[i] - 'A';
         } else if(word[i] >= 'a' && word[i] <= 'z') {
-            letter = word[i] - 'a' + 25;
+            letter = word[i] - 'a' + 26;
         } else {
-            letter = word[i] - '0' + 51;
+            letter = word[i] - '0' + 52;
         }
 
         if(NULL == travel -> next[letter]) {
@@ -65,22 +138,22 @@ void trieInsert(char *word) {
     }
 
     travel -> endMark = true;
-    travel -> count++;
+    travel -> count = travel -> count + 1;
 }
 
 int trieSearch(char *word) {
     node* travel = rootTrie;
     int length = stringLength(word);
-    reverseString(word, length);
+    word = reverseString(word, length);
 
     for(int i = 0; word[i]; i++) {
         int letter;
         if(word[i] >= 'A' && word[i] <= 'Z') {
             letter = word[i] - 'A';
         } else if(word[i] >= 'a' && word[i] <= 'z') {
-            letter = word[i] - 'a' + 25;
+            letter = word[i] - 'a' + 26;
         } else {
-            letter = word[i] - '0' + 51;
+            letter = word[i] - '0' + 52;
         }
 
         if(NULL == travel -> next[letter]) {
@@ -90,15 +163,11 @@ int trieSearch(char *word) {
         travel = travel -> next[letter];
     }
 
-    if(travel -> endMark) {
-        travel -> count;
-    }
-
-    return 0;
+    return travel -> count;
 }
 
 void trieDeleteAll(node* travel) {
-    
+
     for (int i = 0; i < tSize; ++i)
     {
         if(travel -> next[i]) {
@@ -106,22 +175,23 @@ void trieDeleteAll(node* travel) {
         }
     }
 
-    delete(travel);
+    travel -> endMark = false;
+    travel -> count = 0;
 }
 
 void trieDelete(char *word) {
     node* travel = rootTrie;
     int length = stringLength(word);
-    reverseString(word, length);
+    word = reverseString(word, length);
 
     for(int i = 0; word[i]; i++) {
         int letter;
         if(word[i] >= 'A' && word[i] <= 'Z') {
             letter = word[i] - 'A';
         } else if(word[i] >= 'a' && word[i] <= 'z') {
-            letter = word[i] - 'a' + 25;
+            letter = word[i] - 'a' + 26;
         } else {
-            letter = word[i] - '0' + 51;
+            letter = word[i] - '0' + 52;
         }
 
         if(NULL == travel -> next[letter]) {
@@ -131,6 +201,7 @@ void trieDelete(char *word) {
         travel = travel -> next[letter];
     }
 
+    /// deletion
     travel -> endMark = false;
     travel -> count = 0;
 }
@@ -138,16 +209,16 @@ void trieDelete(char *word) {
 void trieDeleteSuffix(char *word) {
     node* travel = rootTrie;
     int length = stringLength(word);
-    reverseString(word, length);
+    word = reverseString(word, length);
 
     for(int i = 0; word[i]; i++) {
         int letter;
         if(word[i] >= 'A' && word[i] <= 'Z') {
             letter = word[i] - 'A';
         } else if(word[i] >= 'a' && word[i] <= 'z') {
-            letter = word[i] - 'a' + 25;
+            letter = word[i] - 'a' + 26;
         } else {
-            letter = word[i] - '0' + 51;
+            letter = word[i] - '0' + 52;
         }
 
         if(NULL == travel -> next[letter]) {
@@ -160,6 +231,9 @@ void trieDeleteSuffix(char *word) {
     trieDeleteAll(travel);
 }
 
+char arrTrie[100][12];
+int indexTrie;
+
 void triePrintAll(node* travel, char *word, int pos) {
     if(NULL == travel) {
         return;
@@ -167,11 +241,8 @@ void triePrintAll(node* travel, char *word, int pos) {
 
     if(travel -> endMark) {
         word[pos] = '\0';
-        reverseString(word, pos);
-
-        for(int i = 0; i < travel -> count; i++) {
-            printf("%s\n", word);
-        }
+        word = reverseString(word, pos);
+        copyString(arrTrie[indexTrie++], word);
     }
 
     for (int i = 0; i < tSize; ++i)
@@ -180,12 +251,12 @@ void triePrintAll(node* travel, char *word, int pos) {
             if(i >= 0 && i <= 25) {
                 word[pos] = i + 'A';
             } else if(i >= 26 && i <= 51) {
-                word[pos] = (i + 'a' - 25);
+                word[pos] = (i + 'a' - 26);
             } else {
-                word[pos] = i + '0' - 51;
+                word[pos] = i + '0' - 52;
             }
 
-            
+
             triePrintAll(travel -> next[i], word, pos + 1);
         }
     }
@@ -194,7 +265,7 @@ void triePrintAll(node* travel, char *word, int pos) {
 void triePrintSuffix(char *word) {
     node* travel = rootTrie;
     int length = stringLength(word);
-    reverseString(word, length);
+    word = reverseString(word, length);
 
     int i;
     for(i = 0; word[i]; i++) {
@@ -202,9 +273,9 @@ void triePrintSuffix(char *word) {
         if(word[i] >= 'A' && word[i] <= 'Z') {
             letter = word[i] - 'A';
         } else if(word[i] >= 'a' && word[i] <= 'z') {
-            letter = word[i] - 'a' + 25;
+            letter = word[i] - 'a' + 26;
         } else {
-            letter = word[i] - '0' + 51;
+            letter = word[i] - '0' + 52;
         }
 
         if(NULL == travel -> next[letter]) {
@@ -214,37 +285,47 @@ void triePrintSuffix(char *word) {
         travel = travel -> next[letter];
     }
 
+    indexTrie = 0;
     triePrintAll(travel, word, i);
+    mergeSort(arrTrie, indexTrie);
+    for(int x = 0; x < indexTrie; x++) {
+        printf("%s\n", arrTrie[x]);
+    }
 }
 
-int main() 
+int main()
 {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
     rootTrie = new node();
 
-    char *word = new char[12];
+    char word[12];
     int command;
 
-    while(cin >> command) {
+    while(scanf("%d", &command) != EOF) {
         if(0 == command) {
+            indexTrie = 0;
             triePrintAll(rootTrie, word, 0);
+            mergeSort(arrTrie, indexTrie);
+            for(int x = 0; x < indexTrie; x++) {
+                printf("%s\n", arrTrie[x]);
+            }
         } else if (1 == command) {
-            cin >> word;
+            scanf("%s", word);
 
             trieInsert(word);
         } else if (2 == command) {
-            cin >> word;
+            scanf("%s", word);
             printf("%d\n", trieSearch(word));
         } else if (3 == command) {
-            cin >> word;
+            scanf("%s", word);
 
             trieDelete(word);
         } else if(4 == command) {
-            cin >> word;
+            scanf("%s", word);
 
             triePrintSuffix(word);
         } else if(5 == command) {
-            cin >> word;
+            scanf("%s", word);
 
             trieDeleteSuffix(word);
         }
