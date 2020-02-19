@@ -177,6 +177,9 @@ void trieDeleteAll(node* travel) {
         }
     }
 
+    // dont remove
+    // just reset the node
+    // removing will cause segmentation fault
     travel -> endMark = false;
     travel -> count = 0;
 }
