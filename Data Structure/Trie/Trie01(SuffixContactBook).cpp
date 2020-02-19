@@ -225,7 +225,7 @@ int main()
     char *word = new char[12];
     int command;
 
-    while(scanf("%d", &command) != EOF) {
+    while(cin >> command) {
         if(0 == command) {
             triePrintAll(rootTrie, word, 0);
         } else if (1 == command) {
